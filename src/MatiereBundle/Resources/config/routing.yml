@@ -1,0 +1,3 @@
+matiere_homepage:
+    path:     /
+    defaults: { _controller: MatiereBundle:Default:index }
