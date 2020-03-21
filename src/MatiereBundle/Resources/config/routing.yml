@@ -1,0 +1,7 @@
+matiere_matiere:
+    resource: "@MatiereBundle/Resources/config/routing/matiere.yml"
+    prefix:   /matiere
+
+matiere_homepage:
+    path:     /
+    defaults: { _controller: MatiereBundle:Default:index }

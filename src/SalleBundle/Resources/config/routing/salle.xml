@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="salle_index" path="/" methods="GET">
+        <default key="_controller">SalleBundle:Salle:index</default>
+    </route>
+
+    <route id="salle_show" path="/{idSalle}/show" methods="GET">
+        <default key="_controller">SalleBundle:Salle:show</default>
+    </route>
+
+    <route id="salle_new" path="/new" methods="GET|POST">
+        <default key="_controller">SalleBundle:Salle:new</default>
+    </route>
+
+    <route id="salle_edit" path="/{idSalle}/edit" methods="GET|POST">
+        <default key="_controller">SalleBundle:Salle:edit</default>
+    </route>
+
+    <route id="salle_delete" path="/{idSalle}/delete" methods="DELETE">
+        <default key="_controller">SalleBundle:Salle:delete</default>
+    </route>
+
+</routes>

@@ -1,0 +1,7 @@
+salle_salle:
+    resource: "@SalleBundle/Resources/config/routing/salle.xml"
+    prefix:   /
+
+salle_homepage:
+    path:     /
+    defaults: { _controller: SalleBundle:Default:index }

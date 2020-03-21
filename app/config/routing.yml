@@ -1,16 +1,14 @@
+
+
+
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
 
-salle_salle:
-    resource: "@SalleBundle/Controller/SalleController.php"
-    type:     annotation
-
-matiere_matiere:
-    resource: "@MatiereBundle/Controller/MatiereController.php"
-    type:     annotation
-
-
+classe:
+    resource: "@ClasseBundle/Resources/config/routing.yml"
+    prefix:   /classe
 
 salle:
     resource: "@SalleBundle/Resources/config/routing.yml"
@@ -19,15 +17,3 @@ salle:
 matiere:
     resource: "@MatiereBundle/Resources/config/routing.yml"
     prefix:   /matiere
-
-classe_classe:
-    resource: "@ClasseBundle/Controller/ClasseController.php"
-    type:     annotation
-
-classe:
-    resource: "@ClasseBundle/Resources/config/routing.yml"
-    prefix:   /classe
-
-
-
-
