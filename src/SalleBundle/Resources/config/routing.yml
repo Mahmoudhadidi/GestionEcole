@@ -1,3 +1,0 @@
-salle_homepage:
-    path:     /
-    defaults: { _controller: SalleBundle:Default:index }
