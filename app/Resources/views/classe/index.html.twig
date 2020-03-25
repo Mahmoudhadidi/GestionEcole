@@ -13,9 +13,24 @@
     <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet">
 
     <link href="{{ asset('css/plugins/dataTables/datatables.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/plugins/sweetalert/sweetalert.css') }}" rel="stylesheet">
+
+
 
     <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
+    <script src="{{ asset('js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
+
+    <script src="{{ asset('js/plugins/dataTables/datatables.min.js') }}"></script>
+    <script src="{{ asset('js/plugins/sweetalert/sweetalert.min.js') }}"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="{{ asset('js/inspinia.js') }}"></script>
+    <script src="{{ asset('js/plugins/pace/pace.min.js') }}"></script>
+
 
 </head>
 
@@ -410,7 +425,7 @@
                                                 <td>{{ classe.specialite }}</td>
                                                 <td><center>
 
-                                                            <a href="{{ path('classe_show', { 'idClasse': classe.idClasse }) }}"> <button class="btn btn-outline btn-default btn-white btn-xs" title="consulte" type="button">Consulte</button></a>
+                                                            <a href="{{ path('classe_show', { 'idClasse': classe.idClasse }) }}"> <button class="btn btn-outline btn-default btn-white btn-xs " title="consulte" type="button">Consulte</button></a>
 
 
 
@@ -419,10 +434,42 @@
 
 
 
-                                                    <a href="{{ path('classe_index', { 'idClasse': classe.idClasse }) }}"><button class="btn btn-outline btn-danger btn-white btn-xs" type="button" title="supprime">Supprime</button></a>
+                                                    <button class="btn btn-outline btn-danger btn-white btn-xs btn-sm demo4" type="button" title="supprime">Supprime</button>
                                                         <button class="btn btn-outline btn-info btn-white btn-xs" type="button" title="affecter etudiant">Affecter etudiant</button>
 
                                                     </center>
+                                                    <script>
+
+
+                                                            $(document).ready(function () {
+                                                            $('.demo4').click(function () {
+                                                                swal({
+                                                                        title: "Êtes-vous sûr?",
+                                                                        text: "Vous ne pourrez pas récupérer ce classe!",
+                                                                        type: "warning",
+                                                                        showCancelButton: true,
+                                                                        confirmButtonColor: "#DD6B55",
+                                                                        confirmButtonText: "Oui, supprimez-le!",
+                                                                        cancelButtonText: "Non, annuler!",
+                                                                        closeOnConfirm: false,
+                                                                        closeOnCancel: false },
+                                                                    function (isConfirm) {
+                                                                        if (isConfirm) {
+
+
+                                                                            window.location.href = "{{ path('classe_index', { 'idClasse': classe.idClasse }) }}";
+                                                                            swal("Effacé!", "Votre fichier a été supprimé.", "success");
+                                                                        } else {
+                                                                            swal("Annulé", "Votre dossier est sécurisé :)", "error");
+                                                                        }
+                                                                    });
+                                                            });
+
+
+
+                                                                            });
+                                                    </script>
+
                                                 </td>
                                             </tr>
                                         {% endfor %}
@@ -453,16 +500,6 @@
 
 
 <!-- Mainly scripts -->
-<script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
-<script src="{{ asset('js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
-<script src="{{ asset('js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
-
-<script src="{{ asset('js/plugins/dataTables/datatables.min.js') }}"></script>
-
-<!-- Custom and plugin javascript -->
-<script src="{{ asset('js/inspinia.js') }}"></script>
-<script src="{{ asset('js/plugins/pace/pace.min.js') }}"></script>
 
 <!-- Page-Level Scripts -->
 <script>
@@ -494,6 +531,7 @@
     });
 
 </script>
+
 </body>
 
 </html>
