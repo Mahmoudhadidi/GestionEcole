@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    <br>
+
+    <a href="{{ path('matiere_index') }}"><i class="fa fa-arrow-circle-o-left"></i> retour</a>
+    <br>
+    <br>
+    <div class="wrapper wrapper-content  animated fadeInRight article">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1">
+                <div class="ibox">
+                    <div class="ibox-content">
+                        <div class="pull-right">
+
+
+
+
+
+
+
+                            {{ form_start(delete_form) }}
+                            <a href="{{ path('matiere_edit', { 'idMatiere': matiere.idMatiere }) }}"><button class="btn btn-outline btn-success btn-white btn-xs" type="button">Modifier</button></a>
+                            <input type="submit" class="btn btn-outline btn-danger btn-white btn-xs" value="Supprime">
+                            {{ form_end(delete_form) }}
+                        </div>
+                        <div class="text-center article-title">
+
+                            <h1>
+                                Matiere
+                            </h1>
+                        </div>
+                        <center>
+                            <table>
+                                <tbody>
+
+                                <tr>
+                                    <th>Nom matiere</th>
+                                    <td>&nbsp;&nbsp;{{ matiere.nomMatier }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Coefficient </th>
+                                    <td> &nbsp; &nbsp;&nbsp;{{ matiere.coefficient }}</td>
+                                </tr>
+                                <tr>
+                                    <th>credit</th>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ matiere.cdedit }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </center>
+
+
+
+                        <br>
+                        <br>
+
+                    </div>
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+{% endblock %}

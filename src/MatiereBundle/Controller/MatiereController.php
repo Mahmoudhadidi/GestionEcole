@@ -30,9 +30,12 @@ class MatiereController extends Controller
             $em->persist($matiere);
             $em->flush();
 
-            return $this->redirectToRoute('matiere_show', array('idMatiere' => $matiere->getIdmatiere()));
+            return $this->redirectToRoute('matiere_index');
         }
-
+        if (isset($_GET['idMatiere'])) {
+            $this->getDoctrine()->getRepository('MatiereBundle:Matiere')->supprimerMatiere();
+            return $this->redirectToRoute('matiere_index');
+        }
 
         return $this->render('matiere/index.html.twig', array(
             'matieres' => $matieres,
@@ -91,7 +94,7 @@ class MatiereController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('matiere_edit', array('idMatiere' => $matiere->getIdmatiere()));
+            return $this->redirectToRoute('matiere_index');
         }
 
         return $this->render('matiere/edit.html.twig', array(

@@ -4,11 +4,13 @@ namespace ClasseBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * Classe
  *
  * @ORM\Table(name="classe", indexes={@ORM\Index(name="num_classe", columns={"num_classe"}), @ORM\Index(name="num_classe_2", columns={"num_classe"})})
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass="ClasseBundle\Repository\ClasseRepository")
  */
 class Classe
 {

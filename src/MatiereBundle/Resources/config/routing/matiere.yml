@@ -1,12 +1,12 @@
 matiere_index:
     path:     /
     defaults: { _controller: "MatiereBundle:Matiere:index" }
-    methods:  GET
+    methods:  [GET, POST]
 
 matiere_show:
     path:     /{idMatiere}/show
     defaults: { _controller: "MatiereBundle:Matiere:show" }
-    methods:  GET
+    methods:  [GET, POST]
 
 matiere_new:
     path:     /new

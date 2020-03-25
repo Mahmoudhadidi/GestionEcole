@@ -3,6 +3,7 @@
 namespace ClasseBundle\Controller;
 
 use ClasseBundle\Entity\Classe;
+use ClasseBundle\Repository\ClasseRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -26,6 +27,7 @@ class ClasseController extends Controller
         $form = $this->createForm('ClasseBundle\Form\ClasseType', $classe);
         $form->handleRequest($request);
 
+
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($classe);
@@ -35,11 +37,18 @@ class ClasseController extends Controller
         }
 
 
+        if (isset($_GET['idClasse'])) {
+            $this->getDoctrine()->getRepository('ClasseBundle:Classe')->supprimerClasse();
+            return $this->redirectToRoute('classe_homepage');
+        }
+
+
 
 
         return $this->render('classe/index.html.twig', array(
             'classes' => $classes,
             'form' => $form->createView(),
+
 
         ));
     }
@@ -53,7 +62,7 @@ class ClasseController extends Controller
         $classe = new Classe();
         $form = $this->createForm('ClasseBundle\Form\ClasseType', $classe);
         $form->handleRequest($request);
-
+        //$deleteForm = $this->createDeleteForm($classe);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($classe);
@@ -62,9 +71,11 @@ class ClasseController extends Controller
             return $this->redirectToRoute('classe_homepage');
         }
 
+
         return $this->render('classe/new.html.twig', array(
             'classe' => $classe,
             'form' => $form->createView(),
+
         ));
     }
 
@@ -138,4 +149,22 @@ class ClasseController extends Controller
             ->getForm()
         ;
     }
+
+
+
+    /**
+     * Creates a form to delete a classe entity.
+     *
+     *
+     */
+    private function createDelete2Form(Classe $classe)
+    {
+        return $this->createFormBuilder()
+            ->setAction($this->generateUrl('classe_index'))
+            ->setMethod('POST')
+            ->getForm()
+            ;
+    }
+
+
 }

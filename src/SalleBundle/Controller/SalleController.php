@@ -16,14 +16,31 @@ class SalleController extends Controller
      * Lists all salle entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
+        $salle = new Salle();
+        $form = $this->createForm('SalleBundle\Form\SalleType', $salle);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($salle);
+            $em->flush();
+
+            return $this->redirectToRoute('salle_index');
+        }
+
         $em = $this->getDoctrine()->getManager();
 
         $salles = $em->getRepository('SalleBundle:Salle')->findAll();
+        if (isset($_GET['idSalle'])) {
+            $this->getDoctrine()->getRepository('SalleBundle:Salle')->supprimerSalle();
+            return $this->redirectToRoute('salle_index');
+        }
 
         return $this->render('salle/index.html.twig', array(
             'salles' => $salles,
+            'form' => $form->createView(),
         ));
     }
 
@@ -42,7 +59,7 @@ class SalleController extends Controller
             $em->persist($salle);
             $em->flush();
 
-            return $this->redirectToRoute('salle_show', array('idSalle' => $salle->getIdsalle()));
+            return $this->redirectToRoute('salle_index');
         }
 
         return $this->render('salle/new.html.twig', array(
@@ -78,7 +95,7 @@ class SalleController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('salle_edit', array('idSalle' => $salle->getIdsalle()));
+            return $this->redirectToRoute('salle_index');
         }
 
         return $this->render('salle/edit.html.twig', array(

@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+
+
+    <br>
+
+    <a href="{{ path('salle_index') }}"><i class="fa fa-arrow-circle-o-left"></i> retour</a>
+    <br>
+    <br>
+    <div class="wrapper wrapper-content  animated fadeInRight article">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1">
+                <div class="ibox">
+                    <div class="ibox-content">
+                        <div class="pull-right">
+
+
+
+
+
+
+
+                            {{ form_start(delete_form) }}
+                            <a href="{{ path('salle_edit', { 'idSalle': salle.idSalle }) }}"><button class="btn btn-outline btn-success btn-white btn-xs" type="button">Modifier</button></a>
+                            <input type="submit" class="btn btn-outline btn-danger btn-white btn-xs" value="Supprime">
+                            {{ form_end(delete_form) }}
+                        </div>
+                        <div class="text-center article-title">
+
+                            <h1>
+                                Salle
+                            </h1>
+                        </div>
+                        <center>
+                            <table>
+
+                                <tr>
+                                    <th>Numero salle</th>
+                                    <td>&nbsp;{{ salle.numSalle }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Nom salle</th>
+                                    <td>&nbsp;{{ salle.nomSalle }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Bloc</th>
+                                    <td>&nbsp;{{ salle.bloc }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </center>
+
+
+
+                        <br>
+                        <br>
+
+                    </div>
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

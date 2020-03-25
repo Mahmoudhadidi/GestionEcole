@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    <br>
+
+    <a href="{{ path('matiere_index') }}"><i class="fa fa-arrow-circle-o-left"></i> retour</a>
+    <br>
+    <br>
+
+
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Modifier Matiere <small></small></h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <i class="form-horizontal">
+                        {{ form_start(edit_form) }}
+                        <div class="form-group"><label class="col-sm-2 control-label">Nom matiere</label>
+
+                            <div class="col-sm-10">
+
+
+                                {{ form_widget(edit_form.nomMatier, { 'attr': {'class': 'form-control ' } }) }}
+                                {{ form_errors(edit_form.nomMatier) }}
+
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group"><label class="col-sm-2 control-label">Coefficient</label>
+                            <div class="col-sm-10">
+                                {{ form_widget(edit_form.coefficient, { 'attr': {'class': 'form-control ' } }) }}
+                                {{ form_errors(edit_form.coefficient) }}
+
+
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group"><label class="col-sm-2 control-label">Credit</label>
+
+                            <div class="col-sm-10">
+                                {{ form_widget(edit_form.cdedit, { 'attr': {'class': 'form-control ',  } }) }}
+                                {{ form_errors(edit_form.cdedit) }}
+
+
+                            </div>
+                        </div>
+
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-2">
+                                <a href="{{ path('classe_index') }}"><button class="btn btn-white"  >Annuler</button></a>
+
+                                <input class="btn btn-primary" type="submit" value="Modifier">
+                            </div>
+                        </div>
+                        {{ form_end(edit_form) }}
+                    </i>
+                    </i>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+{% endblock %}
