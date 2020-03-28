@@ -1,0 +1,7 @@
+absence_employe_absenceemploye:
+    resource: "@AbsenceEmployeBundle/Resources/config/routing/absenceemploye.yml"
+    prefix:   /absenceemploye
+
+absence_employe_homepage:
+    path:     /
+    defaults: { _controller: AbsenceEmployeBundle:Default:index }

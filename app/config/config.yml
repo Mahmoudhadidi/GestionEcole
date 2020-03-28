@@ -6,6 +6,8 @@ imports:
     - { resource: "@ClasseBundle/Resources/config/services.yml" }
     - { resource: "@MatiereBundle/Resources/config/services.yml" }
     - { resource: "@SalleBundle/Resources/config/services.yml" }
+    - { resource: "@AbsenceBundle/Resources/config/services.yml" }
+    - { resource: "@AbsenceEmployeBundle/Resources/config/services.yml" }
 
 
 

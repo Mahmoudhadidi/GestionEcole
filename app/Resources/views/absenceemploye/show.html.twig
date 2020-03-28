@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Absenceemploye</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Idabsencee</th>
+                <td>{{ absenceEmploye.idAbsenceE }}</td>
+            </tr>
+            <tr>
+                <th>Typeabsence</th>
+                <td>{{ absenceEmploye.typeAbsence }}</td>
+            </tr>
+            <tr>
+                <th>Idemploye</th>
+                <td>{{ absenceEmploye.idEmploye }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ absenceEmploye.date }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('absenceemploye_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('absenceemploye_edit', { 'idAbsenceE': absenceEmploye.idAbsenceE }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

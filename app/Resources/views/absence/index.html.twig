@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
 
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        <title>SUPTECH {% block title %} choukri {% endblock %}</title>
-        {% block stylesheets %}
-        {% endblock %}
-        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet">
+<head>
 
-        <!-- Toastr style -->
-        <link href="{{ asset('css/plugins/toastr/toastr.min.css') }}" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
 
-        <!-- Gritter -->
-        <link href="{{ asset('js/plugins/gritter/jquery.gritter.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet">
 
+    <link href="{{ asset('css/plugins/dataTables/datatables.min.css') }}" rel="stylesheet">
 
-        <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
-    </head>
+</head>
+
+<body>
+
+<div id="wrapper">
 
     <div id="wrapper">
         <nav class="navbar-default navbar-static-side" role="navigation">
@@ -35,16 +33,17 @@
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Assurer votre succés</strong>
                            </span> <span class="text-muted text-xs block"></span> </span> </a>
-                           <!-- <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                <li><a href="profile.html">Profile</a></li>
-                                <li><a href="contacts.html">Contacts</a></li>
-                                <li><a href="mailbox.html">Mailbox</a></li>
-                                <li class="divider"></li>
-                                <li><a href="login.html">Logout</a></li>
-                            </ul>-->
+                            <!-- <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                 <li><a href="profile.html">Profile</a></li>
+                                 <li><a href="contacts.html">Contacts</a></li>
+                                 <li><a href="mailbox.html">Mailbox</a></li>
+                                 <li class="divider"></li>
+                                 <li><a href="login.html">Logout</a></li>
+                             </ul>
+                             -->
                         </div>
                         <div class="logo-element">
-                            IN+
+
                         </div>
                     </li>
                     <li class="active">
@@ -52,11 +51,12 @@
 
                     </li>
                     <li>
-                        <a href="{{ path('classe_homepage') }}"><i class="fa fa-home"></i> <span class="nav-label">Gestion de classe</span></a>
+                        <a href=""><i class="fa fa-home"></i> <span class="nav-label">Gestion de classe</span></a>
                     </li>
                     <li>
                         <a href="{{ path('matiere_index') }}"><i class="fa fa-tasks"></i> <span class="nav-label">Gestion de matiere</span></a>
-                        <!--<ul class="nav nav-second-level collapse">
+                        <!--
+                        <ul class="nav nav-second-level collapse">
                             <li><a href="graph_flot.html">Flot Charts</a></li>
                             <li><a href="graph_morris.html">Morris.js Charts</a></li>
                             <li><a href="graph_rickshaw.html">Rickshaw Charts</a></li>
@@ -65,27 +65,23 @@
                             <li><a href="c3.html">c3 charts</a></li>
                             <li><a href="graph_peity.html">Peity Charts</a></li>
                             <li><a href="graph_sparkline.html">Sparkline Charts</a></li>
-                        </ul>-->
+                        </ul>
+                        -->
                     </li>
                     <li>
                         <a href="{{ path('salle_homepage') }}"><i class="fa fa-envelope"></i> <span class="nav-label">Gestion de salle </span><!--<span class="label label-warning pull-right">16/24</span>--></a>
-                       <!-- <ul class="nav nav-second-level collapse">
-                            <li><a href="mailbox.html">Inbox</a></li>
-                            <li><a href="mail_detail.html">Email view</a></li>
-                            <li><a href="mail_compose.html">Compose email</a></li>
-                            <li><a href="email_template.html">Email templates</a></li>
-                        </ul>-->
+                        <!-- <ul class="nav nav-second-level collapse">
+                             <li><a href="mailbox.html">Inbox</a></li>
+                             <li><a href="mail_detail.html">Email view</a></li>
+                             <li><a href="mail_compose.html">Compose email</a></li>
+                             <li><a href="email_template.html">Email templates</a></li>
+                         </ul>-->
                     </li>
                     <li>
                         <a href=""><i class="fa fa-pie-chart"></i> <span class="nav-label">gestion de seance</span>  </a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-flask"></i> <span class="nav-label"> Gestion de absence</span></a>
-                        <ul class="nav nav-second-level collapse">
-
-                            <li><a href="{{ path('absence_index') }}">Gestion de absence</a></li>
-                            <li><a href="{{ path('absenceemploye_index') }}">Gestion de absence</a></li>
-                        </ul>
+                        <a href="widgets.html"><i class="fa fa-flask"></i> <span class="nav-label">Widgets</span></a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Forms</span><span class="fa arrow"></span></a>
@@ -191,11 +187,11 @@
                     <li>
                         <a href="grid_options.html"><i class="fa fa-laptop"></i> <span class="nav-label">Grid options</span></a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="#"><i class="fa fa-table"></i> <span class="nav-label">Tables</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse">
+                        <ul class="nav nav-second-level">
                             <li><a href="table_basic.html">Static Tables</a></li>
-                            <li><a href="table_data_tables.html">Data Tables</a></li>
+                            <li class="active"><a href="table_data_tables.html">Data Tables</a></li>
                             <li><a href="table_foo_table.html">Foo Tables</a></li>
                             <li><a href="jq_grid.html">jqGrid</a></li>
                         </ul>
@@ -225,7 +221,7 @@
                         <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Menu Levels </span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
                             <li>
-                                <a href="#" id="damian">Third Level <span class="fa arrow"></span></a>
+                                <a href="#">Third Level <span class="fa arrow"></span></a>
                                 <ul class="nav nav-third-level">
                                     <li>
                                         <a href="#">Third Level Item</a>
@@ -286,6 +282,57 @@
 
                 </nav>
             </div>
+            <br>
+            <div class="wrapper wrapper-content animated fadeInRight">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+
+                                <h5>Gestion de classe </h5>
+                                <div class="ibox-tools">
+                                    <button type="button" class="btn btn-outline btn-primary"data-toggle="modal" data-target="#myModal">
+                                        Ajouter classe
+                                    </button>
+
+
+                                    <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content animated bounceInRight">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+
+                                                    <h4 class="modal-title">Ajouter Classe</h4>
+
+                                                </div>
+                                                <div class="modal-body">
+
+
+
+
+
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="ibox float-e-margins">
+
+                                                                <div class="ibox-content">
+                                                                    <i class="form-horizontal">
+
+                                                                    </i></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
 
 
 
@@ -294,14 +341,12 @@
 
 
 
+                                </div>
+                            </div>
+                            <div class="ibox-content">
 
-            {% block body %}{% endblock %}
-            {% block javascripts %}{% endblock %}
-
-
-
-
-
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover dataTables-example" >
 
 
 
@@ -310,177 +355,110 @@
 
 
 
+                                        <thead>
+                                        <tr>
+                                            <th>Idseance</th>
+                                            <th>Idetudiant</th>
+                                            <th>Typeabsence</th>
+                                            <th>Actions</th>
 
 
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for absence in absences %}
+                                            <tr>
 
+                                                <td>{{ absence.idSeance }}</td>
+                                                <td>{{ absence.idEtudiant }}</td>
+                                                <td>{{ absence.typeAbsence }}</td>
+                                                <td>
+                                                    <ul>
+                                                        <li>
+                                                            <a href="{{ path('absence_show', { 'idAbsence': absence.idAbsence }) }}">show</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{{ path('absence_edit', { 'idAbsence': absence.idAbsence }) }}">edit</a>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
 
+                                        </tbody>
+                                    </table>
+                                    <ul>
+                                        <li>
+                                            <a href="{{ path('absence_new') }}">Create a new absence</a>
+                                        </li>
+                                    </ul>
+                                </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    <div class="footer">
-                        <div class="pull-right">
-                            Devl’s<strong> 3A13</strong>
-                        </div>
-                        <div>
-                            <strong>Esprit Elghazel</strong>  &copy; 2019-2020
+                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="pull-right">
+                    Devl’s<strong> 3A13</strong>
+                </div>
+                <div>
+                    <strong>Esprit Elghazel</strong>  &copy; 2019-2020
+                </div>
+            </div>
+
+
         </div>
     </div>
+</div>
 
 
 
-    <!-- Mainly scripts -->
-    <script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
-    <script src="{{ asset('js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
+<!-- Mainly scripts -->
+<script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
+<script src="{{ asset('js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
 
-    <!-- Flot -->
-    <script src="{{ asset('js/plugins/flot/jquery.flot.js') }}"></script>
-    <script src="{{ asset('js/plugins/flot/jquery.flot.tooltip.min.js') }}"></script>
-    <script src="{{ asset('js/plugins/flot/jquery.flot.spline.js') }}"></script>
-    <script src="{{ asset('js/plugins/flot/jquery.flot.resize.js') }}"></script>
-    <script src="{{ asset('js/plugins/flot/jquery.flot.pie.js') }}"></script>
+<script src="{{ asset('js/plugins/dataTables/datatables.min.js') }}"></script>
 
-    <!-- Peity -->
-    <script src="{{ asset('js/plugins/peity/jquery.peity.min.js') }}"></script>
-    <script src="{{ asset('js/demo/peity-demo.js') }}"></script>
+<!-- Custom and plugin javascript -->
+<script src="{{ asset('js/inspinia.js') }}"></script>
+<script src="{{ asset('js/plugins/pace/pace.min.js') }}"></script>
 
-    <!-- Custom and plugin javascript -->
-    <script src="{{ asset('js/inspinia.js') }}"></script>
-    <script src="{{ asset('js/plugins/pace/pace.min.js') }}"></script>
+<!-- Page-Level Scripts -->
+<script>
+    $(document).ready(function(){
+        $('.dataTables-example').DataTable({
+            pageLength: 25,
+            responsive: true,
+            dom: '<"html5buttons"B>lTfgitp',
+            buttons: [
+                { extend: 'copy'},
+                {extend: 'csv'},
+                {extend: 'excel', title: 'ExampleFile'},
+                {extend: 'pdf', title: 'ExampleFile'},
 
-    <!-- jQuery UI -->
-    <script src="{{ asset('js/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+                {extend: 'print',
+                    customize: function (win){
+                        $(win.document.body).addClass('white-bg');
+                        $(win.document.body).css('font-size', '10px');
 
-    <!-- GITTER -->
-    <script src="{{ asset('js/plugins/gritter/jquery.gritter.min.js') }}"></script>
-
-    <!-- Sparkline -->
-    <script src="{{ asset('js/plugins/sparkline/jquery.sparkline.min.js') }}"></script>
-
-    <!-- Sparkline demo data  -->
-    <script src="{{ asset('js/demo/sparkline-demo.js') }}"></script>
-
-    <!-- ChartJS-->
-    <script src="{{ asset('js/plugins/chartJs/Chart.min.js') }}"></script>
-
-    <!-- Toastr -->
-    <script src="{{ asset('js/plugins/toastr/toastr.min.js') }}"></script>
-
-
-    <script>
-        $(document).ready(function() {
-            setTimeout(function() {
-                toastr.options = {
-                    closeButton: true,
-                    progressBar: true,
-                    showMethod: 'slideDown',
-                    timeOut: 4000
-                };
-                toastr.success('Responsive Admin Theme', 'Welcome to INSPINIA');
-
-            }, 1300);
-
-
-            var data1 = [
-                [0,4],[1,8],[2,5],[3,10],[4,4],[5,16],[6,5],[7,11],[8,6],[9,11],[10,30],[11,10],[12,13],[13,4],[14,3],[15,3],[16,6]
-            ];
-            var data2 = [
-                [0,1],[1,0],[2,2],[3,0],[4,1],[5,3],[6,1],[7,5],[8,2],[9,3],[10,2],[11,1],[12,0],[13,2],[14,8],[15,0],[16,0]
-            ];
-            $("#flot-dashboard-chart").length && $.plot($("#flot-dashboard-chart"), [
-                    data1, data2
-                ],
-                {
-                    series: {
-                        lines: {
-                            show: false,
-                            fill: true
-                        },
-                        splines: {
-                            show: true,
-                            tension: 0.4,
-                            lineWidth: 1,
-                            fill: 0.4
-                        },
-                        points: {
-                            radius: 0,
-                            show: true
-                        },
-                        shadowSize: 2
-                    },
-                    grid: {
-                        hoverable: true,
-                        clickable: true,
-                        tickColor: "#d5d5d5",
-                        borderWidth: 1,
-                        color: '#d5d5d5'
-                    },
-                    colors: ["#1ab394", "#1C84C6"],
-                    xaxis:{
-                    },
-                    yaxis: {
-                        ticks: 4
-                    },
-                    tooltip: false
+                        $(win.document.body).find('table')
+                            .addClass('compact')
+                            .css('font-size', 'inherit');
+                    }
                 }
-            );
-
-            var doughnutData = {
-                labels: ["App","Software","Laptop" ],
-                datasets: [{
-                    data: [300,50,100],
-                    backgroundColor: ["#a3e1d4","#dedede","#9CC3DA"]
-                }]
-            } ;
-
-
-            var doughnutOptions = {
-                responsive: false,
-                legend: {
-                    display: false
-                }
-            };
-
-
-            var ctx4 = document.getElementById("doughnutChart").getContext("2d");
-            new Chart(ctx4, {type: 'doughnut', data: doughnutData, options:doughnutOptions});
-
-            var doughnutData = {
-                labels: ["App","Software","Laptop" ],
-                datasets: [{
-                    data: [70,27,85],
-                    backgroundColor: ["#a3e1d4","#dedede","#9CC3DA"]
-                }]
-            } ;
-
-
-            var doughnutOptions = {
-                responsive: false,
-                legend: {
-                    display: false
-                }
-            };
-
-
-            var ctx4 = document.getElementById("doughnutChart2").getContext("2d");
-            new Chart(ctx4, {type: 'doughnut', data: doughnutData, options:doughnutOptions});
+            ]
 
         });
-    </script>
-    </body>
+
+    });
+
+</script>
+</body>
+
 </html>
+
+

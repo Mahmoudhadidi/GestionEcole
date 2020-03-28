@@ -21,6 +21,8 @@ class AppKernel extends Kernel
             new ClasseBundle\ClasseBundle(),
             new MatiereBundle\MatiereBundle(),
             new SalleBundle\SalleBundle(),
+            new AbsenceBundle\AbsenceBundle(),
+            new AbsenceEmployeBundle\AbsenceEmployeBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
