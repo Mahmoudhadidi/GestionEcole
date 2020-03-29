@@ -19,6 +19,9 @@ class MatiereController extends Controller
     public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+        $msg="";
+        if(isset($_GET['msg']))
+            $msg=$_GET['msg'];
 
         $matieres = $em->getRepository('MatiereBundle:Matiere')->findAll();
         $matiere = new Matiere();
@@ -29,17 +32,21 @@ class MatiereController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($matiere);
             $em->flush();
+            $msg=  "la nouvelle matière ".$matiere->getNomMatier()." a bien été enregistrée";//La nouvelle matière a bien été enregistrée
+            return $this->redirectToRoute('matiere_index',array('msg'=>$msg,));
 
-            return $this->redirectToRoute('matiere_index');
         }
         if (isset($_GET['idMatiere'])) {
+            $msg=  "la matière ".$matiere->getNomMatier()." a bien été supprimée";//La nouvelle matière a bien été enregistrée
+
             $this->getDoctrine()->getRepository('MatiereBundle:Matiere')->supprimerMatiere();
-            return $this->redirectToRoute('matiere_index');
+            return $this->redirectToRoute('matiere_index',array('msg'=>$msg,));
         }
 
         return $this->render('matiere/index.html.twig', array(
             'matieres' => $matieres,
             'form' => $form->createView(),
+            'msg'=>$msg,
         ));
     }
 
@@ -93,8 +100,9 @@ class MatiereController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $msg=  "la matière ".$matiere->getNomMatier()." a bien été modifée";//La nouvelle matière a bien été enregistrée
 
-            return $this->redirectToRoute('matiere_index');
+            return $this->redirectToRoute('matiere_index',array('msg'=>$msg,));
         }
 
         return $this->render('matiere/edit.html.twig', array(

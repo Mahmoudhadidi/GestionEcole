@@ -18,6 +18,10 @@ class SalleController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $msg="";
+        if(isset($_GET['msg']))
+            $msg=$_GET['msg'];
+
         $salle = new Salle();
         $form = $this->createForm('SalleBundle\Form\SalleType', $salle);
         $form->handleRequest($request);
@@ -26,21 +30,24 @@ class SalleController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($salle);
             $em->flush();
-
-            return $this->redirectToRoute('salle_index');
+            $msg=  "la nouvelle salle ".$salle->getNomSalle()." a bien été enregistrée";//La nouvelle matière a bien été enregistrée
+            return $this->redirectToRoute('salle_index',array('msg'=>$msg,));
         }
 
         $em = $this->getDoctrine()->getManager();
 
         $salles = $em->getRepository('SalleBundle:Salle')->findAll();
         if (isset($_GET['idSalle'])) {
+            $msg=  "la salle ".$salle->getNomSalle()." a bien été supprimée";//La nouvelle matière a bien été enregistrée
+
             $this->getDoctrine()->getRepository('SalleBundle:Salle')->supprimerSalle();
-            return $this->redirectToRoute('salle_index');
+            return $this->redirectToRoute('salle_index',array('msg'=>$msg,));
         }
 
         return $this->render('salle/index.html.twig', array(
             'salles' => $salles,
             'form' => $form->createView(),
+            'msg'=>$msg,
         ));
     }
 
@@ -94,8 +101,9 @@ class SalleController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $msg=  "la salle ".$salle->getNomSalle()." a bien été modifiée";//La nouvelle matière a bien été enregistrée
 
-            return $this->redirectToRoute('salle_index');
+            return $this->redirectToRoute('salle_index',array('msg'=>$msg,));
         }
 
         return $this->render('salle/edit.html.twig', array(

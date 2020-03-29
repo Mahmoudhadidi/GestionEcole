@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Seance</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Idseance</th>
+                <td>{{ seance.idSeance }}</td>
+            </tr>
+            <tr>
+                <th>Idens</th>
+                <td>{{ seance.idEns }}</td>
+            </tr>
+            <tr>
+                <th>Idclasse</th>
+                <td>{{ seance.idClasse }}</td>
+            </tr>
+            <tr>
+                <th>Idmatiere</th>
+                <td>{{ seance.idMatiere }}</td>
+            </tr>
+            <tr>
+                <th>Idsalle</th>
+                <td>{{ seance.idSalle }}</td>
+            </tr>
+            <tr>
+                <th>Duree</th>
+                <td>{{ seance.duree }}</td>
+            </tr>
+            <tr>
+                <th>Heure</th>
+                <td>{% if seance.heure %}{{ seance.heure|date('H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{% if seance.date %}{{ seance.date|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('seance_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('seance_edit', { 'idSeance': seance.idSeance }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

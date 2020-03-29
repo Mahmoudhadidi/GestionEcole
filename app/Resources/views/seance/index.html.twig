@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Seances list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Idseance</th>
+                <th>Idens</th>
+                <th>Idclasse</th>
+                <th>Idmatiere</th>
+                <th>Idsalle</th>
+                <th>Duree</th>
+                <th>Heure</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for seance in seances %}
+            <tr>
+                <td><a href="{{ path('seance_show', { 'idSeance': seance.idSeance }) }}">{{ seance.idSeance }}</a></td>
+                <td>{{ seance.idEns }}</td>
+                <td>{{ seance.idClasse }}</td>
+                <td>{{ seance.idMatiere }}</td>
+                <td>{{ seance.idSalle }}</td>
+                <td>{{ seance.duree }}</td>
+                <td>{% if seance.heure %}{{ seance.heure|date('H:i:s') }}{% endif %}</td>
+                <td>{% if seance.date %}{{ seance.date|date('Y-m-d') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('seance_show', { 'idSeance': seance.idSeance }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('seance_edit', { 'idSeance': seance.idSeance }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('seance_new') }}">Create a new seance</a>
+        </li>
+    </ul>
+{% endblock %}

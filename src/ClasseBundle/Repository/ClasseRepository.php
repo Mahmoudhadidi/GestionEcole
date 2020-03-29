@@ -26,4 +26,12 @@ WHERE id_classe= $b
         $stmt->execute();
 
     }
+    public function findIdClasse()
+    {
+        $query=$this->getEntityManager()
+            ->createQuery("SELECT a.idClasse FROM ClasseBundle:Classe a ");
+        return $query->getResult();
+    }
+
+
 }
