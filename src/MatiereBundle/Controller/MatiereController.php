@@ -22,11 +22,15 @@ class MatiereController extends Controller
         $msg="";
         if(isset($_GET['msg']))
             $msg=$_GET['msg'];
-
         $matieres = $em->getRepository('MatiereBundle:Matiere')->findAll();
         $matiere = new Matiere();
         $form = $this->createForm('MatiereBundle\Form\MatiereType', $matiere);
         $form->handleRequest($request);
+
+        $verifFanction=array();
+        foreach ($matieres as $idM){
+            $verifFanction[$idM->getIdMatiere()] = $this->getDoctrine()->getRepository('SeanceBundle:Seance')->findOneByVerifClasse($idM->getIdMatiere());
+        }
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -47,6 +51,7 @@ class MatiereController extends Controller
             'matieres' => $matieres,
             'form' => $form->createView(),
             'msg'=>$msg,
+            'verif'=>$verifFanction,
         ));
     }
 

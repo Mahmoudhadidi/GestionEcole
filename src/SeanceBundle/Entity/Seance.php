@@ -7,8 +7,9 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Seance
  *
- * @ORM\Table(name="seance", indexes={@ORM\Index(name="id_ens", columns={"id_ens", "id_classe", "id_matiere", "id_salle"})})
+ * @ORM\Table(name="seance", indexes={@ORM\Index(name="id_ens", columns={"id_ens", "id_classe", "id_matiere", "id_salle"}), @ORM\Index(name="id_ens_2", columns={"id_ens"}), @ORM\Index(name="id_classe", columns={"id_classe"}), @ORM\Index(name="id_matiere", columns={"id_matiere"}), @ORM\Index(name="id_salle", columns={"id_salle"})})
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass="SeanceBundle\Repository\SeanceRepository")
  */
 class Seance
 {
@@ -20,34 +21,6 @@ class Seance
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idSeance;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="id_ens", type="integer", nullable=false)
-     */
-    private $idEns;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="id_classe", type="integer", nullable=false)
-     */
-    private $idClasse;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="id_matiere", type="integer", nullable=false)
-     */
-    private $idMatiere;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="id_salle", type="integer", nullable=false)
-     */
-    private $idSalle;
 
     /**
      * @var string
@@ -71,6 +44,46 @@ class Seance
     private $date;
 
     /**
+     * @var \User
+     *
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_ens", referencedColumnName="id")
+     * })
+     */
+    private $idEns;
+
+    /**
+     * @var \Classe
+     *
+     * @ORM\ManyToOne(targetEntity="ClasseBundle\Entity\Classe")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_classe", referencedColumnName="id_classe")
+     * })
+     */
+    private $idClasse;
+
+    /**
+     * @var \Matiere
+     *
+     * @ORM\ManyToOne(targetEntity="MatiereBundle\Entity\Matiere")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_matiere", referencedColumnName="id_matiere")
+     * })
+     */
+    private $idMatiere;
+
+    /**
+     * @var \Salle
+     *
+     * @ORM\ManyToOne(targetEntity="SalleBundle\Entity\Salle")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_salle", referencedColumnName="id_salle")
+     * })
+     */
+    private $idSalle;
+
+    /**
      * @return int
      */
     public function getIdSeance()
@@ -84,70 +97,6 @@ class Seance
     public function setIdSeance($idSeance)
     {
         $this->idSeance = $idSeance;
-    }
-
-    /**
-     * @return int
-     */
-    public function getIdEns()
-    {
-        return $this->idEns;
-    }
-
-    /**
-     * @param int $idEns
-     */
-    public function setIdEns($idEns)
-    {
-        $this->idEns = $idEns;
-    }
-
-    /**
-     * @return int
-     */
-    public function getIdClasse()
-    {
-        return $this->idClasse;
-    }
-
-    /**
-     * @param int $idClasse
-     */
-    public function setIdClasse($idClasse)
-    {
-        $this->idClasse = $idClasse;
-    }
-
-    /**
-     * @return int
-     */
-    public function getIdMatiere()
-    {
-        return $this->idMatiere;
-    }
-
-    /**
-     * @param int $idMatiere
-     */
-    public function setIdMatiere($idMatiere)
-    {
-        $this->idMatiere = $idMatiere;
-    }
-
-    /**
-     * @return int
-     */
-    public function getIdSalle()
-    {
-        return $this->idSalle;
-    }
-
-    /**
-     * @param int $idSalle
-     */
-    public function setIdSalle($idSalle)
-    {
-        $this->idSalle = $idSalle;
     }
 
     /**
@@ -196,6 +145,70 @@ class Seance
     public function setDate($date)
     {
         $this->date = $date;
+    }
+
+    /**
+     * @return \User
+     */
+    public function getIdEns()
+    {
+        return $this->idEns;
+    }
+
+    /**
+     * @param \User $idEns
+     */
+    public function setIdEns($idEns)
+    {
+        $this->idEns = $idEns;
+    }
+
+    /**
+     * @return \Classe
+     */
+    public function getIdClasse()
+    {
+        return $this->idClasse;
+    }
+
+    /**
+     * @param \Classe $idClasse
+     */
+    public function setIdClasse($idClasse)
+    {
+        $this->idClasse = $idClasse;
+    }
+
+    /**
+     * @return \Matiere
+     */
+    public function getIdMatiere()
+    {
+        return $this->idMatiere;
+    }
+
+    /**
+     * @param \Matiere $idMatiere
+     */
+    public function setIdMatiere($idMatiere)
+    {
+        $this->idMatiere = $idMatiere;
+    }
+
+    /**
+     * @return \Salle
+     */
+    public function getIdSalle()
+    {
+        return $this->idSalle;
+    }
+
+    /**
+     * @param \Salle $idSalle
+     */
+    public function setIdSalle($idSalle)
+    {
+        $this->idSalle = $idSalle;
     }
 
 

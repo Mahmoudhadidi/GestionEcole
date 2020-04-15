@@ -1,7 +1,7 @@
 seance_index:
     path:     /
     defaults: { _controller: "SeanceBundle:Seance:index" }
-    methods:  GET
+    methods: [GET, POST]
 
 seance_show:
     path:     /{idSeance}/show

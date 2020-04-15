@@ -4,6 +4,7 @@ namespace ClasseBundle\Controller;
 
 use ClasseBundle\Entity\Classe;
 use ClasseBundle\Repository\ClasseRepository;
+use SeanceBundle\Repository\SeanceRepository;
 use UserBundle\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -30,10 +31,13 @@ class ClasseController extends Controller
        // $nbrclasse=$this->getDoctrine()->getRepository('UserBundle:User')->findAffectclasse(1);;
         //$map = new OrderedHashMap();
         $listFanction=array();
+        $verifFanction=array();
+
         foreach ($classes as $idC){
 
 
             $listFanction[$idC->getIdClasse()] = $this->getDoctrine()->getRepository('UserBundle:User')->findAffectclasse($idC->getIdClasse());
+            $verifFanction[$idC->getIdClasse()] = $this->getDoctrine()->getRepository('SeanceBundle:Seance')->findOneByVerifClasse($idC->getIdClasse());
 
 
         }
@@ -74,6 +78,7 @@ class ClasseController extends Controller
             'msg'=>$msg,
             'etudiants'=>$etudiants,
             'map'=>$listFanction,
+            'verif'=>$verifFanction,
 
 
         ));
@@ -190,6 +195,11 @@ class ClasseController extends Controller
             ->setMethod('POST')
             ->getForm()
             ;
+    }
+    public function accAction(Request $request)
+    {
+        // replace this example code with whatever you need
+        return $this->render("base.html.twig");
     }
 
 

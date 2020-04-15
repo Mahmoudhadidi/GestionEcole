@@ -106,6 +106,10 @@ class Salle
     {
         $this->bloc = $bloc;
     }
+    public function __toString()
+    {
+        return (string) $this->nomSalle;
+    }
 
 
 }

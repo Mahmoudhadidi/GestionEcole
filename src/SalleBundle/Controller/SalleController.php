@@ -26,6 +26,8 @@ class SalleController extends Controller
         $form = $this->createForm('SalleBundle\Form\SalleType', $salle);
         $form->handleRequest($request);
 
+
+
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($salle);
@@ -35,8 +37,13 @@ class SalleController extends Controller
         }
 
         $em = $this->getDoctrine()->getManager();
-
         $salles = $em->getRepository('SalleBundle:Salle')->findAll();
+
+        $verifFanction=array();
+        foreach ($salles as $idS){
+            $verifFanction[$idS->getIdSalle()] = $this->getDoctrine()->getRepository('SeanceBundle:Seance')->findOneByVerifClasse($idS->getIdSalle());
+        }
+
         if (isset($_GET['idSalle'])) {
             $msg=  "la salle ".$salle->getNomSalle()." a bien été supprimée";//La nouvelle matière a bien été enregistrée
 
@@ -48,6 +55,7 @@ class SalleController extends Controller
             'salles' => $salles,
             'form' => $form->createView(),
             'msg'=>$msg,
+            'verif'=>$verifFanction,
         ));
     }
 

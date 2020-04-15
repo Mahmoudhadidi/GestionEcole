@@ -107,7 +107,10 @@ class Classe
     {
         $this->specialite = $specialite;
     }
-
+    public function __toString()
+    {
+        return (string) $this->numClasse;
+    }
 
 }
 

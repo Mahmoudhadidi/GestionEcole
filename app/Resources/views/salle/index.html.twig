@@ -96,7 +96,7 @@
                          </ul>-->
                     </li>
                     <li>
-                        <a href=""><i class="fa fa-laptop"></i> <span class="nav-label">gestion de seance</span>  </a>
+                        <a href="{{ path('seance_index') }}"><i class="fa fa-laptop"></i> <span class="nav-label">gestion de seance</span>  </a>
                     </li>
 
 
@@ -270,8 +270,12 @@
 
                                                         <a href="{{ path('salle_show', { 'idSalle': salle.idSalle }) }}"> <button class="btn btn-outline btn-default btn-white btn-xs" title="consulte" type="button">Consulte</button></a>
                                                         <a href="{{ path('salle_edit', { 'idSalle': salle.idSalle }) }}"><button class="btn btn-outline btn-success btn-white btn-xs" type="button" title="modifier">Modifier</button></a>
-                                                        <button class="btn btn-outline btn-danger btn-white btn-xs btn-sm demo{{ i }}" type="button" title="supprime">Supprime</button>
+                                                        {% for v in verif[salle.idSalle] %}
+                                                            {% if (v[1]==0) %}
 
+                                                                <button class="btn btn-outline btn-danger btn-white btn-xs btn-sm demo{{ i }}" type="button" title="supprime">Supprime</button>
+                                                            {% endif %}
+                                                        {% endfor %}
 
                                                     </center>
                                                     <script>

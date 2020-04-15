@@ -16,15 +16,35 @@ class SeanceController extends Controller
      * Lists all seance entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
+        $seance = new Seance();
+        $form = $this->createForm('SeanceBundle\Form\SeanceType', $seance);
+        $form->handleRequest($request);
+        $msg="";
+        if(isset($_GET['msg']))
+            $msg=$_GET['msg'];
+
+
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($seance);
+            $em->flush();
+            $msg=  "la nouvelle seance a bien été enregistrée";//La nouvelle matière a bien été enregistrée
+            return $this->redirectToRoute('seance_index',array('msg'=>$msg,));
+
+            return $this->redirectToRoute('seance_index');
+        }
         $em = $this->getDoctrine()->getManager();
 
         $seances = $em->getRepository('SeanceBundle:Seance')->findAll();
-        $Classes=$this->getDoctrine()->getRepository('ClasseBundle:Classe')->findAll();
 
         return $this->render('seance/index.html.twig', array(
             'seances' => $seances,
+            'msg'=>$msg,
+            'form' => $form->createView(),
+
         ));
     }
 

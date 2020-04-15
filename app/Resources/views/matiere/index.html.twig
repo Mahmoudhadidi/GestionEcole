@@ -101,7 +101,7 @@
                          </ul>-->
                     </li>
                     <li>
-                        <a href=""><i class="fa fa-laptop"></i> <span class="nav-label">gestion de seance</span>  </a>
+                        <a href="{{ path('seance_index') }}"><i class="fa fa-laptop"></i> <span class="nav-label">gestion de seance</span>  </a>
                     </li>
 
                 </ul>
@@ -135,7 +135,7 @@
 
                 </nav>
             </div>
-<<<<<<< HEAD
+
             <br>
             <div class="wrapper wrapper-content animated fadeInRight">
                 <div class="row">
@@ -215,20 +215,6 @@
                                                         </div>
                                                     </div>
 
-=======
-  <br>
-               <div class="wrapper wrapper-content animated fadeInRight">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-title">
-<!-- gfhkjljk-->
-                            <h5>Gestion de matieres </h5>
-                            <div class="ibox-tools">
-
-                                <a href="{{ path('matiere_new') }}"><i class="fa fa-plus-square" title="Ajouter matiere"></i></a>
-                                <p> </p>
->>>>>>> 06659c7a72dadf0d208774fc8bb8307bf50751bd
 
 
 
@@ -287,7 +273,12 @@
 
                                                         <a href="{{ path('matiere_show', { 'idMatiere': matiere.idMatiere }) }}"> <button class="btn btn-outline btn-default btn-white btn-xs" title="consulte" type="button">Consulte</button></a>
                                                         <a href="{{ path('matiere_edit', { 'idMatiere': matiere.idMatiere }) }}"><button class="btn btn-outline btn-success btn-white btn-xs" type="button" title="modifier">Modifier</button></a>
-                                                        <button class="btn btn-outline btn-danger btn-white btn-xs btn-sm demo{{ i }}" type="button" title="supprime">Supprime</button>
+                                                        {% for v in verif[matiere.idMatiere] %}
+                                                            {% if (v[1]==0) %}
+
+                                                                <button class="btn btn-outline btn-danger btn-white btn-xs btn-sm demo{{ i }}" type="button" title="supprime">Supprime</button>
+                                                            {% endif %}
+                                                        {% endfor %}
 
 
                                                     </center>

@@ -23,5 +23,8 @@
     <route id="classe_delete" path="/{idClasse}/delete" methods="DELETE">
         <default key="_controller">ClasseBundle:Classe:delete</default>
     </route>
+    <route id="classe_acc" path="/acc" methods="GET">
+        <default key="_controller">ClasseBundle:Classe:acc</default>
+    </route>
 
 </routes>

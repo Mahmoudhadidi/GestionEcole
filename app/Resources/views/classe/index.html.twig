@@ -128,7 +128,7 @@
                          </ul>-->
                     </li>
                     <li>
-                        <a href=""><i class="fa fa-laptop"></i> <span class="nav-label">gestion de seance</span>  </a>
+                        <a href="{{ path('seance_index') }}"><i class="fa fa-laptop"></i> <span class="nav-label">gestion de seance</span>  </a>
                     </li>
 
                 </ul>
@@ -299,33 +299,26 @@
                                                 </td>
 
                                                 </td>
-                                                <td><center>
+                                                <td>
 
                                                             <a href="{{ path('classe_show', { 'idClasse': classe.idClasse }) }}"> <button class="btn btn-outline btn-default btn-white btn-xs " title="consulte" type="button">Consulte</button></a>
                                                             <a href="{{ path('classe_edit', { 'idClasse': classe.idClasse }) }}"><button class="btn btn-outline btn-success btn-white btn-xs" type="button" title="modifier">Modifier</button></a>
 
 
-
+                                                    {% for v in verif[classe.idClasse] %}
+                                                        {% if (v[1]==0) %}
 
                                                     <button class="btn btn-outline btn-danger btn-white btn-xs btn-sm demo{{ j }}" type="button" title="supprime">Supprime</button>
+                                                        {% endif %}
+                                                    {% endfor %}
 
-                                                       <script>
-                                                           function verifVoyage(){
-                                                               alert("Le libele ne doit pas être vide onclick=\"return verifVoyage()\"");
-                                                               return false;
-                                                               if(f.libele.value == ""){
-                                                                   alert("Le libele ne doit pas être vide");
-                                                                   return false;
-                                                               }
-                                                           }
-                                                       </script>
 
                                                         {% for nombreE in map[classe.idClasse] %}
                                                           {% if (classe.nbreEtudient>nombreE[1]) %}
-                                                            <button class="btn btn-outline btn-info btn-white btn-xs" type="button" title="affecter etudiant" data-toggle="modal" data-target="#{{ classe.numClasse }}">Affecter des étudiants </button>
+                                                            <button class="btn btn-outline btn-info btn-white btn-xs" type="button" title="affecter etudiant" data-toggle="modal" data-target="#{{ classe.idClasse }}">Affecter des étudiants </button>
                                                           {% endif %}
                                                         {% endfor %}
-                                                    </center> <div class="modal inmodal" id="{{ classe.numClasse }}" tabindex="-1" role="dialog" aria-hidden="true">
+                                                     <div class="modal inmodal" id="{{ classe.idClasse }}" tabindex="-1" role="dialog" aria-hidden="true">
                                                             <div class="modal-dialog">
                                                                 <div class="modal-content animated bounceInRight">
                                                                     <div class="modal-header">
@@ -344,7 +337,7 @@
                                                                                     <div class="ibox-content">
                                                                                         <form class="form-horizontal" action="{{ path('classe_index') }}" method="post">
 
-
+                                                                                            {% set nbrlibre=0 %}
                                                                                             {% for nombreE in map[classe.idClasse] %}
 
                                                                                                 {% set nbrlibre=classe.nbreEtudient-nombreE[1] %}
@@ -359,17 +352,31 @@
 
 
                                                                                                 {% set i=0  %}
-
+                                                                                                {% set k=0   %}
 
                                                                                                 {% for etudiant in etudiants %}
                                                                                                     <div class="col-sm-10">
-                                                                                                        <div><label> <input type="checkbox" value="{{ etudiant.idUser }}"  name="chek{{ i }}"> {{ etudiant.nom }}&nbsp;{{ etudiant.prenom }} &nbsp;{{ etudiant.niveau }} </label></div>
+                                                                                                        <div><label> <input type="checkbox"  value="{{ etudiant.id }}"   name="chek{{ i }}"> {{ etudiant.nom }}&nbsp;{{ etudiant.prenom }} &nbsp;{{ etudiant.niveau }} </label></div>
+<script>
+    var otherCheckbox{{ j }}{{ i }} = document.querySelector('input[value="{{ etudiant.id }}"]');
 
+
+
+    otherCheckbox{{ j }}{{ i }}.onchange = function() {
+
+        if(otherCheckbox{{ j }}{{ i }}.checked) {
+
+            alert("{{  nbrlibre}}");
+
+        }
+    };
+</script>
                                                                                                     </div>
 
                                                                                                     {% set i=i+1  %}
 
                                                                                                 {% endfor %}
+
 
                                                                                             </div>
 
@@ -383,17 +390,16 @@
 
                                                                                                 <center>   <input class="btn btn-white" type="reset" value="Annuler">
 
-                                                                                                    <input class="btn btn-primary"  name="submit" type="submit" value="Affecter">
+                                                                                                    <input class="btn btn-primary"  name="submit"  onclick="return verifVoyage()" type="submit" value="Affecter">
+
+
                                                                                                 </center>
                                                                                             </div>
                                                                                         </form></div>
+
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-
-
-
-
 
 
                                                                     </div>
