@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
 
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        <title>SUPTECH {% block title %} choukri {% endblock %}</title>
+        <title>SUPTECH {% block title %} chokri {% endblock %}</title>
         {% block stylesheets %}
         {% endblock %}
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
@@ -48,11 +48,44 @@
                         </div>
                     </li>
                     <li class="active">
-                        <a href="{{ path('homepage') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Accueil</span></a>
+                     {#<a href="{{ path('homepage') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Accueil</span></a>#}
 
                     </li>
+
+                    <li>
+                        <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Profil</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="{{ path('fos_user_profile_edit') }}">Modifier profil</a></li>
+                            <li><a href="{{ path('fos_user_change_password') }}">Modifier Mot de Passe</a></li>
+
+                        </ul>
+                    </li>
+
                     <li>
                         <a href="{{ path('classe_homepage') }}"><i class="fa fa-home"></i> <span class="nav-label">Gestion de classe</span></a>
+                    </li>
+                 {#   <li>
+                        <a href="{{ path('relevee') }}"><i class="fa fa-home"></i> <span class="nav-label">Relevée Notes</span></a>
+                    </li> #}
+                    <li>
+                        <a href="{{ path('note_admin') }}"><i class="fa fa-home"></i> <span class="nav-label">Admin Notes</span></a>
+                    </li>
+                    <li>
+                        <a href="{{ path('notes_homepage') }}"><i class="fa fa-home"></i> <span class="nav-label">Gestion des notes</span></a>
+                    </li>
+                    <li>
+                        <a href="{{ path('Stat') }}"><i class="fa fa-home"></i> <span class="nav-label">Statistiques</span></a>
+                    </li>
+                    <li>
+                        <a href="{{ path('majeur') }}"><i class="fa fa-home"></i> <span class="nav-label">liste des Majeurs</span></a>
+                    </li>
+                    <li>
+                        <a href="{{ path('evaliat_homepage') }}"><i class="fa fa-home"></i> <span class="nav-label">Gestion d'evaluation</span></a>
+                    </li>
+
+
+                    <li>
+                        <a href="{{ path('fos_user_security_login') }}"><i class="fa fa-home"></i> <span class="nav-label">Déconnexion</span></a>
                     </li>
                     <li>
                         <a href="{{ path('matiere_index') }}"><i class="fa fa-tasks"></i> <span class="nav-label">Gestion de matiere</span></a>
@@ -98,7 +131,7 @@
                         <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">App Views</span>  <span class="pull-right label label-primary">SPECIAL</span></a>
                         <ul class="nav nav-second-level collapse">
                             <li><a href="contacts.html">Contacts</a></li>
-                            <li><a href="profile.html">Profile</a></li>
+                            <li><a href="{{ path('fos_user_profile_edit') }}">Profile</a></li>
                             <li><a href="profile_2.html">Profile v.2</a></li>
                             <li><a href="contacts_2.html">Contacts v.2</a></li>
                             <li><a href="projects.html">Projects</a></li>

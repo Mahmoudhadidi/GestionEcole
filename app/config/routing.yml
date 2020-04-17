@@ -1,6 +1,17 @@
+evaliat:
+    resource: "@EvaliatBundle/Resources/config/routing.yml"
+    prefix:   /
 
 
 
+
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+notes:
+    resource: "@NotesBundle/Resources/config/routing.yml"
+    prefix:   /note
 
 
 
@@ -19,3 +30,5 @@ salle:
 matiere:
     resource: "@MatiereBundle/Resources/config/routing.yml"
     prefix:   /matiere
+
+

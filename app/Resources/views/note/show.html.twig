@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Note</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Idnote</th>
+                <td>{{ note.idNote }}</td>
+            </tr>
+            <tr>
+                <th>Notecc</th>
+                <td>{{ note.noteCc }}</td>
+            </tr>
+            <tr>
+                <th>Noteds</th>
+                <td>{{ note.noteDs }}</td>
+            </tr>
+            <tr>
+                <th>Noteexamun</th>
+                <td>{{ note.noteExamun }}</td>
+            </tr>
+            <tr>
+                <th>Moyenne</th>
+                <td>{{ note.moyenne }}</td>
+            </tr>
+            <tr>
+                <th>Net</th>
+                <td>{{ note.net }}</td>
+            </tr>
+            <tr>
+                <th>Cin</th>
+                <td>{{ note.cin }}</td>
+            </tr>
+            <tr>
+                <th>Nommatier</th>
+                <td>{{ note.nomMatier }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('note_index') }}">retour à la liste</a>
+        </li>
+        <li>
+            <a href="{{ path('note_edit', { 'idNote': note.idNote }) }}">Modifier</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

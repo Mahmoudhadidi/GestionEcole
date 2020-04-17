@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+   <center><i><h1>Interface de Gestion d'Evaluations</h1></i></center>
+    <br> <br> <br>
+    <ul>
+        <li>
+            <h3>   <a href="{{ path('eval_new') }}">Ajouter une evaluation</a></h3>
+
+        </li>
+        <li>
+            <h3> <a href="{{ path('exportCSV') }}">Exporter CSV</a> </h3>
+        </li>
+    </ul>
+    <br>
+
+    <table class="table table-striped table-bordered table-hover dataTables-example">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Id étudiant</th>
+                <th>Presence</th>
+                <th>Rendement</th>
+                <th>Discipline</th>
+                <th>Matiere</th>
+                <th>Idenseignant</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for evaluation in evaluations %}
+            <tr>
+                <td><a href="{{ path('eval_show', { 'id': evaluation.id }) }}">{{ evaluation.id }}</a></td>
+                <td>{{ evaluation.idEtd }}</td>
+                <td>{{ evaluation.presence }}</td>
+                <td>{{ evaluation.rendement }}</td>
+                <td>{{ evaluation.discipline }}</td>
+                <td>{{ evaluation.nomMatiere }}</td>
+                <td>{{ evaluation.idEnseignant }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('eval_show', { 'id': evaluation.id }) }}">Voir</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('eval_edit', { 'id': evaluation.id }) }}">Modifier</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

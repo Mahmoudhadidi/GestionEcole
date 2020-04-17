@@ -1,0 +1,7 @@
+evaliat_eval:
+    resource: "@EvaliatBundle/Resources/config/routing/evaluation.yml"
+    prefix:   /eval
+
+evaliat_homepage:
+    path:     /evaluations
+    defaults: { _controller: EvaliatBundle:Evaluation:index }
