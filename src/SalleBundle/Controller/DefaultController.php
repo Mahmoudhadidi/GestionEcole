@@ -18,8 +18,8 @@ class DefaultController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($salle);
             $em->flush();
-
-            return $this->redirectToRoute('salle_index');
+            $msg=  "la nouvelle salle ".$salle->getNomSalle()." a bien été enregistrée";//La nouvelle matière a bien été enregistrée
+            return $this->redirectToRoute('salle_index',array('msg'=>$msg,));
         }
 
         $em = $this->getDoctrine()->getManager();

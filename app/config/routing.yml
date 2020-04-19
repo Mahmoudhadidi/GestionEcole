@@ -3,6 +3,14 @@ evaliat:
     prefix:   /
 
 
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /user
+seance:
+    resource: "@SeanceBundle/Resources/config/routing.yml"
+    prefix:   /seance
+
+
 
 
 
@@ -30,5 +38,4 @@ salle:
 matiere:
     resource: "@MatiereBundle/Resources/config/routing.yml"
     prefix:   /matiere
-
 

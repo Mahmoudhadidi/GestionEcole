@@ -107,6 +107,9 @@ class Matiere
         $this->cdedit = $cdedit;
     }
 
-
+    public function __toString()
+    {
+        return (string) $this->nomMatier;
+    }
 }
 

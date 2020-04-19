@@ -147,8 +147,8 @@ class NoteController extends Controller
 
 
         $RAW_QUERY = "SELECT note_cc, note_ds, note_examun, moyenne, nom_matier 
-                      FROM  fos_user, note
-                      where fos_user.id=note.cin and note.cin = $y" ;
+                      FROM  user, note
+                      where user.id=note.cin and note.cin = $y" ;
 
 
         $statement = $em->getConnection()->prepare($RAW_QUERY);

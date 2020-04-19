@@ -21,12 +21,18 @@ class AppKernel extends Kernel
             new ClasseBundle\ClasseBundle(),
             new MatiereBundle\MatiereBundle(),
             new SalleBundle\SalleBundle(),
+
             new NotesBundle\NotesBundle(),
             new FOS\UserBundle\FOSUserBundle(),
 
             new Ob\HighchartsBundle\ObHighchartsBundle(),
             new EvaliatBundle\EvaliatBundle(),
             new Egyg33k\CsvBundle\Egyg33kCsvBundle(),
+
+            new UserBundle\UserBundle(),
+
+            new SeanceBundle\SeanceBundle(),
+
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

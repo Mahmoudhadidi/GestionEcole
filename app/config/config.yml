@@ -6,12 +6,17 @@ imports:
     - { resource: "@ClasseBundle/Resources/config/services.yml" }
     - { resource: "@MatiereBundle/Resources/config/services.yml" }
     - { resource: "@SalleBundle/Resources/config/services.yml" }
+
     - { resource: "@NotesBundle/Resources/config/services.yml" }
     - { resource: "@EvaliatBundle/Resources/config/services.yml" }
 
 
     
 
+
+
+    - { resource: "@UserBundle/Resources/config/services.yml" }
+    - { resource: "@SeanceBundle/Resources/config/services.yml" }
 
 
 
@@ -85,13 +90,17 @@ swiftmailer:
 sensio_framework_extra:
    router:
         annotations: false
+
 #FOSUser_configuration
 fos_user:
     db_driver: orm
     firewall_name: main
-    user_class: AppBundle\Entity\User
+    user_class: UserBundle\Entity\User
     from_email:
         address: "chokri.miloud123@gmail.com"
         sender_name: "chokri miloud"
+#---------------------------------------
+
+
 
 

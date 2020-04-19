@@ -51,24 +51,64 @@
                     {#<a href="{{ path('homepage') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Accueil</span></a>#}
 
                 </li>
+                <li>
+                    <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Profil</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="{{ path('fos_user_profile_edit') }}">Modifier profil</a></li>
+                        <li><a href="{{ path('fos_user_change_password') }}">Modifier Mot de Passe</a></li>
 
+                    </ul>
+                </li>
+                <li>
+                    <a href="{{ path('classe_homepage') }}"><i class="fa fa-home"></i> <span class="nav-label">Gestion de classe</span></a>
+                </li>
+                <li>
+                    <a href="{{ path('matiere_index') }}"><i class="fa fa-tasks"></i> <span class="nav-label">Gestion de matiere</span></a>
+                    <!--<ul class="nav nav-second-level collapse">
+                        <li><a href="graph_flot.html">Flot Charts</a></li>
+                        <li><a href="graph_morris.html">Morris.js Charts</a></li>
+                        <li><a href="graph_rickshaw.html">Rickshaw Charts</a></li>
+                        <li><a href="graph_chartjs.html">Chart.js</a></li>
+                        <li><a href="graph_chartist.html">Chartist</a></li>
+                        <li><a href="c3.html">c3 charts</a></li>
+                        <li><a href="graph_peity.html">Peity Charts</a></li>
+                        <li><a href="graph_sparkline.html">Sparkline Charts</a></li>
+                    </ul>-->
+                </li>
+                <li>
+                    <a href="{{ path('salle_homepage') }}"><i class="fa fa-database"></i> <span class="nav-label">Gestion de salle </span><!--<span class="label label-warning pull-right">16/24</span>--></a>
+                    <!-- <ul class="nav nav-second-level collapse">
+                         <li><a href="mailbox.html">Inbox</a></li>
+                         <li><a href="mail_detail.html">Email view</a></li>
+                         <li><a href="mail_compose.html">Compose email</a></li>
+                         <li><a href="email_template.html">Email templates</a></li>
+                     </ul>-->
+                </li>
+                <li>
+
+                    <a href="{{ path('seance_index') }}"><i class="fa fa-laptop"></i> <span class="nav-label">gestion de seance</span>  </a>
+                </li>
 
 
 
 
 
                 <li>
-                    <a href="#"><i class="fa fa-shopping-cart"></i> <span class="nav-label">E-commerce</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="{{ path('majeur') }}">Liste des meilleurs</a></li>
-                        <li><a href="ecommerce_product_list.html">Products list</a></li>
-                        <li><a href="ecommerce_product.html">Product edit</a></li>
-                        <li><a href="ecommerce_product_detail.html">Product detail</a></li>
-                        <li><a href="ecommerce-cart.html">Cart</a></li>
-                        <li><a href="ecommerce-orders.html">Orders</a></li>
-                        <li><a href="ecommerce_payments.html">Credit Card form</a></li>
-                    </ul>
+                    <a href="{{ path('note_calcule') }}"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Calcule Moyenne</span><span class="fa arrow"></span></a>
+
                 </li>
+                <li>
+                    <a href="{{ path('majeur') }}"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Liste des Majeurs</span><span class="fa arrow"></span></a>
+
+                </li>
+                <li>
+                    <a href="{{ path('Stat') }}"><i class="fa fa-home"></i> <span class="nav-label">Statistiques</span></a>
+                </li>
+                <li>
+                    <a href="{{ path('fos_user_security_login') }}"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Déconnexion</span><span class="fa arrow"></span></a>
+
+                </li>
+
                 <li>
                     <a href="#"><i class="fa fa-picture-o"></i> <span class="nav-label">Gallery</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">

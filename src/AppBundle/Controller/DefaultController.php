@@ -14,12 +14,13 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+
         $authChecker = $this->container->get('security.authorization_checker');
 
         if($authChecker->isGranted('ROLE_ETUDIANT')) {
 
             return $this->render('base1.html.twig');
-        }elseif ($authChecker->isGranted('ROLE_USER')) {
+        }elseif ($authChecker->isGranted('ROLE_ENSEIGNANT')) {
             return $this->render('base.html.twig');
         }elseif ($authChecker->isGranted('ROLE_ADMIN')) {
             return $this->render('adminnote.html.twig');
@@ -27,5 +28,10 @@ class DefaultController extends Controller
 
             return $this->render('@FOSUser/Security/login.html.twig');
         }
+
+        // replace this example code with whatever you need
+        return $this->render("front.html.twig");
+
     }
+
 }

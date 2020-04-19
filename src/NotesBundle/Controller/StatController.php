@@ -50,9 +50,9 @@ class StatController extends Controller
     {
 
         $em = $this->getDoctrine()->getManager();
-        $query1 = 'SELECT  fos_user.username, note.nom_matier, max(note.moyenne) as majeur 
-                                   from fos_user, note
-                                   WHERE fos_user.id=note.cin 
+        $query1 = 'SELECT  user.username, note.nom_matier, max(note.moyenne) as majeur 
+                                   from user, note
+                                   WHERE user.id=note.cin 
                                    GROUP by note.nom_matier ;';
         $statement = $em->getConnection()->prepare($query1);
         $statement->execute();
