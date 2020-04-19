@@ -1,0 +1,24 @@
+typestage_index:
+    path:     /
+    defaults: { _controller: "TypeStageBundle:TypeStage:index" }
+    methods:  [GET, POST]
+
+typestage_show:
+    path:     /{id}/show
+    defaults: { _controller: "TypeStageBundle:TypeStage:show" }
+    methods:  GET
+
+typestage_new:
+    path:     /new
+    defaults: { _controller: "TypeStageBundle:TypeStage:new" }
+    methods:  [GET, POST]
+
+typestage_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "TypeStageBundle:TypeStage:edit" }
+    methods:  [GET, POST]
+
+typestage_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "TypeStageBundle:TypeStage:delete" }
+    methods:  DELETE

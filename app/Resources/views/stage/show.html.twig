@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+
+    {% block body %}
+        <br>
+
+        <a href="{{ path('stage_index') }}"><i class="fa fa-arrow-circle-o-left"></i> retour</a>
+        <br>
+        <br>
+        <div class="wrapper wrapper-content  animated fadeInRight article">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <div class="ibox">
+                        <div class="ibox-content">
+                            <div class="pull-right">
+
+
+
+
+
+
+
+                                {{ form_start(delete_form) }}
+                                <a href="{{ path('stage_edit', { 'idStage': stage.idStage }) }}"><button class="btn btn-outline btn-success btn-white btn-xs" type="button">Modifier</button></a>
+                                <input type="submit" class="btn btn-outline btn-danger btn-white btn-xs" value="Supprime">
+                                {{ form_end(delete_form) }}
+                            </div>
+                            <div class="text-center article-title">
+
+                                <h1>
+                                    STAGE
+                                </h1>
+                            </div>
+                            <center>
+                                <table>
+                                    <tbody>
+                                    <tr>
+                                        <th>Titre</th>
+                                        <td>{{ stage.titre }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Description</th>
+                                        <td>{{ stage.description }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Type</th>
+                                        <td>{{ stage.type }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Datedebuts</th>
+                                        <td>{% if stage.datedebutS %}{{ stage.datedebutS|date('Y-m-d') }}{% endif %}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Datefins</th>
+                                        <td>{% if stage.datefinS %}{{ stage.datefinS|date('Y-m-d') }}{% endif %}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Capacitemax   </th>
+                                        <td>&nbsp;&nbsp;{{ stage.capaciteMax }}</td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                            </center>
+
+
+
+                            <br>
+                            <br>
+
+                        </div>
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+    {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
