@@ -3,6 +3,7 @@
 namespace AbsenceBundle\Controller;
 
 use AbsenceBundle\Entity\Absence;
+use AbsenceBundle\Repository\AbsenceRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -120,5 +121,18 @@ class AbsenceController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+    public function indAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $absences = $em->getRepository('AbsenceBundle:Absence')->findAll();
+        $count=$this->getDoctrine()->getRepository('AbsenceBundle:Absence')->count();
+
+        return $this->render('absence/index1.html.twig', array(
+            'absences' => $absences,
+            'count'=>$count,
+        ));
     }
 }

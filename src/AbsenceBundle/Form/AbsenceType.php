@@ -13,7 +13,7 @@ class AbsenceType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('idSeance')->add('idEtudiant')->add('typeAbsence');
+        $builder->add('idEtudiant')->add('typeAbsence')->add('date');
     }/**
      * {@inheritdoc}
      */

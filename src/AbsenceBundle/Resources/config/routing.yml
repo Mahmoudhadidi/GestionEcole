@@ -5,3 +5,7 @@ absence_absence:
 absence_homepage:
     path:     /
     defaults: { _controller: AbsenceBundle:Default:index }
+
+Absence_pdf:
+    path:     /convert/{id}
+    defaults: { _controller: AbsenceBundle:Default:convert }

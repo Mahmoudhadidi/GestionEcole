@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
+<title> Suptech | Absence</title>
 
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet">
@@ -47,14 +47,14 @@
                         </div>
                     </li>
                     <li class="active">
-                        <a href=""><i class="fa fa-home"></i> <span class="nav-label">Accueil</span></a>
+                        <a href="{{ path('baseU') }}"><i class="fa fa-home"></i> <span class="nav-label">Accueil</span></a>
 
                     </li>
                     <li>
-                        <a href=""><i class="fa fa-pie-chart"></i> <span class="nav-label">Gestion des classes</span></a>
+                        <a href=""><i class="fa fa-calendar-o"></i> <span class="nav-label">Emploi du temps</span></a>
                     </li>
                     <li>
-                        <a href=""><i class="fa fa-pie-chart"></i> <span class="nav-label">Gestion des matieres</span></a>
+                        <a href="{{ path('absenceu_ind') }}"><i class="fa fa-calendar" ></i> <span class="nav-label">Absence</span></a>
                         <!--<ul class="nav nav-second-level collapse">
                             <li><a href="graph_flot.html">Flot Charts</a></li>
                             <li><a href="graph_morris.html">Morris.js Charts</a></li>
@@ -67,7 +67,7 @@
                         </ul>-->
                     </li>
                     <li>
-                        <a href=""><i class="fa fa-pie-chart"></i> <span class="nav-label">Gestion des salles </span><!--<span class="label label-warning pull-right">16/24</span>--></a>
+                        <a href=""><i class="fa fa-bell"></i> <span class="nav-label">Résultat Orientation </span><!--<span class="label label-warning pull-right">16/24</span>--></a>
                         <!-- <ul class="nav nav-second-level collapse">
                              <li><a href="mailbox.html">Inbox</a></li>
                              <li><a href="mail_detail.html">Email view</a></li>
@@ -76,15 +76,15 @@
                          </ul>-->
                     </li>
                     <li>
-                        <a href=""><i class="fa fa-pie-chart"></i> <span class="nav-label">Gestion des seances</span>  </a>
+                        <a href=""><i class="fa fa-bell-o"></i> <span class="nav-label">Résultat</span>  </a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-thumb-tack"></i> <span class="nav-label">Gestion des absences</span></a>
-                        <ul class="nav nav-second-level collapse">
+                        <a href="#"><i class="fa fa-envelope"></i> <span class="nav-label">Reclamation</span></a>
 
-                            <li><a class="fa fa-pie-chart" href="{{ path('absence_index') }}"> Abence etudiants</a></li>
-                            <li><a class="fa fa-pie-chart" href="{{ path('absenceemploye_index') }}"> Absence employe</a></li>
-                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">crédit</span></a>
+
                     </li>
 
                 </ul>
@@ -105,12 +105,12 @@
                     </div>
                     <ul class="nav navbar-top-links navbar-right">
                         <li>
-                            <span class="m-r-sm text-muted welcome-message">Bienvenu à SUPTECH</span>
+                            <a href="#"><i class="fa fa-user-circle-o"></i> <span class="txtOnline">
+												{{ app.user.username }}</span></a>
                         </li>
-
                         <li>
                             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                                <a href="{{ path('fos_user_security_logout') }}" class="header-top-button"><i class="fa fa-sign-out"></i> Log Out</a>
+                                <a href="{{ path('fos_user_security_logout') }}" class="header-top-button"><i class="fa fa-sign-out"></i> Se déconnecter</a>
                             {% endif %}
                         </li>
 
@@ -135,16 +135,22 @@
 
 
 
+                            <div class="text-center article-title">
 
 
 
 
 
+<h1 color="blue"><center data-color="blue">Votre absence</center></h1>
+                            <center>{% for count in count %}
+                                {{ count[1]}}
+                            {% endfor %}</center>
+                            </div>
 
                             <div class="ibox-content">
 
                                 <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover dataTables-example" >
+                                    <table class="table table-bordered" >
 
 
 
@@ -157,40 +163,26 @@
                                         <tr>
                                             <th>Identifiant</th>
                                             <th>Nom D'utilisateur</th>
-                                            <th>Date</th>
                                             <th>Justification</th>
-                                            <th>Actions</th>
+                                            <th>Date Seance</th>
 
 
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        {% for absenceEmploye in absenceEmployes %}
+                                        {% for absence in absences %}
                                             <tr>
-                                                <td><a href="{{ path('absenceemploye_show', { 'idAbsenceE': absenceEmploye.idAbsenceE }) }}">{{ absenceEmploye.idAbsenceE }}</a></td>
-                                                <td>{{ absenceEmploye.idEmploye }}</td>
-                                                <td>{{ absenceEmploye.date }}</td>
-                                                <td>{{ absenceEmploye.typeAbsence }}</td>
-                                                <td>
-                                                    <ul>
-                                                        <li>
-                                                            <a class="fa fa-file-text-o"  href="{{ path('absenceemploye_show', { 'idAbsenceE': absenceEmploye.idAbsenceE }) }}">consulter</a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="fa fa-paste" href="{{ path('absenceemploye_edit', { 'idAbsenceE': absenceEmploye.idAbsenceE }) }}">editer</a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
+                                                <td><a href="{{ path('absence_show', { 'id': absence.idAbsence }) }}">{{ absence.idAbsence }}</a></td>
+                                                <td>{{ absence.idEtudiant }}</td>
+                                                <td>{{ absence.typeAbsence }}</td>
+                                                <td>{{ absence.date|date('Y-m-d ') }}</td>
+
                                             </tr>
                                         {% endfor %}
 
                                         </tbody>
                                     </table>
-                                    <ul>
-                                        <li>
-                                            <a class="btn btn-outline btn-primary" href="{{ path('absenceemploye_new') }}">créer une nouvelle absence</a>
-                                        </li>
-                                    </ul>
+
                                 </div>
 
                             </div>

@@ -1,16 +1,83 @@
 {% extends 'base.html.twig' %}
-
 {% block body %}
-    <h1>Absenceemploye creation</h1>
+    <style>
+        label {
+            text-align: left;
+        }
+    </style>
+    <br>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+    <a href="{{ path('absenceemploye_index')  }}"><i class="fa fa-arrow-circle-o-left"></i> retour</a>
+    <br>
+    <br>
 
-    <ul>
-        <li>
-            <a href="{{ path('absenceemploye_index') }}">Back to the list</a>
-        </li>
-    </ul>
+
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Nouvelle Absence <small></small></h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <i class="form-horizontal">
+                        {{ form_start(form) }}
+                        <div class="form-group"><label class="col-sm-2 control-label">Nom D'utilisateur</label>
+                            <div class="col-sm-10">
+                                {{ form_widget(form.idEmploye, { 'attr': {'class': 'form-control ' } }) }}
+                                {{ form_errors(form.idEmploye) }}
+
+
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group"><label class="col-sm-2 control-label">Justification</label>
+
+                            <div class="col-sm-10">
+
+
+                                {{ form_widget(form.typeAbsence, { 'attr': {'class': 'form-control ' } }) }}
+                                {{ form_errors(form.typeAbsence) }}
+
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group"><label class="col-sm-2 control-label">Date</label>
+
+                            <div class="col-sm-10">
+                                {{ form_widget(form.date, { 'attr': {'class': 'form-control ',  } }) }}
+                                {{ form_errors(form.date) }}
+
+
+                            </div>
+                        </div>
+
+                        <div class="hr-line-dashed"></div>
+                        <center> <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                    <a href="{{ path('absenceemploye_index') }}"><button class="btn btn-white"  >Annuler</button></a>
+
+                                    <input class="btn btn-primary" type="submit" value="créer">
+
+
+
+                                </div>
+                            </div></center>
+                        {{ form_end(form) }}
+                    </i>
+                    </i>
+                </div>
+            </div>
+        </div>
+
+    </div>
 {% endblock %}
