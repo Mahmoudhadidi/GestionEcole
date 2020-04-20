@@ -1,0 +1,10 @@
+stage_stage:
+    resource: "@StageBundle/Resources/config/routing/stage.yml"
+    prefix:   /stage
+stage_homepage:
+    path:     /
+    defaults: { _controller: StageBundle:Default:index }
+
+listNonValid:
+    path:     /list
+    defaults:  { _controller: "StageBundle:Stage:afficheStagenonvalid" }

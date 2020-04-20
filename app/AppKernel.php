@@ -17,13 +17,15 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new AppBundle\AppBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
 
             new ClasseBundle\ClasseBundle(),
             new MatiereBundle\MatiereBundle(),
             new SalleBundle\SalleBundle(),
 
+
             new NotesBundle\NotesBundle(),
-            new FOS\UserBundle\FOSUserBundle(),
+
 
             new Ob\HighchartsBundle\ObHighchartsBundle(),
             new EvaliatBundle\EvaliatBundle(),
@@ -32,6 +34,11 @@ class AppKernel extends Kernel
             new UserBundle\UserBundle(),
 
             new SeanceBundle\SeanceBundle(),
+
+
+            new StageBundle\StageBundle(),
+
+            new TypeStageBundle\TypeStageBundle(),
 
         ];
 

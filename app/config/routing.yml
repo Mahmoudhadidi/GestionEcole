@@ -1,6 +1,13 @@
+
 evaliat:
     resource: "@EvaliatBundle/Resources/config/routing.yml"
     prefix:   /
+
+type_stage:
+    resource: "@TypeStageBundle/Resources/config/routing.yml"
+    prefix:   /type_stage
+
+
 
 
 user:
@@ -38,4 +45,16 @@ salle:
 matiere:
     resource: "@MatiereBundle/Resources/config/routing.yml"
     prefix:   /matiere
+
+
+stage:
+    resource: "@StageBundle/Resources/config/routing.yml"
+    prefix:   /stage
+
+
+
+
+
+
+
 

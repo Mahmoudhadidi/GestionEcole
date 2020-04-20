@@ -1,0 +1,110 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Stage creation</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Create" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('stage_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}
+{% block js %}
+    <script>
+        $(document).ready(function () {
+
+            $('#misstitre').hide();
+            $('#stagebundle_Stage_titre').keyup(function () {
+
+
+                $.ajax({
+
+                    success: function () {
+                        var re = /^[a-z \t à . ? ! ) ( @ # < > : = + $ * ô é è ù ,A-Z 0-9]{3,}$/i;
+                        var x = $('#Stagebundle_Stage_titre').val();
+                        if (re.test(x)) {
+
+                            $('#bouton').prop('disabled', false);
+                            $('#misstitre').hide();
+                            $('#Stagebundle_Stage_titre').css('border', "2px  solid #29FF2B");
+
+                        } else {
+
+                            $('#misstitre').show();
+                            $('#Stagebundle_Stage_titre').css('border', "2px solid #db4848");
+
+
+                            $('#bouton').prop('disabled', true);
+                        }
+                    }
+                });
+
+
+            });
+            $('#misscap').hide();
+            $('#Stagebundle_Stage_capaciteMax').keyup(function () {
+
+
+                $.ajax({
+
+                    success: function () {
+                        var re = /^[0-9 A-Z]{1,}$/i;
+                        var x = $('#Stagebundle_Stage_capaciteMax').val();
+                        if (re.test(x)) {
+
+                            $('#bouton').prop('disabled', false);
+                            $('#misscap').hide();
+                            $('#Stagebundle_Stage_capaciteMax').css('border', "2px  solid #29FF2B");
+
+                        } else {
+
+                            $('#misscap').show();
+                            $('#Stagebundle_Stage_capaciteMax').css('border', "2px solid #db4848");
+
+
+                            $('#bouton').prop('disabled', true);
+                        }
+                    }
+                });
+
+
+            });
+
+            $('#missdescrip').hide();
+            $('#Stagebundle_Stage_description').keyup(function () {
+
+
+                $.ajax({
+
+                    success: function () {
+                        var re = /^[a-z \t à . ? ! ) ( @ # < > : = + , â ê $ * ô é è ù ,A-Z 0-9]{3,}$/i;
+                        var x = $('#Stagebundle_Stage_description').val();
+                        if (re.test(x)) {
+
+                            $('#bouton').prop('disabled', false);
+                            $('#missdescrip').hide();
+                            $('#Stagebundle_Stage_description').css('border', "2px  solid #29FF2B");
+
+                        } else {
+
+                            $('#missdescrip').show();
+                            $('#Stagebundle_Stage_description').css('border', "2px solid #db4848");
+
+
+                            $('#bouton').prop('disabled', true);
+                        }
+                    }
+                });
+
+
+            });
+        })
+
+    </script>
+{% endblock %}
+

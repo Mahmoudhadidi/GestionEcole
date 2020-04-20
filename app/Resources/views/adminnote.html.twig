@@ -105,6 +105,17 @@
                     <a href="{{ path('Stat') }}"><i class="fa fa-home"></i> <span class="nav-label">Statistiques</span></a>
                 </li>
                 <li>
+                    <a href=""><i class="fa fa-desktop"></i> <span class="nav-label">Stage</span></span><span class="fa arrow"></span></a> <span class="pull-right label label-primary"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="{{ path('stage_index') }}">Gestion des stages</a></li>
+                        <li><a href="{{ path('typestage_index') }}">Gestion des types stages</a></li>
+                        <li><a href="{{ path('listNonValid') }}">List des stages Non Valides</a></li>
+
+
+                    </ul>
+
+                <li>
+                <li>
                     <a href="{{ path('fos_user_security_login') }}"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Déconnexion</span><span class="fa arrow"></span></a>
 
                 </li>

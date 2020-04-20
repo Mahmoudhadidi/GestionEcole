@@ -1,0 +1,43 @@
+{% extends 'adminnote.html.twig' %}
+
+{% block body %}
+    <center><h1> Liste des Stages non valides </h1></center>
+    <br> <br>
+
+    <table class="table table-striped table-bordered table-hover dataTables-example">
+        <thead>
+        <tr>
+
+
+            
+            <th>nom d'etudiant</th>
+            <th> Affectation </th>
+            <th> titre de stage</th>
+            <th> description</th>
+            <th> type</th>
+            <th> id_stage </th>
+            <th> Action </th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for r in result %}
+            <tr>
+
+
+                <td>{{ r.username }}</td>
+                <td>{{ r.postuler }}</td>
+                <td>{{ r.titre }}</td>
+                <td>{{ r.description }}</td>
+                <td>{{ r.type }}</td>
+                <td>{{ r.id_stage }}</td>
+                <td><center>
+                     <a href="{{ path('stage_index', { 'idStageaffected': r.id_stage }) }}"><button class="btn btn-outline btn-success btn-white btn-xs" type="button" title="modifier">Affecter</button></a>
+                <td style="text-align: center;">
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br> <br>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+TypeStageBundle\Entity\TypeStage:
+    type: entity
+    table: null
+    repositoryClass: TypeStageBundle\Repository\TypeStageRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        type:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }
