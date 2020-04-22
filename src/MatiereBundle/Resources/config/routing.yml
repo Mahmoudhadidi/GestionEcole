@@ -1,4 +1,4 @@
-matiere_matiere:
+Rmatiere_matiere:
     resource: "@MatiereBundle/Resources/config/routing/matiere.yml"
     prefix:   /matiere
 

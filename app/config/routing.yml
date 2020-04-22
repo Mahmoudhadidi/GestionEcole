@@ -1,19 +1,27 @@
 
 
 
-
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
 
-classe:
-    resource: "@ClasseBundle/Resources/config/routing.yml"
-    prefix:   /classe
 
-salle:
-    resource: "@SalleBundle/Resources/config/routing.yml"
-    prefix:   /salle
+user_user:
+    resource: "@UserUserBundle/Resources/config/routing.yml"
+    prefix:   /User
 
-matiere:
-    resource: "@MatiereBundle/Resources/config/routing.yml"
-    prefix:   /matiere
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+reclamation:
+    resource: "@ReclamationBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
+forum:
+    resource: "@ForumBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
+
+

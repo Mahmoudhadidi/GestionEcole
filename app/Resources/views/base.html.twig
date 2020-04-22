@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
 
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        <title>SUPTECH {% block title %} choukri {% endblock %}</title>
+        <title>SUPTECH {% block title %} Bienvene {% endblock %}</title>
         {% block stylesheets %}
         {% endblock %}
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
@@ -52,10 +52,10 @@
 
                     </li>
                     <li>
-                        <a href="{{ path('classe_homepage') }}"><i class="fa fa-home"></i> <span class="nav-label">Gestion de classe</span></a>
+                    {#x  <a href="{{ path('classe_homepage') }}"><i class="fa fa-home"></i> <span class="nav-label">Gestion de classe</span></a> #}
                     </li>
                     <li>
-                        <a href="{{ path('matiere_index') }}"><i class="fa fa-tasks"></i> <span class="nav-label">Gestion de matiere</span></a>
+                      {#  <a href="{{ path('matiere_index') }}"><i class="fa fa-tasks"></i> <span class="nav-label">Gestion de matiere</span></a>#}
                         <!--<ul class="nav nav-second-level collapse">
                             <li><a href="graph_flot.html">Flot Charts</a></li>
                             <li><a href="graph_morris.html">Morris.js Charts</a></li>
@@ -68,13 +68,13 @@
                         </ul>-->
                     </li>
                     <li>
-                        <a href="{{ path('salle_homepage') }}"><i class="fa fa-envelope"></i> <span class="nav-label">Gestion de salle </span><!--<span class="label label-warning pull-right">16/24</span>--></a>
-                       <!-- <ul class="nav nav-second-level collapse">
-                            <li><a href="mailbox.html">Inbox</a></li>
-                            <li><a href="mail_detail.html">Email view</a></li>
-                            <li><a href="mail_compose.html">Compose email</a></li>
-                            <li><a href="email_template.html">Email templates</a></li>
-                        </ul>-->
+                     {# <a href="{{ path('salle_homepage') }}"><i class="fa fa-envelope"></i> <span class="nav-label">Gestion de salle </span><!--<span class="label label-warning pull-right">16/24</span>--></a>#}
+                        <!-- <ul class="nav nav-second-level collapse">
+                             <li><a href="mailbox.html">Inbox</a></li>
+                             <li><a href="mail_detail.html">Email view</a></li>
+                             <li><a href="mail_compose.html">Compose email</a></li>
+                             <li><a href="email_template.html">Email templates</a></li>
+                         </ul>-->
                     </li>
                     <li>
                         <a href=""><i class="fa fa-pie-chart"></i> <span class="nav-label">gestion de seance</span>  </a>
@@ -83,15 +83,12 @@
                         <a href="widgets.html"><i class="fa fa-flask"></i> <span class="nav-label">Widgets</span></a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Forms</span><span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Gestion Reclamation</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
-                            <li><a href="form_basic.html">Basic form</a></li>
-                            <li><a href="form_advanced.html">Advanced Plugins</a></li>
-                            <li><a href="form_wizard.html">Wizard</a></li>
-                            <li><a href="form_file_upload.html">File Upload</a></li>
-                            <li><a href="form_editors.html">Text Editor</a></li>
-                            <li><a href="form_autocomplete.html">Autocomplete</a></li>
-                            <li><a href="form_markdown.html">Markdown</a></li>
+                            <li><a href="{{ path('reclamation_consulte') }}">Reclamation user </a></li>
+                            <li><a href="{{ path('reclamation_index') }}">Reclamation admin </a></li>
+                           <li><a href="{{ path('question_index') }}">Forum</a></li>
+
                         </ul>
                     </li>
                     <li>
@@ -326,10 +323,10 @@
 
                     <div class="footer">
                         <div class="pull-right">
-                            Devl’s<strong> 3A13</strong>
+                           By Devl’s<strong> 3A13</strong>
                         </div>
                         <div>
-                            <strong>Esprit Elghazel</strong>  &copy; 2019-2020
+                            <strong>Esprit </strong>  &copy; 2019-2020
                         </div>
                     </div>
         </div>

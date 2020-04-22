@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+    <div class="row border-bottom">
+
+        <ul class="nav navbar-top-links navbar-right">
+
+            <li class="dropdown">
+
+    </div>
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-sm-4">
+            <h2>Réclamations</h2>
+            <ol class="breadcrumb">
+                <li>
+                    <a href={{ path('homepage') }}>Home</a>
+                </li>
+                <li class="active">
+                    <strong>liste des réclamations</strong>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="wrapper wrapper-content animated fadeInRight">
+                <div class="ibox-content forum-post-container">
+                    <div class="forum-post-info">
+                        <h4><span class="text-navy"><i class="fa fa-globe"></i> General réclamations</span> </h4>
+                    </div>
+
+                    {# <table>
+                         <thead>
+                             <tr>
+                                 <th>Id</th>
+                                 <th>Sujet</th>
+                                 <th>Description</th>
+                                 <th>Etat</th>
+                                 <th>Dateenv</th>
+                                 <th>Daterep</th>
+                                 <th>Iduser</th>
+                                 <th>Actions</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                         #}
+                    {% for reclamation in reclamations %}
+
+                        <div class="media">
+                            <a class="forum-avatar" href="#">
+                                <div class="author-info">
+                                    <br> <strong>nom:</strong>
+
+                                   <br/>
+                                    <br>  <strong>date:</strong> {% if reclamation.dateEnv %}{{ reclamation.dateEnv|date('Y-m-d H:i:s') }}{% endif %}<br/>
+                                </div>
+                            </a>
+                            <div class="media-body">
+                                <br> <h4 class="media-heading">Sujet:</h4>{{ reclamation.sujet}}<br/>
+                                <br> <h4 class="media-heading">Description:</h4>{{ reclamation.description}}<br/>
+
+
+                            </div>
+
+
+                            {#
+                            <tr>
+                                <td><a href="{{ path('reclamation_show', { 'id': reclamation.id }) }}">{{ reclamation.id }}</a></td>
+                                <td>{{ reclamation.sujet }}</td>
+                                <td>{{ reclamation.description }}</td>
+                                <td>{{ reclamation.etat }}</td>
+                                <td>{% if reclamation.dateEnv %}{{ reclamation.dateEnv|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>{% if reclamation.dateRep %}{{ reclamation.dateRep|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>{{ reclamation.idUser }}</td>
+                                <td>
+                                    <ul>
+                                        <li>
+                                        #}
+                            {#{% if etat.reclamation==traité %}
+                                <td class="client-status"><span class="label label-warning">Waiting</span></td>
+                            {% endif %}
+                            #}<div class="modal-footer">
+                                               <button type="button" style="color: #F00" class="btn btn-w-m btn-primary"
+
+                                                       data-dismiss="modal"  >  <a href="{{ path('reclamation_show', { 'id': reclamation.id }) }}">show</a></button>
+
+
+                            </div> </div>
+                    {% endfor %}
+
+    <!-- Mainly scripts -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="js/inspinia.js"></script>
+    <script src="js/plugins/pace/pace.min.js"></script>
+
+    </tbody>
+    </table>
+
+    <ul>
+
+        <li>
+            <a href="{{ path('reclamation_new') }}">Create a new reclamation</a>
+        </li>
+    </ul>
+{% endblock %}
