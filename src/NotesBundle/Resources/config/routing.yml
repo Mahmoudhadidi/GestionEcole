@@ -16,7 +16,7 @@ note_calcule:
     defaults: { _controller: "NotesBundle:Note:calculeMoyenneMatiere" }
 
 Stat:
-    path:     /stat
+    path:     /statistique
     defaults: { _controller: "NotesBundle:Stat:Stat" }
 
 majeur:

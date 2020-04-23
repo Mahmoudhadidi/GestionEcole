@@ -27,7 +27,7 @@ class StatController extends Controller
         $query = $em->createQuery('SELECT p.nomMatier as Matiere, max(p.noteExamun) as NoteExamen FROM NotesBundle:Note p GROUP by p.nomMatier');
 
         $resultat = $query->getResult();
-        var_dump($resultat);
+       # var_dump($resultat);
 
         $data = array();
         foreach ($resultat as $values)

@@ -1,0 +1,12 @@
+absence_absence:
+    resource: "@AbsenceBundle/Resources/config/routing/absence.yml"
+    prefix:   /absence
+
+absence_homepage:
+    path:     /
+    defaults: { _controller: AbsenceBundle:Default:index }
+
+Absence_pdf:
+    path:     /convert/{id}
+    defaults: { _controller: AbsenceBundle:Default:convert }
+
