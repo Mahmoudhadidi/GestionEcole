@@ -2,6 +2,10 @@ seance_index:
     path:     /
     defaults: { _controller: "SeanceBundle:Seance:index" }
     methods: [GET, POST]
+calendar_index:
+    path:     /calendar
+    defaults: { _controller: "SeanceBundle:Seance:calendar" }
+    methods: [GET, POST]
 
 seance_show:
     path:     /{idSeance}/show

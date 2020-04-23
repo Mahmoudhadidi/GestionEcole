@@ -1,6 +1,6 @@
 <?php
 
-namespace SeanceBundle\Entity;
+namespace CalendarBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 

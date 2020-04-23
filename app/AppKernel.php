@@ -24,6 +24,8 @@ class AppKernel extends Kernel
             new UserBundle\UserBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new SeanceBundle\SeanceBundle(),
+            new Toiba\FullCalendarBundle\FullCalendarBundle(),
+            new CalendarBundle\CalendarBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

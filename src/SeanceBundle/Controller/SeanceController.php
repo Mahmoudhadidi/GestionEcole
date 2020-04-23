@@ -13,11 +13,26 @@ use Symfony\Component\HttpFoundation\Request;
 class SeanceController extends Controller
 {
     /**
+     *
+     *
+     */
+    public function calendarAction()
+    {
+
+
+        return $this->render('seance/calendar.html.twig', array(
+
+
+        ));
+    }
+
+    /**
      * Lists all seance entities.
      *
      */
     public function indexAction(Request $request)
     {
+
         $seance = new Seance();
         $form = $this->createForm('SeanceBundle\Form\SeanceType', $seance);
         $form->handleRequest($request);
@@ -40,6 +55,12 @@ class SeanceController extends Controller
 
         $seances = $em->getRepository('SeanceBundle:Seance')->findAll();
 
+        if (isset($_GET['idSeance'])) {
+            $msg=  " la seance a bien été supprimée";//La nouvelle matière a bien été enregistrée
+
+            $this->getDoctrine()->getRepository('SeanceBundle:Seance')->supprimerSeance();
+            return $this->redirectToRoute('seance_index',array('msg'=>$msg,));
+        }
         return $this->render('seance/index.html.twig', array(
             'seances' => $seances,
             'msg'=>$msg,

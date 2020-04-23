@@ -301,9 +301,9 @@
                                                 {% set i=i+1 %}
                                                 <tr><td>{{ seance.idEns }}</td>
                                                     <td>{{ seance.idMatiere }}</td>
-                                                    <td>{{ seance.duree }}</td>
+                                                    <td>{{ seance.duree|date('Y-m-d H:i:s') }}</td>
                                                     <td>{{ seance.heure|date('H:i') }}</td>
-                                                    <td>{{ seance.date|date('Y-m-d ') }}</td>
+                                                    <td>{{ seance.date|date('Y-m-d H:i:s') }}</td>
                                                     <td>{{seance.idClasse }}</td>
                                                     <td>{{ seance.idSalle }}</td>
                                                     <td>
@@ -515,13 +515,18 @@
                 new Chart(ctx4, {type: 'doughnut', data: doughnutData, options:doughnutOptions});
 
             });
+
+
+
+
         </script>
+
     {% endif %}
+
+
     </body>
 
     </html>
-
-
 
 
 

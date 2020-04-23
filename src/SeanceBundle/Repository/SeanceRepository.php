@@ -32,4 +32,17 @@ class SeanceRepository extends EntityRepository
             ->createQuery("SELECT COUNT(a) FROM SeanceBundle:Seance a WHERE a.idSalle='$idsalle' ");
         return $query->getResult();
     }
+    public function supprimerSeance()
+    {
+        $conn = $this->getEntityManager()->getConnection();
+        $b=$_GET['idSeance'];
+        $sql = "
+        
+        DELETE FROM Seance 
+WHERE id_seance= $b
+        ";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+
+    }
 }
