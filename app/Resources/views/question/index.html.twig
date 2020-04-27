@@ -1,0 +1,124 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+   <div>
+       <br>
+       {{ form_start(form) }}
+       {{ form_widget(form.idUser, { 'attr': {'class': 'form-control ' } }) }}
+       {{ form_errors(form.idUser) }}
+       {{ form_widget(form.question, { 'attr': {'class': 'form-control ', 'placeholder': "écrire question..." } }) }}
+       {{ form_errors(form.question) }}
+
+
+       <input type="submit" value="Create" />
+       {{ form_end(form) }}
+
+
+   </div>
+  {# <h1>Questions list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Idques</th>
+                <th>nom user</th>
+                <th>Question</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        #}
+    {% for question in questions %}
+
+                <div class="social-feed-box">
+                <div class="social-avatar">
+                    <a href="" class="pull-left">
+                        <img alt="image" src="{{asset('img/a1.jpg')}}">
+                    </a>
+                    <a href="#">
+                        {{ question.idUser }}
+                    </a>
+                    <small class="text-muted">{{ question.date }}</small>
+                </div>
+                    <div class="social-body">
+                        <p>
+                        {{ question.question }}
+                        </p>
+
+                    </div>
+                <div class="btn-group">
+                    <button class="btn btn-white btn-xs"><i class="fa fa-thumbs-up"></i> Like this!</button>
+
+                    <a href="{{ path('question_edit', { 'idQues': question.idQues }) }}">   <button class="btn btn-white btn-xs"><i class="fa fa-comments"></i>modifier</button></a>
+
+                        </a>
+
+
+                    <a href="{{ path('question_index', { 'idQues': question.idQues }) }}">
+                    <button class="btn btn-white btn-xs"><i class="fa fa-share"></i>Supprimer</button></a>
+
+                </div>
+
+
+    {% for reponse in map[question.idQues] %}
+                    <div class="social-footer">
+                    <div class="social-avatar">
+                        <a  href="" class="pull-left">
+                            <img alt="image" src="{{asset('img/mariem.jpg')}}">
+                        </a>
+                        <div class="media-body">
+                            <a href="#">
+                               Mariem Romdhani
+                            </a>
+                            <br>
+    {{ reponse.reponse }}
+                            <br/>
+                            <a href="{{ path('question_index', { 'idReponse': reponse.id }) }}">
+                                &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;        &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;        &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;        &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;        &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;        &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;        &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;         &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;        &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;        &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;        &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;        &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;   <button class="btn btn-white btn-xs"><i class="fa fa-share"></i>Supprimer</button></a>
+
+                    </div>
+
+                    </div>
+
+
+
+
+
+
+        </div>
+    {% endfor %}
+                    <div class="social-footer">
+                <div class="social-comment">
+                    <div class="social-avatar">
+                    <a href="" class="pull-left">
+                        <img alt="image" src="{{asset('img/mariem.jpg')}}">
+                    </a>
+
+
+                            <div class="media-body">
+                                <form class="form-horizontal" action="{{ path('question_index') }}" method="post">
+                                <textarea class="form-control" name="reponse"placeholder="Write comment..."> </textarea>
+                                    <input type="hidden" name="idQ" value="{{ question.idQues }}">
+                                {#  {{ form_widget(form.reponse, {'attr' :{'class' :'form-control' , 'placeholder':"Saisir un commentaire..."} }) }}#}
+                                    <input class="btn btn-primary"  name="submit"   type="submit" value="Repondre">
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+
+
+
+
+        {% endfor %}
+
+
+
+<br><br><br>
+    <!-- Mainly scripts -->
+
+{% endblock %}

@@ -1,0 +1,138 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div id="wrapper">
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-sm-4">
+                <h2>Réclamations</h2>
+                <ol class="breadcrumb">
+                    <li>
+
+                    </li>
+                    <li class="active">
+                        <strong>liste des réclamations</strong>
+                    </li>
+                </ol>
+            </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="wrapper wrapper-content animated fadeInRight">
+                    <div class="ibox-content forum-post-container">
+                        <div class="forum-post-info">
+                            <h4><span class="text-navy"><i class="fa fa-globe"></i> General réclamations</span> </h4>
+                        </div>
+
+                        <ul class="nav navbar-top-links navbar-right">
+                            <div class="sidebar-collapse">
+
+                                    <li class="nav-header">
+
+                                        <div class="col-lg-5">
+
+                                            <div class="social-feed-box">
+
+
+
+                                                <div class="social-footer">
+                                                    <div class="social-comment">
+
+
+                                                        <div class="media-body">
+                                                            <a href="#">
+                                                                {{ reclamation.id}}
+                                                            </a>
+                                                            <small class="text-muted">{% if reclamation.dateEnv %}{{ reclamation.dateEnv|date('Y-m-d H:i:s') }}{% endif %}</small>
+                                                        </div>
+
+                                                    <div class="social-body">
+                                                        {{ reclamation.description}}
+                                                    </div>
+
+
+                                                        <p>
+
+
+
+                                                        {{ form_start(delete_form) }}
+                                                            &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  <input type="submit" value="Supprimer" , class="btn btn-white">
+
+                                                            </button><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal4">Répondre </button>
+
+                                                            {{ form_end(delete_form) }}
+
+
+
+                                                        </p>
+                                                                        </div>
+
+
+                                                            <div class="modal inmodal" id="myModal4" tabindex="-1" role="dialog"  aria-hidden="true">
+                                                                <div class="modal-dialog">
+                                                                    <div class="modal-content animated fadeIn">
+                                                                        <div class="modal-header">
+                                                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                                                            <i class="fa fa-clock-o modal-icon"></i>
+                                                                            <h4 class="modal-title">Réponse</h4>
+
+
+
+
+                                                                            <div class="row">
+                                                                                <div class="col-lg-12">
+                                                                                    <div class="wrapper wrapper-content animated fadeInRight" >
+                                                                                        {{ form_start(form ) }}
+                                                                                        <div class="ibox-content forum-post-container">
+
+
+                                                                                            <div class="form-group">
+
+                                                                                                <div class="cp-field" >
+
+                                                                                                    {{ form_widget(form.reponse, {'attr' :{'class' :'form-control' , 'placeholder':"Saisir ici..."} }) }}
+                                                                                                </div>
+
+
+
+
+
+
+
+                                                                            <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-white" data-dismiss="modal">Annuler</button>
+                                                                            {{ form_widget(form.repondre, { 'attr': {'class': 'btn btn-primary'} }) }}
+
+
+
+                                                                                {{ form_end(form) }}
+
+
+                                                                                                <div class="cp-field">
+                                                                                                </div>
+
+
+                                                                                            </div></div></div></div></div></div></div></div></div></div></div></div></div></li></div></ul></div></div></div></div></div></div>                                                                                </div></div></div></div></div></div>
+                                                    <!-- Mainly scripts -->
+                                                    <script src="js/jquery-3.1.1.min.js"></script>
+                                                    <script src="js/bootstrap.js"></script>
+
+                                                    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+                                                    <!-- Custom and plugin javascript -->
+                                                    <script src="js/inspinia.js"></script>
+                                                    <script src="js/plugins/pace/pace.min.js"></script>
+
+                                                    <!-- Sparkline -->
+                                                    <script src="js/plugins/sparkline/jquery.sparkline.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

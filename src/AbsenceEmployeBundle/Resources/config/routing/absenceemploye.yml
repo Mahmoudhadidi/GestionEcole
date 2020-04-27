@@ -1,0 +1,24 @@
+absenceemploye_index:
+    path:     /
+    defaults: { _controller: "AbsenceEmployeBundle:AbsenceEmploye:index" }
+    methods:  GET
+
+absenceemploye_show:
+    path:     /{idAbsenceE}/show
+    defaults: { _controller: "AbsenceEmployeBundle:AbsenceEmploye:show" }
+    methods:  GET
+
+absenceemploye_new:
+    path:     /new
+    defaults: { _controller: "AbsenceEmployeBundle:AbsenceEmploye:new" }
+    methods:  [GET, POST]
+
+absenceemploye_edit:
+    path:     /{idAbsenceE}/edit
+    defaults: { _controller: "AbsenceEmployeBundle:AbsenceEmploye:edit" }
+    methods:  [GET, POST]
+
+absenceemploye_delete:
+    path:     /{idAbsenceE}/delete
+    defaults: { _controller: "AbsenceEmployeBundle:AbsenceEmploye:delete" }
+    methods:  DELETE

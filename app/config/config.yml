@@ -5,12 +5,23 @@ imports:
     - { resource: "@ClasseBundle/Resources/config/services.yml" }
     - { resource: "@MatiereBundle/Resources/config/services.yml" }
     - { resource: "@SalleBundle/Resources/config/services.yml" }
+
     - { resource: "@StageBundle/Resources/config/services.yml" }
     - { resource: "@TypeStageBundle/Resources/config/services.yml" }
+
     - { resource: "@NotesBundle/Resources/config/services.yml" }
     - { resource: "@EvaliatBundle/Resources/config/services.yml" }
     - { resource: "@UserBundle/Resources/config/services.yml" }
+
+
+    - { resource: "@UserBundle/Resources/config/services.yml" }
     - { resource: "@SeanceBundle/Resources/config/services.yml" }
+
+    - { resource: "@AbsenceBundle/Resources/config/services.yml" }
+    - { resource: "@AbsenceEmployeBundle/Resources/config/services.yml" }
+    - { resource: "@ReclamationBundle/Resources/config/services.yml" }
+    - { resource: "@ForumBundle/Resources/config/services.yml" }
+
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -84,6 +95,7 @@ swiftmailer:
 sensio_framework_extra:
     router:
         annotations: false
+
 
 
 #FOSUser_configuration

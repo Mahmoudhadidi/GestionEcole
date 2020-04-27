@@ -1,0 +1,62 @@
+{% extends 'adminnote.html.twig.' %}
+
+{% block body %}
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 5px;
+        }
+        th {
+            text-align: left;
+        }
+    </style>
+    <br>
+
+    <a href="{{ path('absenceemploye_index') }}"><i class="fa fa-arrow-circle-o-left"></i> Retour</a>
+    <br>
+    <br>
+    <div class="wrapper wrapper-content  animated fadeInRight article">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1">
+                <div class="ibox">
+                    <div class="ibox-content">
+                        <div class="text-center article-title">
+                            <h1> Absence Employe </h1>
+                        </div>
+                        <center>
+                            <table style="width:100%">
+                                <tbody>
+                                <tr>
+                                    <th>Identifiant:</th>
+                                    <td>{{ absenceEmploye.idAbsenceE }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Nom D'utilisateur:</th>
+                                    <td>{{ absenceEmploye.idEmploye }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Date:</th>
+                                    <td>{{ absenceEmploye.date}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Justification:</th>
+                                    <td>{{ absenceEmploye.typeAbsence }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </center>
+
+
+
+                        <br>
+                        <br>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

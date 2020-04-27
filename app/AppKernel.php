@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new SalleBundle\SalleBundle(),
 
 
+
             new NotesBundle\NotesBundle(),
 
 
@@ -40,6 +41,11 @@ class AppKernel extends Kernel
 
             new TypeStageBundle\TypeStageBundle(),
 
+
+            new AbsenceBundle\AbsenceBundle(),
+            new AbsenceEmployeBundle\AbsenceEmployeBundle(),
+            new ReclamationBundle\ReclamationBundle(),
+            new ForumBundle\ForumBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

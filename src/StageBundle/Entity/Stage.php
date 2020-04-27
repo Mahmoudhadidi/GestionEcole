@@ -60,7 +60,7 @@ class Stage
     /**
      * @var \TypeStage
      *
-     * @ORM\ManyToOne(targetEntity="TypeStage")
+     * @ORM\ManyToOne(targetEntity="TypeStageBundle\Entity\TypeStage")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="type", referencedColumnName="id")
      * })

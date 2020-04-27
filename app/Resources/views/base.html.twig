@@ -80,15 +80,20 @@
                     <li>
                         <a href="{{ path('evaliat_homepage') }}"><i class="fa fa-home"></i> <span class="nav-label">Gestion d'evaluation</span></a>
                     </li>
+                <<li>
+                    <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Gestion Reclamation</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="{{ path('reclamation_consulte') }}">Reclamation </a></li>
+                        <li><a href="{{ path('question_index') }}">Forum</a></li>
+
+                    </ul>
 
 
                     <li>
                         <a href="{{ path('fos_user_security_login') }}"><i class="fa fa-home"></i> <span class="nav-label">Déconnexion</span></a>
                     </li>
 
-                    <li>
-                        <a href="widgets.html"><i class="fa fa-flask"></i> <span class="nav-label">Widgets</span></a>
-                    </li>
+
                     <li>
                         <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Forms</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
@@ -413,7 +418,7 @@
                     </li>
 
                     <li>
-                        <a href="login.html">
+                        <a href="fos_user_security_login">
                             <i class="fa fa-sign-out"></i> Log out
                         </a>
 

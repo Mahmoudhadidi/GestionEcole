@@ -1,26 +1,4 @@
 
-evaliat:
-    resource: "@EvaliatBundle/Resources/config/routing.yml"
-    prefix:   /
-
-type_stage:
-    resource: "@TypeStageBundle/Resources/config/routing.yml"
-    prefix:   /type_stage
-
-
-
-
-user:
-    resource: "@UserBundle/Resources/config/routing.yml"
-    prefix:   /user
-seance:
-    resource: "@SeanceBundle/Resources/config/routing.yml"
-    prefix:   /seance
-
-
-
-
-
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 
@@ -53,8 +31,43 @@ stage:
 
 
 
+forum:
+    resource: "@ForumBundle/Resources/config/routing/question.yml"
+    prefix:   /forum
+
+reclamation:
+    resource: "@ReclamationBundle/Resources/config/routing.yml"
+    prefix:   /reclamation
 
 
+
+
+absence_employe:
+    resource: "@AbsenceEmployeBundle/Resources/config/routing.yml"
+    prefix:   /absenceemp
+
+absence:
+    resource: "@AbsenceBundle/Resources/config/routing.yml"
+    prefix:   /absence
+
+
+evaliat:
+    resource: "@EvaliatBundle/Resources/config/routing.yml"
+    prefix:   /evaluationn
+
+type_stage:
+    resource: "@TypeStageBundle/Resources/config/routing.yml"
+    prefix:   /type_stage
+
+
+
+
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /user
+seance:
+    resource: "@SeanceBundle/Resources/config/routing.yml"
+    prefix:   /seance
 
 
 

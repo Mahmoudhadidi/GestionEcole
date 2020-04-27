@@ -1,0 +1,11 @@
+forum_question:
+    resource: "@ForumBundle/Resources/config/routing/question.yml"
+    prefix:   /question
+
+forum_homepage:
+    path:     /
+    defaults: { _controller: ForumBundle:Default:index }
+
+forum_repondre:
+    path:     /repondre/{id}
+    defaults: { _controller: ForumBundle:Reponse:repondre }
