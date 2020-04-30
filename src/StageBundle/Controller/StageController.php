@@ -22,6 +22,7 @@ class StageController extends Controller
             $stage = new Stage();
             $form = $this->createForm('StageBundle\Form\StageType', $stage);
             $form->handleRequest($request);
+            $role = $this->getUser()->getRoles();
 
             if ($form->isSubmitted() && $form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
@@ -54,6 +55,7 @@ class StageController extends Controller
             return $this->render('stage/index.html.twig', array(
                 'stages' => $stages,
                 'form' => $form->createView(),
+                'role'=>$role,
 
             ));
         }}

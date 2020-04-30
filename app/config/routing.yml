@@ -1,3 +1,7 @@
+calendar:
+    resource: "@CalendarBundle/Resources/config/routing.yml"
+    prefix:   /calendar
+
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
@@ -71,3 +75,5 @@ seance:
 
 
 
+toiba_fullcalendar:
+    resource: "@FullCalendarBundle/Resources/config/routing.yaml"

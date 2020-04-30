@@ -8,6 +8,9 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('CalendarBundle:Default:index.html.twig');
+        return $this->render('seance/calendar.html.twig', array(
+
+
+        ));
     }
 }

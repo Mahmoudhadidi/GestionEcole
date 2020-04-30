@@ -46,6 +46,8 @@ class AppKernel extends Kernel
             new AbsenceEmployeBundle\AbsenceEmployeBundle(),
             new ReclamationBundle\ReclamationBundle(),
             new ForumBundle\ForumBundle(),
+            new Toiba\FullCalendarBundle\FullCalendarBundle(),
+            new CalendarBundle\CalendarBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

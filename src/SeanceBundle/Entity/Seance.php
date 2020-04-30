@@ -25,7 +25,7 @@ class Seance
     /**
      * @var string
      *
-     * @ORM\Column(name="duree", type="string", length=30, nullable=false)
+     * @ORM\Column(name="duree", type="datetime", length=30, nullable=false)
      */
     private $duree;
 
@@ -39,7 +39,7 @@ class Seance
     /**
      * @var string
      *
-     * @ORM\Column(name="date", type="date", length=30, nullable=false)
+     * @ORM\Column(name="date", type="datetime", length=30, nullable=false)
      */
     private $date;
 
