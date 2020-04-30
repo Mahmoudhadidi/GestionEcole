@@ -1,0 +1,165 @@
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <title></title>
+
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet">
+
+    <!-- Toastr style -->
+    <link href="{{ asset('css/plugins/toastr/toastr.min.css') }}" rel="stylesheet">
+
+
+
+    <!-- Gritter -->
+    <link href="{{ asset('js/plugins/gritter/jquery.gritter.css') }}" rel="stylesheet">
+
+
+    <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+
+<div id="wrapper">
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element"> <span>
+                            <img alt="image" class="img-circle" src="{{ asset('img/logoSuptech.jpg') }}" width="100"length="100" />
+                             </span>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Assurer votre succés</strong>
+                           </span> <span class="text-muted text-xs block"></span> </span> </a>
+                        <!-- <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                             <li><a href="profile.html">Profile</a></li>
+                             <li><a href="contacts.html">Contacts</a></li>
+                             <li><a href="mailbox.html">Mailbox</a></li>
+                             <li class="divider"></li>
+                             <li><a href="login.html">Logout</a></li>
+                         </ul>-->
+                    </div>
+                    <div class="logo-element">
+                        IN+
+                    </div>
+                </li>
+                <li class="active">
+                    <a href="{{ path('homepage') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Accueil</span></a>
+
+                </li>
+                <li>
+                    <a href="{{ path('classe_homepage') }}"><i class="fa fa-home"></i> <span class="nav-label">Gestion de classe</span></a>
+                </li>
+                <li>
+                    <a href="{{ path('matiere_index') }}"><i class="fa fa-tasks"></i> <span class="nav-label">Gestion de matiere</span></a>
+                    <!--<ul class="nav nav-second-level collapse">
+                        <li><a href="graph_flot.html">Flot Charts</a></li>
+                        <li><a href="graph_morris.html">Morris.js Charts</a></li>
+                        <li><a href="graph_rickshaw.html">Rickshaw Charts</a></li>
+                        <li><a href="graph_chartjs.html">Chart.js</a></li>
+                        <li><a href="graph_chartist.html">Chartist</a></li>
+                        <li><a href="c3.html">c3 charts</a></li>
+                        <li><a href="graph_peity.html">Peity Charts</a></li>
+                        <li><a href="graph_sparkline.html">Sparkline Charts</a></li>
+                    </ul>-->
+                </li>
+                <li>
+                    <a href="{{ path('salle_homepage') }}"><i class="fa fa-database"></i> <span class="nav-label">Gestion de salle </span><!--<span class="label label-warning pull-right">16/24</span>--></a>
+                    <!-- <ul class="nav nav-second-level collapse">
+                         <li><a href="mailbox.html">Inbox</a></li>
+                         <li><a href="mail_detail.html">Email view</a></li>
+                         <li><a href="mail_compose.html">Compose email</a></li>
+                         <li><a href="email_template.html">Email templates</a></li>
+                     </ul>-->
+                </li>
+                <li>
+                    <a href="{{ path('seance_index') }}"><i class="fa fa-laptop"></i> <span class="nav-label">gestion de seance</span>  </a>
+                </li>
+                <li>
+                    <a href="{{ path('calendar_homepage') }}"><i class="fa fa-laptop"></i> <span class="nav-label">Emploi de temps</span>  </a>
+                </li>
+
+            </ul>
+
+        </div>
+    </nav>
+
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                    <!--<form role="search" class="navbar-form-custom" action="search_results.html">
+                        <div class="form-group">
+                            <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                        </div>
+                    </form>-->
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li>
+                        <span class="m-r-sm text-muted welcome-message">Bienvenu à SUPTECH</span>
+                    </li>
+
+                    <li>
+                        <a href="login.html">
+                            <i class="fa fa-sign-out"></i> Log out
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+        </div>
+
+
+
+
+        {% block body %}
+
+    {% include '@FullCalendar/Calendar/calendar.html.twig' %}
+{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.min.css">
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="https://momentjs.com/downloads/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.min.js"></script>
+
+    {# <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/locale-all.js"></script> #}
+    <script>
+        $(document).ready(function() {
+            $("#calendar-holder").fullCalendar({
+                eventSources: [
+                    {
+                        url: "/fc-load-events",
+                        type: "POST",
+                        data: {
+                            filters: {},
+                        },
+                        error: function () {
+                            // alert("There was an error while fetching FullCalendar!");
+                        }
+                    }
+                ],
+                header: {
+                    center: "title",
+                    left: "prev,next today",
+                    right: "month,agendaWeek,agendaDay"
+                },
+                lazyFetching: true,
+                locale: "fr",
+                navLinks: true, // can click day/week names to navigate views
+            });
+        });
+    </script>
+{% endblock %}
+        <div class="footer">
+            <div class="pull-right">
+                Devl’s<strong> 3A13</strong>
+            </div>
+            <div>
+                <strong>Esprit Elghazel</strong>  &copy; 2019-2020
+            </div>
+        </div>
+    </div>
+</div>
