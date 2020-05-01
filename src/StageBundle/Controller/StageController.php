@@ -22,7 +22,15 @@ class StageController extends Controller
             $stage = new Stage();
             $form = $this->createForm('StageBundle\Form\StageType', $stage);
             $form->handleRequest($request);
-            $role = $this->getUser()->getRoles();
+            $role = "";
+            $authChecker = $this->container->get('security.authorization_checker');
+
+            if($authChecker->isGranted('ROLE_ETUDIANT')) {
+
+                $role="ROLE_ETUDIANT";
+            }elseif ($authChecker->isGranted('ROLE_ADMIN')) {
+                $role="ROLE_ADMIN";
+            }
 
             if ($form->isSubmitted() && $form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
@@ -39,23 +47,34 @@ class StageController extends Controller
                 $this->getDoctrine()->getRepository('StageBundle:Stage')->supprimerStage();
                 return $this->redirectToRoute('stage_index');
             }
+            $qs = $this->getUser()->getId();
+            $IdUser = intval($qs);
             if (isset($_GET['idStageaffect'])) {
-                $this->getDoctrine()->getRepository('StageBundle:Stage')->PostulerStage();
+                $this->getDoctrine()->getRepository('StageBundle:Stage')->PostulerStage($IdUser);
                 return $this->redirectToRoute('stage_index');
             }
             if (isset($_GET['idStageaffected'])) {
-                $this->getDoctrine()->getRepository('StageBundle:Stage')->AffecterStage();
+                $this->getDoctrine()->getRepository('StageBundle:Stage')->AffecterStage($IdUser);
                 return $this->redirectToRoute('listNonValid');
             }
 
 
 
             $stages = $em->getRepository('StageBundle:Stage')->findAll();
+            $verifFanction=array();
+
+            foreach ($stages as $idStage){
+
+                $verifFanction[$idStage->getIdStage()] = $this->getDoctrine()->getRepository('StageBundle:Affectation')->VerifAffecterStage($IdUser,$idStage->getIdStage());
+
+
+            }
 
             return $this->render('stage/index.html.twig', array(
                 'stages' => $stages,
                 'form' => $form->createView(),
                 'role'=>$role,
+                'verif'=>$verifFanction,
 
             ));
         }}

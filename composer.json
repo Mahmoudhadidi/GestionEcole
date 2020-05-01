@@ -18,6 +18,7 @@
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/orm": "^2.5",
         "egyg33k/csv-bundle": "^1.0",
+        "friendsofsymfony/rest-bundle": "^2.1",
         "friendsofsymfony/user-bundle": "~2.1",
         "incenteev/composer-parameter-handler": "^2.0",
         "ob/highcharts-bundle": "^1.6",

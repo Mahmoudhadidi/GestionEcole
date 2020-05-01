@@ -2,6 +2,10 @@ matiere_index:
     path:     /
     defaults: { _controller: "MatiereBundle:Matiere:index" }
     methods:  [GET, POST]
+matiere_api:
+    path:     /api
+    defaults: { _controller: "MatiereBundle:Apimatiere:api" }
+    methods:  [GET, POST]
 
 matiere_show:
     path:     /{idMatiere}/show

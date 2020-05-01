@@ -4,6 +4,7 @@ namespace MatiereBundle\Controller;
 
 use MatiereBundle\Entity\Matiere;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -55,7 +56,8 @@ class MatiereController extends Controller
         ));
     }
 
-    /**
+
+/**
      * Creates a new matiere entity.
      *
      */
@@ -150,4 +152,5 @@ class MatiereController extends Controller
             ->getForm()
         ;
     }
+    
 }

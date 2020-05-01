@@ -16,6 +16,7 @@ use Symfony\Component\Form\Util\OrderedHashMap;
  */
 class ClasseController extends Controller
 {
+    
     /**
      * Lists all classe entities.
      *

@@ -330,10 +330,10 @@
                                                 <td>{{ classe.numClasse }}</td>
                                                 <td>{{ classe.nbreEtudient }}</td>
                                                 <td>{{ classe.specialite }}
-                                                <td>   {% for nombreE in map[classe.idClasse] %}
-
+                                                <td>
+                                                    {% for nombreE in map[classe.idClasse] %}
                                                         {{ nombreE[1] }}
-                                                       {% endfor %}
+                                                    {% endfor %}
                                                 </td>
 
                                                 </td>

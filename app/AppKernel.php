@@ -40,6 +40,7 @@ class AppKernel extends Kernel
             new StageBundle\StageBundle(),
 
             new TypeStageBundle\TypeStageBundle(),
+            new FOS\RestBundle\FOSRestBundle(),
 
 
             new AbsenceBundle\AbsenceBundle(),

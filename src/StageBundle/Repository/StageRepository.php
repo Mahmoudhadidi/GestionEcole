@@ -29,18 +29,17 @@ WHERE id_stage= $b
 
     }
 
-    public function PostulerStage()
+    public function PostulerStage($user)
     {
 
-        $qs = $this->getUser()->getId();
-        $user = intval($qs);
+       
         $conn = $this->getEntityManager()->getConnection();
 
 
         $b=$_GET['idStageaffect'];
         $sql = "INSERT INTO Affectation 
 ( `id_stage`, `id_user`, `postuler`) VALUES 
-(  $b , $user ,  '\"nonvalid\"' );
+(  $b , $user ,  'nonvalid' );
 
         
         ";
@@ -49,14 +48,13 @@ WHERE id_stage= $b
 
 
     }
-    public function AffecterStage()
+    public function AffecterStage($user)
     {
-        $qs = $this->getUser()->getId();
-        $user = intval($qs);
+       
 
         $conn = $this->getEntityManager()->getConnection();
         $b=$_GET['idStageaffected'];
-        $sqlu = "UPDATE Affectation SET postuler='\"valid\"' WHERE `id_user`= $user and id_stage=$b  and postuler='\"nonvalid\"'";
+        $sqlu = "UPDATE Affectation SET postuler='valid' WHERE `id_user`= $user and id_stage=$b  and postuler='nonvalid'";
 
         $sql = " UPDATE Stage SET capacite_max=capacite_max-1 WHERE id_stage=$b  ";
 
@@ -71,5 +69,12 @@ WHERE id_stage= $b
         $stmttt->execute();
 
     }
+    public function VerifAffecterStage($user,$idStage)
+    {
 
+        $query=$this->getEntityManager()
+            ->createQuery("SELECT a FROM StageBundle:Affectation a WHERE a.idUser='$user' AND a.idStage='$idStage'  ");
+        return $query->getResult();
+
+    }
 }
