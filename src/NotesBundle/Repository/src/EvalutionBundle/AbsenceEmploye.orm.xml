@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="annotation\AbsenceEmploye" table="absence_employe">
+    <indexes>
+      <index name="id_employe" columns="id_employe"/>
+    </indexes>
+    <id name="idAbsenceE" type="integer" column="id_absence_e">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="typeAbsence" type="string" column="type_absence" length="50" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="idEmploye" type="integer" column="id_employe" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="date" type="string" column="date" length="125" nullable="true">
+      <options>
+        <option name="fixed"/>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,27 @@
+stage_index:
+    path:     /
+    defaults: { _controller: "StageBundle:Stage:index" }
+    methods:  [GET, POST]
+
+
+stage_show:
+    path:     /{idStage}/show
+    defaults: { _controller: "StageBundle:Stage:show" }
+    methods:  GET
+
+stage_new:
+    path:     /new
+    defaults: { _controller: "StageBundle:Stage:new" }
+    methods:  [GET, POST]
+
+stage_edit:
+    path:     /{idStage}/edit
+    defaults: { _controller: "StageBundle:Stage:edit" }
+    methods:  [GET, POST]
+
+stage_delete:
+    path:     /{idStage}/delete
+    defaults: { _controller: "StageBundle:Stage:delete" }
+    methods:  DELETE
+
+

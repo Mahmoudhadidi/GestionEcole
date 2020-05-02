@@ -1,0 +1,24 @@
+eval_index:
+    path:     /
+    defaults: { _controller: "EvaliatBundle:Evaluation:index" }
+    methods:  GET
+
+eval_show:
+    path:     /{id}/show
+    defaults: { _controller: "EvaliatBundle:Evaluation:show" }
+    methods:  GET
+
+eval_new:
+    path:     /new
+    defaults: { _controller: "EvaliatBundle:Evaluation:new" }
+    methods:  [GET, POST]
+
+eval_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "EvaliatBundle:Evaluation:edit" }
+    methods:  [GET, POST]
+
+eval_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "EvaliatBundle:Evaluation:delete" }
+    methods:  DELETE

@@ -1,0 +1,105 @@
+{% extends 'adminnote.html.twig' %}
+
+{% block body %}
+
+    <br>
+
+    <a href="{{ path('seance_index') }}"><i class="fa fa-arrow-circle-o-left"></i> retour</a>
+    <br>
+    <br>
+
+
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+
+                <div class="ibox-content">
+                    <i class="form-horizontal">
+                        {{ form_start(edit_form) }}
+                        <div class="form-group"><label class="col-sm-2 control-label">Durée</label>
+
+                            <div class="col-sm-10">
+
+
+                                {{ form_widget(edit_form.duree, { 'attr': {'class': 'form-control ', 'placeholder': "Durée" } }) }}
+                                {{ form_errors(edit_form.duree) }}
+
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group"><label class="col-sm-2 control-label">Heure</label>
+                            <div class="col-sm-10">
+                                {{ form_widget(edit_form.heure, { 'attr': {'class': 'form-control '} }) }}
+                                {{ form_errors(edit_form.heure) }}
+
+
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group"><label class="col-sm-2 control-label">Daté</label>
+
+                            <div class="col-sm-10">
+                                {{ form_widget(edit_form.date, { 'attr': {'class': 'form-control '} }) }}
+                                {{ form_errors(edit_form.date) }}
+
+
+                            </div>
+                        </div>
+
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group"><label class="col-sm-2 control-label">Professeur</label>
+
+                            <div class="col-sm-10">
+
+
+                                {{ form_widget(edit_form.idEns, { 'attr': {'class': 'form-control m-b' } }) }}
+                                {{ form_errors(edit_form.idEns) }}
+
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group"><label class="col-sm-2 control-label">Classe</label>
+                            <div class="col-sm-10">
+                                {{ form_widget(edit_form.idClasse, { 'attr': {'class': 'form-control m-b' } }) }}
+                                {{ form_errors(edit_form.idClasse) }}
+
+
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group"><label class="col-sm-2 control-label">Credit</label>
+
+                            <div class="col-sm-10">
+                                {{ form_widget(edit_form.idMatiere, { 'attr': {'class': 'form-control m-b' } }) }}
+                                {{ form_errors(edit_form.idMatiere) }}
+
+
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group"><label class="col-sm-2 control-label">Salle</label>
+
+                            <div class="col-sm-10">
+                                {{ form_widget(edit_form.idSalle, { 'attr': {'class': 'form-control m-b' } }) }}
+                                {{ form_errors(edit_form.idSalle) }}
+
+
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+
+                            <center>   <input class="btn btn-white" type="reset" value="Annuler">
+                                <input class="btn btn-primary" type="submit" value="Ajouter">
+                            </center>
+                        </div>
+                        {{ form_end(edit_form) }}
+                    </i></div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

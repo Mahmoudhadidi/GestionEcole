@@ -17,11 +17,38 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new AppBundle\AppBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
 
             new ClasseBundle\ClasseBundle(),
             new MatiereBundle\MatiereBundle(),
             new SalleBundle\SalleBundle(),
 
+
+
+            new NotesBundle\NotesBundle(),
+
+
+            new Ob\HighchartsBundle\ObHighchartsBundle(),
+            new EvaliatBundle\EvaliatBundle(),
+            new Egyg33k\CsvBundle\Egyg33kCsvBundle(),
+
+            new UserBundle\UserBundle(),
+
+            new SeanceBundle\SeanceBundle(),
+
+
+            new StageBundle\StageBundle(),
+
+            new TypeStageBundle\TypeStageBundle(),
+            new FOS\RestBundle\FOSRestBundle(),
+
+
+            new AbsenceBundle\AbsenceBundle(),
+            new AbsenceEmployeBundle\AbsenceEmployeBundle(),
+            new ReclamationBundle\ReclamationBundle(),
+            new ForumBundle\ForumBundle(),
+            new Toiba\FullCalendarBundle\FullCalendarBundle(),
+            new CalendarBundle\CalendarBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

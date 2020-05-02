@@ -1,0 +1,14 @@
+{% extends 'adminnote.html.twig' %}
+
+{% block body %}
+<center>
+<form class="form-horizontal" action="{{ path('note_calcule') }}" method="post">
+    <input type="text" name="cc" placeholder="note cc" width="100"/> <br><br>
+    <input type="text" name="ds" placeholder="note ds"/> <br><br>
+    <input type="text" name="examen" placeholder="note examen"/> <br><br>
+    <input type="text" name="matiere" placeholder="nom matière" /> <br><br>
+    <input type="submit" value="calculer" name="submit" class="btn btn-primary"/>
+
+</form>
+</center>
+{% endblock %}

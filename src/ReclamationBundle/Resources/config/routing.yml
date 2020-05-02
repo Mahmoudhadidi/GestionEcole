@@ -1,0 +1,17 @@
+reclamation_reclamation:
+    resource: "@ReclamationBundle/Resources/config/routing/reclamation.yml"
+    prefix:   /reclamation
+reclamation_homepage:
+    path:     /
+    defaults: { _controller: ReclamationBundle:Default:index }
+reclamation_delete:
+    path:     /delete/{id}
+    defaults: { _controller: ReclamationBundle:Reclamation:delete }
+
+reclamation_repondre:
+    path:     /repondre/{id}
+    defaults: { _controller: ReclamationBundle:Reclamation:repondre }
+
+reclamation_consulte:
+    path:     /consulte
+    defaults: { _controller: ReclamationBundle:Reclamation:consulte }

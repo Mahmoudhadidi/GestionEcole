@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <center><h1><b>Interface de gestion des notes</b> </h1></center>
+    <br>
+    <ul>
+        <li>
+         <h2><a href="{{ path('note_new') }}">Ajouter une Note</a></h2>
+        </li>
+    </ul>
+
+    <table class="table table-striped table-bordered table-hover dataTables-example">
+        <thead>
+            <tr>
+                <th>Idnote</th>
+                <th>Notecc</th>
+                <th>Noteds</th>
+                <th>Noteexamun</th>
+                <th>Moyenne</th>
+                <th>Net</th>
+                <th>Cin</th>
+                <th>Nommatier</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for note in notes %}
+            <tr>
+                <td><a href="{{ path('note_show', { 'idNote': note.idNote }) }}">{{ note.idNote }}</a></td>
+                <td>{{ note.noteCc }}</td>
+                <td>{{ note.noteDs }}</td>
+                <td>{{ note.noteExamun }}</td>
+                <td>{{ note.moyenne }}</td>
+                <td>{{ note.net }}</td>
+                <td>{{ note.cin }}</td>
+                <td>{{ note.nomMatier }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('note_show', { 'idNote': note.idNote }) }}">Voir</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('note_edit', { 'idNote': note.idNote }) }}">Modifier</a>
+                        </li>
+                    </ul>
+                    
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+{% endblock %}

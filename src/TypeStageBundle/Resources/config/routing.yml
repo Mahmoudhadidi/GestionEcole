@@ -1,0 +1,7 @@
+type_stage_typestage:
+    resource: "@TypeStageBundle/Resources/config/routing/typestage.yml"
+    prefix:   /typestage
+
+type_stage_homepage:
+    path:     /
+    defaults: { _controller: TypeStageBundle:Default:index }

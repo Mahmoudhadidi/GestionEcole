@@ -1,0 +1,564 @@
+ <!DOCTYPE html>
+    <html>
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+        <link href="{{ asset('css/plugins/toastr/toastr.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet">
+
+        <link href="{{ asset('css/plugins/dataTables/datatables.min.css') }}" rel="stylesheet">
+
+        <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/plugins/sweetalert/sweetalert.css') }}" rel="stylesheet">
+
+
+        <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        <script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
+        <script src="{{ asset('js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
+
+        <script src="{{ asset('js/plugins/dataTables/datatables.min.js') }}"></script>
+        <script src="{{ asset('js/plugins/sweetalert/sweetalert.min.js') }}"></script>
+        <script src="{{ asset('js/plugins/toastr/toastr.min.js') }}"></script>
+
+
+        <!-- Custom and plugin javascript -->
+        <script src="{{ asset('js/inspinia.js') }}"></script>
+        <script src="{{ asset('js/plugins/pace/pace.min.js') }}"></script>
+
+    </head>
+
+    <body>
+
+    <div id="wrapper">
+
+        <div id="wrapper">
+            <nav class="navbar-default navbar-static-side" role="navigation">
+                <div class="sidebar-collapse">
+                    <ul class="nav metismenu" id="side-menu">
+                        <li class="nav-header">
+                            <div class="dropdown profile-element"> <span>
+                            <img alt="image" class="img-circle" src="{{ asset('img/logoSuptech.jpg') }}" width="100"length="100" />
+                             </span>
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Assurer votre succés</strong>
+                           </span> <span class="text-muted text-xs block"></span> </span> </a>
+                                <!-- <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                     <li><a href="profile.html">Profile</a></li>
+                                     <li><a href="contacts.html">Contacts</a></li>
+                                     <li><a href="mailbox.html">Mailbox</a></li>
+                                     <li class="divider"></li>
+                                     <li><a href="login.html">Logout</a></li>
+                                 </ul>
+                                 -->
+                            </div>
+                            <div class="logo-element">
+
+                            </div>
+                        </li>
+
+                        <li>
+                            <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Profil</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a href="{{ path('fos_user_profile_edit') }}">Modifier profil</a></li>
+                                <li><a href="{{ path('fos_user_change_password') }}">Modifier Mot de Passe</a></li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="{{ path('classe_homepage') }}"><i class="fa fa-home"></i> <span class="nav-label">Gestion de classe</span></a>
+                        </li>
+                        <li>
+                            <a href="{{ path('matiere_index') }}"><i class="fa fa-tasks"></i> <span class="nav-label">Gestion de matiere</span></a>
+
+                        </li>
+                        <li>
+                            <a href="{{ path('salle_homepage') }}"><i class="fa fa-database"></i> <span class="nav-label">Gestion de salle </span><!--<span class="label label-warning pull-right">16/24</span>--></a>
+
+                        </li>
+                        <li>
+
+                            <a href="{{ path('seance_index') }}"><i class="fa fa-laptop"></i> <span class="nav-label">gestion de seance</span>  </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('calendar_homepage') }}"><i class="fa fa-laptop"></i> <span class="nav-label">calendar seance</span>  </a>
+                        </li>
+
+                        <li>
+                            <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Gestion Reclamation</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+
+                                <li><a href="{{ path('reclamation_index') }}">Reclamation </a></li>
+                                <li><a href="{{ path('question_index') }}">Forum</a></li>
+
+                            </ul>
+
+
+
+                        <li>
+                            <a href="{{ path('note_calcule') }}"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Calcule Moyenne</span><span class="fa arrow"></span></a>
+
+                        </li>
+                        <li>
+                            <a href="{{ path('majeur') }}"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Liste des Majeurs</span><span class="fa arrow"></span></a>
+
+                        </li>
+                        <li>
+                            <a href="{{ path('Stat') }}"><i class="fa fa-home"></i> <span class="nav-label">Statistiques</span></a>
+                        </li>
+                        <li>
+                            <a href=""><i class="fa fa-desktop"></i> <span class="nav-label">Stage</span></span><span class="fa arrow"></span></a> <span class="pull-right label label-primary"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a href="{{ path('stage_index') }}">Gestion des stages</a></li>
+                                <li><a href="{{ path('typestage_index') }}">Gestion des types stages</a></li>
+                                <li><a href="{{ path('listNonValid') }}">List des stages Non Valides</a></li>
+
+
+                            </ul>
+
+                        <li>
+                            <a href="#"><i class="fa fa-thumb-tack"></i> <span class="nav-label">Gestion des absences</span></a>
+                            <ul class="nav nav-second-level collapse">
+
+                                <li><a class="fa fa-pie-chart" href="{{ path('absence_new') }}"> Abence etudiants</a></li>
+                                <li><a class="fa fa-pie-chart" href="{{ path('absenceemploye_index') }}"> Absence employe</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </nav>
+
+            <div id="page-wrapper" class="gray-bg dashbard-1">
+                <div class="row border-bottom">
+                    <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                        <div class="navbar-header">
+                            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                            <!--<form role="search" class="navbar-form-custom" action="search_results.html">
+                                <div class="form-group">
+                                    <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                                </div>
+                            </form>-->
+                        </div>
+                        <ul class="nav navbar-top-links navbar-right">
+                            <li>
+                                <span class="m-r-sm text-muted welcome-message">Bienvenu à SUPTECH</span>
+                            </li>
+
+                            <li>
+                                <a href="{{ path('fos_user_security_login') }}">
+                                    <i class="fa fa-sign-out"></i> Se déconnecter
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </nav>
+                </div>
+
+                <br>
+                <div class="wrapper wrapper-content animated fadeInRight">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+
+                                    <h5>Gestion de seance </h5>
+                                    <div class="ibox-tools">
+                                        <button type="button" class="btn btn-outline btn-primary"data-toggle="modal" data-target="#myModal">
+                                            Ajouter seance
+                                        </button>
+
+
+                                        <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content animated bounceInRight">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+
+                                                        <h4 class="modal-title">Ajouter seance</h4>
+
+                                                    </div>
+                                                    <div class="modal-body">
+
+
+
+
+
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <div class="ibox float-e-margins">
+
+                                                                    <div class="ibox-content">
+                                                                        <i class="form-horizontal">
+                                                                            {{ form_start(form) }}
+                                                                            <div class="form-group"><label class="col-sm-2 control-label">Durée</label>
+
+                                                                                <div class="col-sm-10">
+
+
+                                                                                    {{ form_widget(form.duree, { 'attr': {'class': 'form-control ', 'placeholder': "Durée" } }) }}
+                                                                                    {{ form_errors(form.duree) }}
+
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="hr-line-dashed"></div>
+                                                                            <div class="form-group"><label class="col-sm-2 control-label">Heure</label>
+                                                                                <div class="col-sm-10">
+                                                                                    {{ form_widget(form.heure, { 'attr': {'class': 'form-control '} }) }}
+                                                                                    {{ form_errors(form.heure) }}
+
+
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="hr-line-dashed"></div>
+                                                                            <div class="form-group"><label class="col-sm-2 control-label">Daté</label>
+
+                                                                                <div class="col-sm-10">
+                                                                                    {{ form_widget(form.date, { 'attr': {'class': 'form-control '} }) }}
+                                                                                    {{ form_errors(form.date) }}
+
+
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="hr-line-dashed"></div>
+                                                                            <div class="form-group"><label class="col-sm-2 control-label">Professeur</label>
+
+                                                                                <div class="col-sm-10">
+
+
+                                                                                    {{ form_widget(form.idEns, { 'attr': {'class': 'form-control m-b' } }) }}
+                                                                                    {{ form_errors(form.idEns) }}
+
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="hr-line-dashed"></div>
+                                                                            <div class="form-group"><label class="col-sm-2 control-label">Classe</label>
+                                                                                <div class="col-sm-10">
+                                                                                    {{ form_widget(form.idClasse, { 'attr': {'class': 'form-control m-b' } }) }}
+                                                                                    {{ form_errors(form.idClasse) }}
+
+
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="hr-line-dashed"></div>
+
+                                                                            <div class="form-group"><label class="col-sm-2 control-label">Matiere</label>
+
+                                                                                <div class="col-sm-10">
+                                                                                    {{ form_widget(form.idMatiere, { 'attr': {'class': 'form-control m-b' } }) }}
+                                                                                    {{ form_errors(form.idMatiere) }}
+
+
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="hr-line-dashed"></div>
+                                                                            <div class="form-group"><label class="col-sm-2 control-label">Salle</label>
+
+                                                                                <div class="col-sm-10">
+                                                                                    {{ form_widget(form.idSalle, { 'attr': {'class': 'form-control m-b' } }) }}
+                                                                                    {{ form_errors(form.idSalle) }}
+
+
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="hr-line-dashed"></div>
+                                                                            <div class="form-group">
+
+                                                                                <center>   <input class="btn btn-white" type="reset" value="Annuler">
+                                                                                    <input class="btn btn-primary" type="submit" value="Ajouter">
+                                                                                </center>
+                                                                            </div>
+                                                                            {{ form_end(form) }}
+                                                                        </i></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+
+
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+
+
+
+
+
+
+                                    </div>
+                                </div>
+                                <div class="ibox-content">
+
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-bordered table-hover dataTables-example" >
+
+
+
+
+
+
+
+
+                                            <thead>
+                                            <tr><th>Professeur</th>
+                                                <th>Matiere</th>
+                                                <th>Durée </th>
+                                                <th>Heure</th>
+                                                <th>Daté</th>
+                                                <th>Classe</th>
+                                                <th>Salle</th>
+                                                <th> <center>Actions</center></th>
+
+
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% set i=0 %}
+                                            {% for seance in seances %}
+                                                {% set i=i+1 %}
+                                                <tr><td>{{ seance.idEns }}</td>
+                                                    <td>{{ seance.idMatiere }}</td>
+                                                    <td>{{ seance.duree|date('H:i') }}</td>
+                                                    <td>{{ seance.heure|date('H:i') }}</td>
+                                                    <td>{{ seance.date|date('Y-m-d ') }}</td>
+                                                    <td>{{seance.idClasse }}</td>
+                                                    <td>{{ seance.idSalle }}</td>
+                                                    <td>
+
+
+
+                                                        <center>
+
+                                                            <a href="{{  path('seance_show', { 'idSeance': seance.idSeance })  }}"> <button class="btn btn-outline btn-default btn-white btn-xs" title="consulte" type="button">Consulte</button></a>
+                                                            <a href="{{ path('seance_edit', { 'idSeance': seance.idSeance })}}"><button class="btn btn-outline btn-success btn-white btn-xs" type="button" title="modifier">Modifier</button></a>
+                                                            <button class="btn btn-outline btn-danger btn-white btn-xs btn-sm demo{{ i }}" type="button" title="supprime">Supprime</button>
+
+
+                                                        </center>
+                                                        <script>
+
+
+                                                            $(document).ready(function () {
+                                                                $('.demo{{ i }}').click(function () {
+                                                                    swal({
+                                                                            title: "Êtes-vous sûr?",
+                                                                            text: "Vous ne pourrez pas récupérer ce matiere!",
+                                                                            type: "warning",
+                                                                            showCancelButton: true,
+                                                                            confirmButtonColor: "#DD6B55",
+                                                                            confirmButtonText: "Oui, supprimez-le!",
+                                                                            cancelButtonText: "Non, annuler!",
+                                                                            closeOnConfirm: false,
+                                                                            closeOnCancel: false },
+                                                                        function (isConfirm) {
+                                                                            if (isConfirm) {
+
+
+                                                                                window.location.href = "{{ path('seance_index', { 'idSeance': seance.idSeance }) }}";
+                                                                                swal("Effacé!", "Votre fichier a été supprimé.", "success");
+                                                                            } else {
+                                                                                swal("Annulé", "Votre dossier est sécurisé :)", "error");
+                                                                            }
+                                                                        });
+                                                                });
+
+
+
+                                                            });
+                                                        </script>
+
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+
+
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="pull-right">
+                        Devl’s<strong> 3A13</strong>
+                    </div>
+                    <div>
+                        <strong>Esprit Elghazel</strong>  &copy; 2019-2020
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Mainly scripts -->
+
+
+    <!-- Page-Level Scripts -->
+    <script>
+        $(document).ready(function(){
+            $('.dataTables-example').DataTable({
+                pageLength: 25,
+                responsive: true,
+                dom: '<"html5buttons"B>lTfgitp',
+                buttons: [
+                    { extend: 'copy'},
+                    {extend: 'csv'},
+                    {extend: 'excel', title: 'ExampleFile'},
+                    {extend: 'pdf', title: 'ExampleFile'},
+
+                    {extend: 'print',
+                        customize: function (win){
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
+
+                            $(win.document.body).find('table')
+                                .addClass('compact')
+                                .css('font-size', 'inherit');
+                        }
+                    }
+                ]
+
+            });
+
+        });
+
+    </script>
+    {%  if(msg!="") %}
+        <script>
+            $(document).ready(function() {
+                setTimeout(function() {
+                    toastr.options = {
+                        closeButton: true,
+                        progressBar: true,
+                        showMethod: 'slideDown',
+                        timeOut: 4000
+                    };
+                    toastr.success("{{ msg }}", 'Bienvenue a SUPTECH');
+
+                }, 1300);
+
+
+                var data1 = [
+                    [0,4],[1,8],[2,5],[3,10],[4,4],[5,16],[6,5],[7,11],[8,6],[9,11],[10,30],[11,10],[12,13],[13,4],[14,3],[15,3],[16,6]
+                ];
+                var data2 = [
+                    [0,1],[1,0],[2,2],[3,0],[4,1],[5,3],[6,1],[7,5],[8,2],[9,3],[10,2],[11,1],[12,0],[13,2],[14,8],[15,0],[16,0]
+                ];
+                $("#flot-dashboard-chart").length && $.plot($("#flot-dashboard-chart"), [
+                        data1, data2
+                    ],
+                    {
+                        series: {
+                            lines: {
+                                show: false,
+                                fill: true
+                            },
+                            splines: {
+                                show: true,
+                                tension: 0.4,
+                                lineWidth: 1,
+                                fill: 0.4
+                            },
+                            points: {
+                                radius: 0,
+                                show: true
+                            },
+                            shadowSize: 2
+                        },
+                        grid: {
+                            hoverable: true,
+                            clickable: true,
+                            tickColor: "#d5d5d5",
+                            borderWidth: 1,
+                            color: '#d5d5d5'
+                        },
+                        colors: ["#1ab394", "#1C84C6"],
+                        xaxis:{
+                        },
+                        yaxis: {
+                            ticks: 4
+                        },
+                        tooltip: false
+                    }
+                );
+
+                var doughnutData = {
+                    labels: ["App","Software","Laptop" ],
+                    datasets: [{
+                        data: [300,50,100],
+                        backgroundColor: ["#a3e1d4","#dedede","#9CC3DA"]
+                    }]
+                } ;
+
+
+                var doughnutOptions = {
+                    responsive: false,
+                    legend: {
+                        display: false
+                    }
+                };
+
+
+                var ctx4 = document.getElementById("doughnutChart").getContext("2d");
+                new Chart(ctx4, {type: 'doughnut', data: doughnutData, options:doughnutOptions});
+
+                var doughnutData = {
+                    labels: ["App","Software","Laptop" ],
+                    datasets: [{
+                        data: [70,27,85],
+                        backgroundColor: ["#a3e1d4","#dedede","#9CC3DA"]
+                    }]
+                } ;
+
+
+                var doughnutOptions = {
+                    responsive: false,
+                    legend: {
+                        display: false
+                    }
+                };
+
+
+                var ctx4 = document.getElementById("doughnutChart2").getContext("2d");
+                new Chart(ctx4, {type: 'doughnut', data: doughnutData, options:doughnutOptions});
+
+            });
+        </script>
+    {% endif %}
+    </body>
+
+    </html>
+
+
+
+
+
+

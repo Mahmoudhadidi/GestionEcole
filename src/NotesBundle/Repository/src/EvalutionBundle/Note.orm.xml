@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="annotation\Note" table="note">
+    <indexes>
+      <index name="id_user" columns="cin,nom_matier"/>
+    </indexes>
+    <id name="idNote" type="integer" column="id_note">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="noteCc" type="float" column="note_cc" precision="10" scale="0" nullable="true">
+      <options>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="noteDs" type="float" column="note_ds" precision="10" scale="0" nullable="true">
+      <options>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="noteExamun" type="float" column="note_examun" precision="10" scale="0" nullable="false"/>
+    <field name="moyenne" type="float" column="moyenne" precision="10" scale="0" nullable="true">
+      <options>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="net" type="float" column="net" precision="10" scale="0" nullable="true">
+      <options>
+        <option name="default">NULL</option>
+      </options>
+    </field>
+    <field name="cin" type="integer" column="cin" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="nomMatier" type="string" column="nom_matier" length="255" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>

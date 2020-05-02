@@ -1,0 +1,24 @@
+question_index:
+    path:     /
+    defaults: { _controller: "ForumBundle:Question:index" }
+    methods:   [GET, POST]
+
+question_show:
+    path:     /{idQues}/show
+    defaults: { _controller: "ForumBundle:Question:show" }
+    methods:  GET
+
+question_new:
+    path:     /new
+    defaults: { _controller: "ForumBundle:Question:new" }
+    methods:  [GET, POST]
+
+question_edit:
+    path:     /{idQues}/edit
+    defaults: { _controller: "ForumBundle:Question:edit" }
+    methods:  [GET, POST]
+
+question_delete:
+    path:     /{idQues}/delete
+    defaults: { _controller: "ForumBundle:Question:delete" }
+    methods:  DELETE

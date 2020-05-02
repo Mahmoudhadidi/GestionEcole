@@ -7,6 +7,9 @@
     <route id="classe_index" path="/" methods="GET">
         <default key="_controller">ClasseBundle:Classe:index</default>
     </route>
+    <route id="classe_api" path="/api" methods="GET">
+        <default key="_controller">ClasseBundle:Apiclasse:index</default>
+    </route>
 
     <route id="classe_show" path="/{idClasse}/show" methods="GET">
         <default key="_controller">ClasseBundle:Classe:show</default>
@@ -22,6 +25,9 @@
 
     <route id="classe_delete" path="/{idClasse}/delete" methods="DELETE">
         <default key="_controller">ClasseBundle:Classe:delete</default>
+    </route>
+    <route id="classe_acc" path="/acc" methods="GET">
+        <default key="_controller">ClasseBundle:Classe:acc</default>
     </route>
 
 </routes>

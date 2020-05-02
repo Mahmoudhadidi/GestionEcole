@@ -2,22 +2,45 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
-
     - { resource: "@ClasseBundle/Resources/config/services.yml" }
     - { resource: "@MatiereBundle/Resources/config/services.yml" }
     - { resource: "@SalleBundle/Resources/config/services.yml" }
 
+    - { resource: "@StageBundle/Resources/config/services.yml" }
+    - { resource: "@TypeStageBundle/Resources/config/services.yml" }
 
+    - { resource: "@NotesBundle/Resources/config/services.yml" }
+    - { resource: "@EvaliatBundle/Resources/config/services.yml" }
+    - { resource: "@UserBundle/Resources/config/services.yml" }
+
+
+    - { resource: "@UserBundle/Resources/config/services.yml" }
+    - { resource: "@SeanceBundle/Resources/config/services.yml" }
+
+    - { resource: "@AbsenceBundle/Resources/config/services.yml" }
+    - { resource: "@AbsenceEmployeBundle/Resources/config/services.yml" }
+    - { resource: "@ReclamationBundle/Resources/config/services.yml" }
+    - { resource: "@ForumBundle/Resources/config/services.yml" }
+    - { resource: "@CalendarBundle/Resources/config/services.yml" }
 
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: fr
 
 framework:
+
     #esi: ~
-    #translator: { fallbacks: ['%locale%'] }
+    translator: ~
+     # ...
+    serializer:
+         enabled: true
+
+
+
+
+
     secret: '%secret%'
     router:
         resource: '%kernel.project_dir%/app/config/routing.yml'
@@ -37,6 +60,8 @@ framework:
     assets: ~
     php_errors:
         log: true
+    templating:
+        engines: ['twig']
 
 # Twig Configuration
 twig:
@@ -74,5 +99,20 @@ swiftmailer:
     spool: { type: memory }
 
 sensio_framework_extra:
-   router:
+    router:
         annotations: false
+
+
+
+#FOSUser_configuration
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: UserBundle\Entity\User
+    from_email:
+        address: "chokri.miloud123@gmail.com"
+        sender_name: "chokri miloud"
+#---------------------------------------
+
+
+

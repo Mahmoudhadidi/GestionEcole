@@ -1,0 +1,31 @@
+notes_note:
+    resource: "@NotesBundle/Resources/config/routing/note.yml"
+    prefix:   /note
+
+notes_homepage:
+    path:     /
+    defaults: { _controller: NotesBundle:Note:index }
+
+
+relevee:
+    path:     /rel
+    defaults: { _controller: NotesBundle:Note:RelvéeNote }
+    
+note_calcule:
+    path:     /calcule
+    defaults: { _controller: "NotesBundle:Note:calculeMoyenneMatiere" }
+
+Stat:
+    path:     /statistique
+    defaults: { _controller: "NotesBundle:Stat:Stat" }
+
+majeur:
+    path:     /maj
+    defaults: { _controller: "NotesBundle:Stat:majeur" }
+
+exportCSV:
+    path:     /csv
+    defaults: { _controller: "NotesBundle:Stat:export" }
+
+
+

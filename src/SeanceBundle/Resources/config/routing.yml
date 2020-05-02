@@ -1,0 +1,7 @@
+seance_seance:
+    resource: "@SeanceBundle/Resources/config/routing/seance.yml"
+    prefix:   /seance
+
+seance_homepage:
+    path:     /
+    defaults: { _controller: SeanceBundle:Default:index }
