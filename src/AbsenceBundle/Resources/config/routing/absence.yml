@@ -3,6 +3,10 @@ absence_index:
     defaults: { _controller: "AbsenceBundle:Absence:index" }
     methods:  GET
 
+absence_api:
+    path:     /api
+    defaults: { _controller: "AbsenceBundle:Api:api" }
+    methods:  [GET, POST]
 absence_show:
     path:     /{idAbsence}/show
     defaults: { _controller: "AbsenceBundle:Absence:show" }

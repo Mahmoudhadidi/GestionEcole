@@ -26,10 +26,10 @@ WHERE id_classe= $b
         $stmt->execute();
 
     }
-    public function findIdClasse()
+    public function findIdClasse($nomclass)
     {
         $query=$this->getEntityManager()
-            ->createQuery("SELECT a.idClasse FROM ClasseBundle:Classe a ");
+            ->createQuery("SELECT a FROM ClasseBundle:Classe a WHERE a.numClasse='$nomclass'  ");
         return $query->getResult();
     }
 

@@ -20,6 +20,12 @@ class SeanceRepository extends EntityRepository
             ->createQuery("SELECT COUNT(a) FROM SeanceBundle:Seance a WHERE a.idClasse='$idclass' ");
         return $query->getResult();
     }
+    public function findseance($idEns)
+    {
+        $query=$this->getEntityManager()
+            ->createQuery("SELECT a FROM SeanceBundle:Seance a WHERE a.idEns='$idEns' ");
+        return $query->getResult();
+    }
     public function findOneByVerifMatiere($idmatiere)
     {
         $query=$this->getEntityManager()
