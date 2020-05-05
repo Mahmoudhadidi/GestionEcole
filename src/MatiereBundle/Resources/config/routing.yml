@@ -1,6 +1,6 @@
 matiere_matiere:
     resource: "@MatiereBundle/Resources/config/routing/matiere.yml"
-    prefix:   /matiere
+    prefix:   /
 
 matiere_homepage:
     path:     /

@@ -29,16 +29,19 @@ class AbsenceEmploye
     private $typeAbsence;
 
     /**
-     * @var integer
+     * @var \User
      *
-     * @ORM\Column(name="id_employe", type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_employe", referencedColumnName="id")
+     * })
      */
     private $idEmploye;
 
     /**
-     * @var string
+     * @var date
      *
-     * @ORM\Column(name="date", type="string", length=125, nullable=true)
+     * @ORM\Column(name="date", type="date", length=125, nullable=true)
      */
     private $date;
 

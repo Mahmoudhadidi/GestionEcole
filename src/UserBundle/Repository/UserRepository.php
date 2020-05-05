@@ -25,6 +25,12 @@ class UserRepository extends EntityRepository
             ->createQuery("SELECT COUNT(a) FROM UserBundle:User a WHERE  a.roles Like '%\"ROLE_ETUDIANT\"%' AND a.idClasse='$idclass' ");
         return $query->getResult();
     }
+    public function findEtudiantClasse($idclass)
+    {
+        $query=$this->getEntityManager()
+            ->createQuery("SELECT a FROM UserBundle:User a WHERE  a.roles Like '%\"ROLE_ETUDIANT\"%' AND a.idClasse='$idclass' ");
+        return $query->getResult();
+    }
     public function editAffect($idclasse,$iduser)
     {
         $conn = $this->getEntityManager()->getConnection();

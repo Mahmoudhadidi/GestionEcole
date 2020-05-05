@@ -19,66 +19,95 @@
 
 
 <div id="wrapper">
-    <nav class="navbar-default navbar-static-side" role="navigation">
-        <div class="sidebar-collapse">
-            <ul class="nav metismenu" id="side-menu">
-                <li class="nav-header">
-                    <div class="dropdown profile-element"> <span>
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element"> <span>
                             <img alt="image" class="img-circle" src="{{ asset('img/logoSuptech.jpg') }}" width="100"length="100" />
                              </span>
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Assurer votre succés</strong>
                            </span> <span class="text-muted text-xs block"></span> </span> </a>
-                        <!-- <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                             <li><a href="profile.html">Profile</a></li>
-                             <li><a href="contacts.html">Contacts</a></li>
-                             <li><a href="mailbox.html">Mailbox</a></li>
-                             <li class="divider"></li>
-                             <li><a href="login.html">Logout</a></li>
-                         </ul>-->
-                    </div>
-                    <div class="logo-element">
-                        IN+
-                    </div>
-                </li>
-
-                <li>
-                    <a href="{{ path('classe_homepage') }}"><i class="fa fa-home"></i> <span class="nav-label">Gestion de classe</span></a>
-                </li>
-                <li>
-                    <a href="{{ path('matiere_index') }}"><i class="fa fa-tasks"></i> <span class="nav-label">Gestion de matiere</span></a>
-                    <!--<ul class="nav nav-second-level collapse">
-                        <li><a href="graph_flot.html">Flot Charts</a></li>
-                        <li><a href="graph_morris.html">Morris.js Charts</a></li>
-                        <li><a href="graph_rickshaw.html">Rickshaw Charts</a></li>
-                        <li><a href="graph_chartjs.html">Chart.js</a></li>
-                        <li><a href="graph_chartist.html">Chartist</a></li>
-                        <li><a href="c3.html">c3 charts</a></li>
-                        <li><a href="graph_peity.html">Peity Charts</a></li>
-                        <li><a href="graph_sparkline.html">Sparkline Charts</a></li>
-                    </ul>-->
-                </li>
-                <li>
-                    <a href="{{ path('salle_homepage') }}"><i class="fa fa-database"></i> <span class="nav-label">Gestion de salle </span><!--<span class="label label-warning pull-right">16/24</span>--></a>
-                    <!-- <ul class="nav nav-second-level collapse">
-                         <li><a href="mailbox.html">Inbox</a></li>
-                         <li><a href="mail_detail.html">Email view</a></li>
-                         <li><a href="mail_compose.html">Compose email</a></li>
-                         <li><a href="email_template.html">Email templates</a></li>
+                    <!-- <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                         <li><a href="profile.html">Profile</a></li>
+                         <li><a href="contacts.html">Contacts</a></li>
+                         <li><a href="mailbox.html">Mailbox</a></li>
+                         <li class="divider"></li>
+                         <li><a href="login.html">Logout</a></li>
                      </ul>-->
-                </li>
-                <li>
-                    <a href="{{ path('seance_index') }}"><i class="fa fa-laptop"></i> <span class="nav-label">gestion de seance</span>  </a>
-                </li>
-                <li>
-                    <a href="{{ path('calendar_homepage') }}"><i class="fa fa-laptop"></i> <span class="nav-label">Emploi de temps</span>  </a>
-                </li>
+                </div>
+                <div class="logo-element">
+                    IN+
+                </div>
+            </li>
 
-            </ul>
+            <li>
+                <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Profil</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="{{ path('fos_user_profile_edit') }}">Modifier profil</a></li>
+                    <li><a href="{{ path('fos_user_change_password') }}">Modifier Mot de Passe</a></li>
 
-        </div>
-    </nav>
+                </ul>
+            </li>
+            <li>
+                <a href="{{ path('classe_homepage') }}"><i class="fa fa-home"></i> <span class="nav-label">Gestion de classe</span></a>
+            </li>
+            <li>
+                <a href="{{ path('matiere_index') }}"><i class="fa fa-tasks"></i> <span class="nav-label">Gestion de matiere</span></a>
 
+            </li>
+            <li>
+                <a href="{{ path('salle_homepage') }}"><i class="fa fa-database"></i> <span class="nav-label">Gestion de salle </span><!--<span class="label label-warning pull-right">16/24</span>--></a>
+
+            </li>
+            <li>
+
+                <a href="{{ path('seance_index') }}"><i class="fa fa-laptop"></i> <span class="nav-label">gestion de seance</span>  </a>
+            </li>
+            <li>
+                <a href="{{ path('calendar_homepage') }}"><i class="fa fa-laptop"></i> <span class="nav-label">calendar seance</span>  </a>
+            </li>
+
+            <li>
+                <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Gestion Reclamation</span><span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+
+                    <li><a href="{{ path('reclamation_index') }}">Reclamation </a></li>
+                    <li><a href="{{ path('question_index') }}">Forum</a></li>
+
+                </ul>
+
+
+
+            <li>
+                <a href="{{ path('note_calcule') }}"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Calcule Moyenne</span><span class="fa arrow"></span></a>
+
+            </li>
+            <li>
+                <a href="{{ path('majeur') }}"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Liste des Majeurs</span><span class="fa arrow"></span></a>
+
+            </li>
+            <li>
+                <a href="{{ path('Stat') }}"><i class="fa fa-home"></i> <span class="nav-label">Statistiques</span></a>
+            </li>
+            <li>
+                <a href=""><i class="fa fa-desktop"></i> <span class="nav-label">Stage</span></span><span class="fa arrow"></span></a> <span class="pull-right label label-primary"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="{{ path('stage_index') }}">Gestion des stages</a></li>
+                    <li><a href="{{ path('typestage_index') }}">Gestion des types stages</a></li>
+                    <li><a href="{{ path('listNonValid') }}">List des stages Non Valides</a></li>
+
+
+                </ul>
+            </li>
+
+            <li>
+                <a href="{{ path('absenceemploye_index') }}"><span class="nav-label">Gestion des absences</span></a>
+            </li>
+
+        </ul>
+
+    </div>
     <div id="page-wrapper" class="gray-bg dashbard-1">
         <div class="row border-bottom">
             <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">

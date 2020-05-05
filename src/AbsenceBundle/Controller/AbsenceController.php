@@ -6,6 +6,8 @@ use AbsenceBundle\Entity\Absence;
 use AbsenceBundle\Repository\AbsenceRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use SeanceBundle\Entity\Seance;
+use ClasseBundle\Entity\Classe;
 
 /**
  * Absence controller.
@@ -19,18 +21,23 @@ class AbsenceController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
+        $id1= $this->getUser()->getId();
+        $id=intval($id1);
+        $seances=$this->getDoctrine()->getRepository('SeanceBundle:Seance')->findseance($id);
 
-        $querry = 'SELECT  * 
-                     from absence
-                    ;';
-        $statement = $em->getConnection()->prepare($querry);
-        $statement->execute();
+        $listFanction=array();
 
-        $absences = $statement->fetchAll();
-
+        $seance = new Seance();
+        foreach ($seances as $seance){
+            $idClasses=$this->getDoctrine()->getRepository('ClasseBundle:Classe')->findIdClasse($seance->getIdClasse());
+            foreach ($idClasses as $id) {
+                $listFanction[$seance->getIdSeance()] = $this->getDoctrine()->getRepository('UserBundle:User')->findEtudiantClasse($id->getIdClasse());
+                                        }
+            }
+        
         return $this->render('absence/index.html.twig', array(
-            'absences' => $absences,
+            'seances' => $seances,
+            'etudiants'=>$listFanction,
         ));
     }
 

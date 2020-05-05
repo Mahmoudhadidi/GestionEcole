@@ -26,7 +26,6 @@ class ApimatiereController extends Controller
                 "nom"=> $matiere->getNomMatier(),
                 "coefficient"=> $matiere->getCoefficient(),
                 "credit"=> $matiere->getCdedit(),
-
             ));
 
         }
