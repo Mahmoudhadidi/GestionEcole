@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use SeanceBundle\Entity\Seance;
 use ClasseBundle\Entity\Classe;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * Absence controller.
@@ -34,7 +35,29 @@ class AbsenceController extends Controller
                 $listFanction[$seance->getIdSeance()] = $this->getDoctrine()->getRepository('UserBundle:User')->findEtudiantClasse($id->getIdClasse());
                                         }
             }
-        
+        $datetime = date("Y-m-d H:i:s");
+
+
+
+        if(isset($_POST['submit'])) {
+            $i = $_POST['i'];
+            $idSeance = $_POST['idSeance'];
+
+            for ($j = 0; $j < $i; $j++) {
+                $absence = new Absence();
+                $absence->setDate($datetime);
+                $absence->setIdSeance($idSeance);
+                $absence->setTypeAbsence('non verifier');
+                if ($_POST['chek' . $j] != "") {
+                    $etu = $_POST['chek' . $j];
+                    $absence->setIdEtudiant($etu);
+                    $em = $this->getDoctrine()->getManager();
+                    $em->persist($absence);
+                    $em->flush();
+
+                }
+            }
+        }
         return $this->render('absence/index.html.twig', array(
             'seances' => $seances,
             'etudiants'=>$listFanction,

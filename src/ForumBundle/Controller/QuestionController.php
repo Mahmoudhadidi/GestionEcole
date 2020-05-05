@@ -55,7 +55,8 @@ class QuestionController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $question->setDate("CURRENT_DATE()");
+            $datetime = date("Y-m-d H:i:s");
+            $question->setDate("$datetime");
             $em = $this->getDoctrine()->getManager();
             $em->persist($question);
             $em->flush();

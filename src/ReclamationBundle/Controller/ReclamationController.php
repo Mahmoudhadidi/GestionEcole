@@ -49,7 +49,8 @@ class ReclamationController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $reclamation->setIdUser($id);
             $reclamation->setEtat("non traité");
-            $reclamation->setDateEnv(000000);
+            $datetime = date("Y-m-d H:i:s");
+            $reclamation->setDateEnv($datetime);
             $reclamation->setDateRep(000000);
             $reclamation->setReponse("");
 

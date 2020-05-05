@@ -1,7 +1,7 @@
 absence_index:
     path:     /
     defaults: { _controller: "AbsenceBundle:Absence:index" }
-    methods:  GET
+    methods:  [GET, POST]
 
 absence_api:
     path:     /api
