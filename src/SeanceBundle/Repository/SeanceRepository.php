@@ -26,6 +26,14 @@ class SeanceRepository extends EntityRepository
             ->createQuery("SELECT a FROM SeanceBundle:Seance a WHERE a.idEns='$idEns' ");
         return $query->getResult();
     }
+    public function findSeanceParID($idSeance)
+    {
+        $query=$this->getEntityManager()
+            ->createQuery("SELECT a FROM SeanceBundle:Seance a WHERE a.idSeance='$idSeance' ");
+        return $query->getResult();
+    }
+
+
     public function findOneByVerifMatiere($idmatiere)
     {
         $query=$this->getEntityManager()

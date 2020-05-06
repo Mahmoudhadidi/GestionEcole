@@ -25,7 +25,6 @@ class AbsenceController extends Controller
         $id1= $this->getUser()->getId();
         $id=intval($id1);
         $seances=$this->getDoctrine()->getRepository('SeanceBundle:Seance')->findseance($id);
-
         $listFanction=array();
 
         $seance = new Seance();
@@ -161,14 +160,23 @@ class AbsenceController extends Controller
 
     public function indAction()
     {
-        $em = $this->getDoctrine()->getManager();
+        $id1= $this->getUser()->getId();
+        $id=intval($id1);
+        $nom=$this->getUser()->getUsername();
+        $count=$this->getDoctrine()->getRepository('AbsenceBundle:Absence')->count($id);
+        $absences=$this->getDoctrine()->getRepository('AbsenceBundle:Absence')->absenceEtudiant($id);
+        $listFanction=array();
+        foreach ($absences as $absence){
 
-        $absences = $em->getRepository('AbsenceBundle:Absence')->findAll();
-        $count=$this->getDoctrine()->getRepository('AbsenceBundle:Absence')->count();
+                $listFanction[$absence->getIdAbsence()] = $this->getDoctrine()->getRepository('SeanceBundle:Seance')->findSeanceParID($absence->getIdSeance());
+
+        }
 
         return $this->render('absence/index1.html.twig', array(
             'absences' => $absences,
             'count'=>$count,
+            'seance'=>$listFanction,
+            'nom'=>$nom,
         ));
     }
 }

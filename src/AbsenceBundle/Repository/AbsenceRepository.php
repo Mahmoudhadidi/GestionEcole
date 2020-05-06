@@ -10,10 +10,16 @@ namespace AbsenceBundle\Repository;
  */
 class AbsenceRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function count()
+    public function count($iduser)
     {
         $query  = $this->getEntityManager()
-        ->createQuery("SELECT COUNT(a) FROM AbsenceBundle:Absence a ");
+        ->createQuery("SELECT COUNT(a) FROM AbsenceBundle:Absence a where a.idEtudiant='$iduser' ");
+        return $query->getResult();
+    }
+    public function absenceEtudiant($iduser)
+    {
+        $query  = $this->getEntityManager()
+            ->createQuery("SELECT a FROM AbsenceBundle:Absence a where a.idEtudiant='$iduser' ");
         return $query->getResult();
     }
 }

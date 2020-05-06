@@ -22,102 +22,94 @@
 
 <div id="wrapper">
 
-    <div id="wrapper">
-        <nav class="navbar-default navbar-static-side" role="navigation">
-            <div class="sidebar-collapse">
-                <ul class="nav metismenu" id="side-menu">
-                    <li class="nav-header">
-                        <div class="dropdown profile-element"> <span>
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element"> <span>
                             <img alt="image" class="img-circle" src="{{ asset('img/logoSuptech.jpg') }}" width="100"length="100" />
                              </span>
-                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Assurer votre succés</strong>
                            </span> <span class="text-muted text-xs block"></span> </span> </a>
-                            <!-- <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                 <li><a href="profile.html">Profile</a></li>
-                                 <li><a href="contacts.html">Contacts</a></li>
-                                 <li><a href="mailbox.html">Mailbox</a></li>
-                                 <li class="divider"></li>
-                                 <li><a href="login.html">Logout</a></li>
-                             </ul>
-                             -->
-                        </div>
-                        <div class="logo-element">
-
-                        </div>
-                    </li>
-                    <li class="active">
-                        <a href="{{ path('baseU') }}"><i class="fa fa-home"></i> <span class="nav-label">Accueil</span></a>
-
-                    </li>
-                    <li>
-                        <a href=""><i class="fa fa-calendar-o"></i> <span class="nav-label">Emploi du temps</span></a>
-                    </li>
-                    <li>
-                        <a href="{{ path('absenceu_ind') }}"><i class="fa fa-calendar" ></i> <span class="nav-label">Absence</span></a>
-                        <!--<ul class="nav nav-second-level collapse">
-                            <li><a href="graph_flot.html">Flot Charts</a></li>
-                            <li><a href="graph_morris.html">Morris.js Charts</a></li>
-                            <li><a href="graph_rickshaw.html">Rickshaw Charts</a></li>
-                            <li><a href="graph_chartjs.html">Chart.js</a></li>
-                            <li><a href="graph_chartist.html">Chartist</a></li>
-                            <li><a href="c3.html">c3 charts</a></li>
-                            <li><a href="graph_peity.html">Peity Charts</a></li>
-                            <li><a href="graph_sparkline.html">Sparkline Charts</a></li>
-                        </ul>-->
-                    </li>
-                    <li>
-                        <a href=""><i class="fa fa-bell"></i> <span class="nav-label">Résultat Orientation </span><!--<span class="label label-warning pull-right">16/24</span>--></a>
-                        <!-- <ul class="nav nav-second-level collapse">
-                             <li><a href="mailbox.html">Inbox</a></li>
-                             <li><a href="mail_detail.html">Email view</a></li>
-                             <li><a href="mail_compose.html">Compose email</a></li>
-                             <li><a href="email_template.html">Email templates</a></li>
+                        <!-- <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                             <li><a href="profile.html">Profile</a></li>
+                             <li><a href="contacts.html">Contacts</a></li>
+                             <li><a href="mailbox.html">Mailbox</a></li>
+                             <li class="divider"></li>
+                             <li><a href="login.html">Logout</a></li>
                          </ul>-->
-                    </li>
-                    <li>
-                        <a href=""><i class="fa fa-bell-o"></i> <span class="nav-label">Résultat</span>  </a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-envelope"></i> <span class="nav-label">Reclamation</span></a>
+                    </div>
+                    <div class="logo-element">
+                        IN+
+                    </div>
+                </li>
+                <li class="active">
+                    {#<a href="{{ path('homepage') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Accueil</span></a>#}
 
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">crédit</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Profil</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="{{ path('fos_user_profile_edit') }}">Modifier profil</a></li>
+                        <li><a href="{{ path('fos_user_change_password') }}">Modifier Mot de Passe</a></li>
 
+                    </ul>
+                </li>
+                <li>
+                    <a href="{{ path('stage_index') }}"><i class="fa fa-edit"></i> <span class="nav-label">Stages</span><span class="fa arrow"></span></a>
+
+                </li>
+
+                <li>
+                    <a href="{{ path('relevee') }}"><i class="fa fa-home"></i> <span class="nav-label">Relevée Notes</span></a>
+                </li>
+
+                <li>
+                    <a href="{{ path('listeabs') }}"><i class="fa fa-home"></i> <span class="nav-label">Liste d'absences</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Gestion Reclamation</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="{{ path('reclamation_consulte') }}">Reclamation  </a></li>
+                        <li><a href="{{ path('question_index') }}">Forum</a></li>
+
+                    </ul>
+
+
+                </li>
+
+
+            </ul>
+
+        </div>
+    </nav>
+
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                    <!--<form role="search" class="navbar-form-custom" action="search_results.html">
+                        <div class="form-group">
+                            <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                        </div>
+                    </form>-->
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li>
+                        <span class="m-r-sm text-muted welcome-message">Bienvenu à SUPTECH</span>
+                    </li>
+
+                    <li>
+                        <a href="{{ path('fos_user_security_login') }}">
+                            <i class="fa fa-sign-out"></i> Se déconnecter
+                        </a>
                     </li>
 
                 </ul>
 
-            </div>
-        </nav>
-
-        <div id="page-wrapper" class="gray-bg dashbard-1">
-            <div class="row border-bottom">
-                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
-                    <div class="navbar-header">
-                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-                        <!--<form role="search" class="navbar-form-custom" action="search_results.html">
-                            <div class="form-group">
-                                <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
-                            </div>
-                        </form>-->
-                    </div>
-                    <ul class="nav navbar-top-links navbar-right">
-                        <li>
-                            <a href="#"><i class="fa fa-user-circle-o"></i> <span class="txtOnline">
-												{{ app.user.username }}</span></a>
-                        </li>
-                        <li>
-                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                                <a href="{{ path('fos_user_security_logout') }}" class="header-top-button"><i class="fa fa-sign-out"></i> Se déconnecter</a>
-                            {% endif %}
-                        </li>
-
-                    </ul>
-
-                </nav>
-            </div>
+            </nav>
             <br>
             <div class="wrapper wrapper-content animated fadeInRight">
                 <div class="row">
@@ -140,11 +132,9 @@
 
 
 
-
-<h1 color="blue"><center data-color="blue">Votre absence</center></h1>
-                            <center>{% for count in count %}
-                                {{ count[1]}}
-                            {% endfor %}</center>
+                            {% for count in count %}
+                             <strong>vous avez {{ count[1]}} absence(s) </strong>
+                            {% endfor %}
                             </div>
 
                             <div class="ibox-content">
@@ -161,8 +151,10 @@
 
                                         <thead>
                                         <tr>
-                                            <th>Identifiant</th>
-                                            <th>Nom D'utilisateur</th>
+                                           <th>Nom D'etudiant</th>
+                                            <th>matiere</th>
+                                            <th>salle</th>
+                                            <th>ENSEIGNANT</th>
                                             <th>Justification</th>
                                             <th>Date Seance</th>
 
@@ -172,8 +164,12 @@
                                         <tbody>
                                         {% for absence in absences %}
                                             <tr>
-                                                <td><a href="{{ path('absence_show', { 'id': absence.idAbsence }) }}">{{ absence.idAbsence }}</a></td>
-                                                <td>{{ absence.idEtudiant }}</td>
+                                                 <td>{{ nom }}</td>
+                                                {% for seance in seance[absence.idAbsence] %}
+                                                    <td>{{seance.idMatiere}}</td>
+                                                    <td>{{seance.idSalle}}</td>
+                                                    <td>{{seance.idEns}}</td>
+                                                {% endfor %}
                                                 <td>{{ absence.typeAbsence }}</td>
                                                 <td>{{ absence.date|date('Y-m-d ') }}</td>
 
