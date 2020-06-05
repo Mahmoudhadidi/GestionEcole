@@ -6,7 +6,6 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Absence
- *
  * @ORM\Table(name="absence", indexes={@ORM\Index(name="id_seance", columns={"id_seance", "id_etudiant"})})
  * @ORM\Entity
  * @ORM\Entity(repositoryClass="AbsenceBundle\Repository\AbsenceRepository")
@@ -28,14 +27,12 @@ class Absence
      * @ORM\Column(name="id_seance", type="integer", nullable=false)
      */
     private $idSeance;
-
     /**
      * @var integer
      *
      * @ORM\Column(name="id_etudiant", type="integer", nullable=false)
      */
     private $idEtudiant;
-
     /**
      * @var string
      *
@@ -48,7 +45,6 @@ class Absence
      * @ORM\Column(name="date", type="string", length=255, nullable=false)
      */
     private $date;
-
     /**
      * @return string
      */
@@ -56,7 +52,6 @@ class Absence
     {
         return $this->date;
     }
-
     /**
      * @param string $date
      */
@@ -64,7 +59,6 @@ class Absence
     {
         $this->date = $date;
     }
-
     /**
      * @return int
      */
@@ -72,7 +66,6 @@ class Absence
     {
         return $this->idAbsence;
     }
-
     /**
      * @param int $idAbsence
      */
@@ -80,7 +73,6 @@ class Absence
     {
         $this->idAbsence = $idAbsence;
     }
-
     /**
      * @return int
      */
@@ -88,7 +80,6 @@ class Absence
     {
         return $this->idSeance;
     }
-
     /**
      * @param int $idSeance
      */
@@ -96,7 +87,6 @@ class Absence
     {
         $this->idSeance = $idSeance;
     }
-
     /**
      * @return int
      */
@@ -104,7 +94,6 @@ class Absence
     {
         return $this->idEtudiant;
     }
-
     /**
      * @param int $idEtudiant
      */
@@ -112,7 +101,6 @@ class Absence
     {
         $this->idEtudiant = $idEtudiant;
     }
-
     /**
      * @return string
      */
@@ -120,7 +108,6 @@ class Absence
     {
         return $this->typeAbsence;
     }
-
     /**
      * @param string $typeAbsence
      */
@@ -128,7 +115,5 @@ class Absence
     {
         $this->typeAbsence = $typeAbsence;
     }
-
-
 }
 

@@ -4,7 +4,44 @@
 namespace ReclamationBundle\Form;
 
 
-class satisfactionType
-{
+use blackknight467\StarRatingBundle\Form\RatingType;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
+
+
+class satisfactionType extends AbstractType
+{
+    /**
+     * {@inheritdoc}
+     */
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder->add('rating',RatingType::class,[
+            'stars' => 5,
+        ])->add('Envoyer', SubmitType::class);
+
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => 'ReclamationBundle\Entity\Reclamation'
+        ));
+    }
+
+
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getBlockPrefix()
+    {
+        return 'Reclamationbundle_Reclamation';
+    }
 }

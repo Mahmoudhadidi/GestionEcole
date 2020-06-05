@@ -7,6 +7,9 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use MatiereBundle\Controller\MatiereController;
 use MatiereBundle\Entity\Matiere;
+use Symfony\Component\HttpClient\HttpClient;
+
+
 
 
 class ApimatiereController extends Controller
@@ -16,7 +19,20 @@ class ApimatiereController extends Controller
      * @Rest\Get("/")
      */
     public function apiAction()
-    {
+    { //$client = HttpClient::create();
+       // $response = $client->request('GET', 'http://127.0.0.1:8000');
+        if(isset($_GET['nom'])){
+        $nom =$_GET['nom'];
+        $cof =$_GET['cof'];
+        $credit =$_GET['credit'];
+        $matiere = new Matiere();
+        $matiere->setNomMatier($nom);
+        $matiere->setCoefficient($cof);
+        $matiere->setCdedit($credit);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($matiere);
+        $em->flush();
+        }
         $em = $this->getDoctrine()->getManager();
         $matieres = $em->getRepository('MatiereBundle:Matiere')->findAll();
         $listFanction=array();
