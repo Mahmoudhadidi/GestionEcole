@@ -1,0 +1,31 @@
+esprit_api_homepage:
+    path:     /
+    defaults: { _controller: EspritApiBundle:Default:index }
+
+all:
+    path:  /tasks/all
+    defaults: { _controller: EspritApiBundle:Default:all }
+
+
+
+find_task:
+    path: /tasks/find/{id}
+    defaults: { _controller: EspritApiBundle:Default:find }
+
+find_By_Id:
+    path: /tasks/findByCin/{cin}
+    defaults: { _controller: EspritApiBundle:Default:findByCin }
+
+create_task:
+    path:  /tasks/new
+    defaults: { _controller: EspritApiBundle:Default:new }
+    
+create_task1:
+    path:  /tasks/new1
+    defaults: { _controller: EspritApiBundle:Default:new1 }
+
+majeur:
+    path:  /tasks/majeur
+    defaults: { _controller: EspritApiBundle:Default:stat }
+
+

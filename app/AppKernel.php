@@ -49,6 +49,7 @@ class AppKernel extends Kernel
             new ForumBundle\ForumBundle(),
             new Toiba\FullCalendarBundle\FullCalendarBundle(),
             new CalendarBundle\CalendarBundle(),
+            new EspritApiBundle\EspritApiBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

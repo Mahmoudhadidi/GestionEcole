@@ -1,3 +1,7 @@
+esprit_api:
+    resource: "@EspritApiBundle/Resources/config/routing.yml"
+    prefix:   /api
+
 calendar:
     resource: "@CalendarBundle/Resources/config/routing.yml"
     prefix:   /calendar
