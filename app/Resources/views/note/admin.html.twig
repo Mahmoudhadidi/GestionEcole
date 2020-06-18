@@ -1,14 +1,42 @@
 {% extends 'adminnote.html.twig' %}
 
 {% block body %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("form.calcull").Click(function(){
+                $("div").append(" NB:les Moyennes sont calculées");
+
+            });
+        });
+    </script>
 <center>
+
+    <h1><b><a> Interface reservée au calcule des moyennes des matières</a></b></h1>
+   <h3> Remarque: </h3>
+    <h> Dans cette interface saisez vous le pourcentage de chaque<br> élement afin de calculer le moyenne de la matière</h><br><br>
+
+------------------------------------------------------------------------------------------------------------------------
+    <h2>Formulaire du calcul</h2>
+    <div>
+
+    </div>
 <form class="form-horizontal" action="{{ path('note_calcule') }}" method="post">
     <input type="text" name="cc" placeholder="note cc" width="100"/> <br><br>
     <input type="text" name="ds" placeholder="note ds"/> <br><br>
     <input type="text" name="examen" placeholder="note examen"/> <br><br>
     <input type="text" name="matiere" placeholder="nom matière" /> <br><br>
-    <input type="submit" value="calculer" name="submit" class="btn btn-primary"/>
-
+    <input id="calcull" type="submit" value="calculer" name="submit" class="btn btn-primary"/>
+    
+<br><br><br>
 </form>
+
+    <form method="post" action="{{ path('note_initialise') }}">
+       <input  type="submit" value="Initialiser toutes les moyennes" name="choko" class="btn btn-w-m btn-danger"><br> <br>
+
+
+
+
+    </form>
 </center>
 {% endblock %}

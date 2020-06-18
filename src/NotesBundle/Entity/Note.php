@@ -49,7 +49,7 @@ class Note
      * @var float
      * @Assert\GreaterThanOrEqual(value="0", message="Entrer une valeur entre [0,20]")
      * @Assert\LessThanOrEqual(value="20", message="Entrer une valeur entre [0,20]")
-     *@Assert\NotBlank(message="Ce champs est obligatoire")
+     * 
      * @ORM\Column(name="moyenne", type="float", precision=10, scale=0, nullable=true)
      */
     private $moyenne ;
@@ -63,7 +63,7 @@ class Note
 
     /**
      * @var integer
-     *
+     *@Assert\NotBlank(message="Ce champs est obligatoire")
      * @ORM\Column(name="cin", type="integer", nullable=false)
      */
     private $cin;

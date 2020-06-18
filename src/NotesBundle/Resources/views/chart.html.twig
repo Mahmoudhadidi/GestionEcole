@@ -1,0 +1,18 @@
+{% extends 'adminnote.html.twig' %}
+{% block body %}
+
+            <br>
+            <h4 class="text-center">note</h4>
+            <br>
+            {{ mukadi_chart(chart) }}
+    
+
+    <script src="{{ asset('/chart')}}/jquery.js"></script>
+    <script src="{{ asset('/chart')}}/Chart.bundle.min.js"></script>
+    <script src="{{ asset('/chart')}}/mukadi.chart.min.js"></script>
+
+
+{% endblock %}
+
+
+

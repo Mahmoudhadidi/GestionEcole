@@ -4,8 +4,13 @@ namespace NotesBundle\Controller;
 
 
 use Cassandra\Float_;
+use Knp\Bundle\PaginatorBundle\KnpPaginatorBundle;
+use Mukadi\Chart\Builder;
+use Mukadi\Chart\Chart;
+use Mukadi\Chart\Utils\RandomColorFactory;
 use NotesBundle\Entity\Note;
 use AppBundle\Entity\User;
+use PDO;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -20,14 +25,28 @@ class NoteController extends Controller
      * Lists all note entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
         $notes = $em->getRepository('NotesBundle:Note')->findAll();
 
+        /**
+         * @var $paginator \Knp\Component\Pager\Paginator
+         */
+        $paginator = $this->get('knp_paginator');
+        $result = $paginator->paginate(
+          $notes,
+          $request->query->getInt('page',1),
+          $request->query->getInt('limit', 3)
+
+
+        );
+
+
+
         return $this->render('note/index.html.twig', array(
-            'notes' => $notes,
+            'result' => $result,
         ));
     }
 
@@ -172,13 +191,13 @@ class NoteController extends Controller
             $cc1 = floatval($cc);
             $ds1 = floatval($ds);
             $examen1 = floatval($examen);
-            $matiere1 = strval($matiere);
+          #  $matiere1 = strval($matiere);
 
 
-            var_dump($cc1);
-            var_dump($ds1);
-            var_dump($examen1);
-            var_dump($matiere1);
+         #   var_dump($cc1);
+          #  var_dump($ds1);
+           # var_dump($examen1);
+            #var_dump($matiere1);
 
 
       #notre requette sql
@@ -187,18 +206,19 @@ class NoteController extends Controller
             $RAW_QUERY = "UPDATE `Note`
                           SET `moyenne`= (moyenne * 0) + (note_cc * $cc1) + (note_ds * $ds1) + (note_examun * $examen1)";
 
-                    #      WHERE nom_matier='\"$matiere1\"' " ;
+                     #    WHERE nom_matier='\"$matiere1\"' " ;
 
 
             $statement = $em->getConnection()->prepare($RAW_QUERY);
             $statement->execute();
 
 
+
         # return  $result = $statement->fetchAll();
 
 
-
-            return $this->redirectToRoute('note_admin');
+          #  return $this->render('note/admin.html.twig');
+          return $this->redirectToRoute('note_admin');
 
     }
 
@@ -206,5 +226,64 @@ class NoteController extends Controller
     public function adminAction()
     {
         return $this->render('note/admin.html.twig');
+    }
+
+    public function initialiserAction(){
+
+        if (isset($_POST['choko'])){
+            $em = $this->getDoctrine()->getManager();
+
+            $RAW_QUERY = "UPDATE `Note`
+                          SET `moyenne`= (moyenne * 0)";
+
+            $statement = $em->getConnection()->prepare($RAW_QUERY);
+            $statement->execute();
+
+            return $this->redirectToRoute('note_admin');
+
+        }
+
+
+    }
+
+
+    public function chartAction() {
+        $connection = new PDO('mysql:dbname=esprit;host=127.0.0.1','root','');
+        $builder = new Builder($connection);
+        $builder
+
+            ->query("SELECT COUNT(*) total, (nom_matier) nom_matier, nom_matier FROM matiere GROUP BY nom_matier")
+           
+
+
+            ->addDataset('total','Total',[
+                "backgroundColor" => RandomColorFactory::getRandomRGBAColors(20)])
+            ->labels('nom_matier')
+        ;
+
+
+        $chart = $builder->buildChart('chart',Chart::PIE);
+
+
+        return $this->render('@Notes/chart.html.twig',[
+            "chart" => $chart,
+        ]);
+
+    }
+    public function searchAction(){
+        if(isset($_POST['ok'])){
+            $motif = $_POST['rechercher'];
+            $em = $this->getDoctrine()->getManager();
+
+            $RAW_QUERY = "SELECT * FROM `note` WHERE note_examun=$motif";
+
+            $statement = $em->getConnection()->prepare($RAW_QUERY);
+            $statement->execute();
+          #  return $this->redirectToRoute('note_index', array(
+           #     'result1' => $statement
+            #));
+
+        }
+
     }
 }

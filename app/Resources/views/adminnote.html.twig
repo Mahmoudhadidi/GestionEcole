@@ -35,6 +35,7 @@
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Assurer votre succés</strong>
                            </span> <span class="text-muted text-xs block"></span> </span> </a>
+
                         <!-- <ul class="dropdown-menu animated fadeInRight m-t-xs">
                              <li><a href="profile.html">Profile</a></li>
                              <li><a href="contacts.html">Contacts</a></li>
@@ -57,7 +58,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="{{ path('classe_homepage') }}"><i class="fa fa-home"></i> <span class="nav-label">Gestion de classe</span></a>
+                  {#<a href="{{ path('classe_hompaege') }}"><i class="fa fa-home"></i> <span class="nav-label">Gestion de classe</span></a>#}
                 </li>
                 <li>
                     <a href="{{ path('matiere_index') }}"><i class="fa fa-tasks"></i> <span class="nav-label">Gestion de matiere</span></a>
@@ -87,7 +88,7 @@
 
 
                 <li>
-                    <a href="{{ path('note_calcule') }}"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Calcule Moyenne</span><span class="fa arrow"></span></a>
+                    <a href="{{ path('note_admin') }}"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Calcule Moyenne</span><span class="fa arrow"></span></a>
 
                 </li>
                 <li>
@@ -95,7 +96,7 @@
 
                 </li>
                 <li>
-                    <a href="{{ path('Stat') }}"><i class="fa fa-home"></i> <span class="nav-label">Statistiques</span></a>
+                    <a href="{{ path('note_chart') }}"><i class="fa fa-home"></i> <span class="nav-label">Statistiques des Notes</span></a>
                 </li>
                 <li>
                     <a href=""><i class="fa fa-desktop"></i> <span class="nav-label">Stage</span></span><span class="fa arrow"></span></a> <span class="pull-right label label-primary"></span></a>
@@ -138,7 +139,7 @@
                             <i class="fa fa-sign-out"></i> Se déconnecter
                         </a>
                     </li>
-
+                    <h3>Utilisateur: {{ app.user.username }}</h3>
                 </ul>
 
             </nav>

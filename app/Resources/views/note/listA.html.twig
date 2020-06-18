@@ -1,0 +1,42 @@
+s{% block container %}
+    <div class=" container">
+        <h5 Align="centre">Listes des notes</h5>
+        <table class="table table-data2">
+            <thead>
+            <tr>
+
+                <th>Id</th>
+                <th>Note CC </th>
+                <th>Note DS</th>
+                <th>Note examen</th>
+                <th>moyenne</th>
+                <th>cIN</th>
+                <th>Nom matière</th>
+
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for note in notes %}
+                <tr class="tr-shadow">
+
+
+                    <td>{{ note.idNote }}</td>
+                    <td>{{ note.noteCc }}</td>
+                    <td>{{ note.noteDs }}</td>
+
+                    <td>{{ note.noteExamun }}</td>
+                    <td>{{ note.moyenne }}</td>
+                    <td>{{ note.cin }}</td>
+                    <td>{{ note.nomMatier }}</td>
+
+
+                </tr>
+
+
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

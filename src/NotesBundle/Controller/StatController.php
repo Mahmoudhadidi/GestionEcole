@@ -3,10 +3,18 @@
 namespace NotesBundle\Controller;
 
 use MatiereBundle\Entity\Matiere;
+use Mukadi\Chart\Builder;
 use NotesBundle\Entity\Note;
+use PDO;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Ob\HighchartsBundle\Highcharts\Highchart;
+use Dompdf\Dompdf;
+use Dompdf\Options;
+use Mukadi\Chart\Utils\RandomColorFactory;
+use Mukadi\Chart\Chart;
+use Mukadi\ChartJSBundle\Chart\NativeBuilder;
+
 
 class StatController extends Controller
 {
@@ -46,6 +54,9 @@ class StatController extends Controller
         ));
     }
 
+
+
+
     public function majeurAction (Request $request)
     {
 
@@ -77,6 +88,36 @@ class StatController extends Controller
         $csv->output('Evaluations.csv');
         die('export');
     }
+    /**
+     * Lists all association entities.
+     *
+     */
+    public function pdfAction()
+    {
+        // Configure Dompdf according to your needs
+        $pdfOptions = new Options();
+        $pdfOptions->set('defaultFont', 'Arial');
+        // Instantiate Dompdf with our options
+        $dompdf = new Dompdf($pdfOptions);
+        $em = $this->getDoctrine()->getManager();
+        $associations = $em->getRepository('NotesBundle:Note')->findAll();
+        // Retrieve the HTML generated in our twig file
+        $html = $this->renderView('note/listA.html.twig', array(
+            'notes' => $associations,
+        ));
+        // Load HTML to Dompdf
+        $dompdf->loadHtml($html);
+        // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
+        $dompdf->setPaper('A4', 'portrait');
+        // Render the HTML as PDF
+        $dompdf->render();
+        // Output the generated PDF to Browser (force download)
+        $dompdf->stream("mypdf.pdf", [
+            "Attachment" => true
+        ]);
+    }
+
+
 
 
 }

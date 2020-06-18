@@ -1,15 +1,28 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-   <center><i><h1>Interface de Gestion d'Evaluations</h1></i></center>
-    <br> <br> <br>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+    <center><h1><b><i>Interface de gsetion d'évaluations</i></b> </h1></center>
+
+    <input id="myInput" type="text" name="rechercher" placeholder="rechercher ..."> <br>
     <ul>
         <li>
-            <h3>   <a href="{{ path('eval_new') }}">Ajouter une evaluation</a></h3>
+            <h3>   <a class="btn btn-w-m btn-primary" href="{{ path('eval_new') }}">Ajouter une evaluation</a></h3>
 
         </li>
         <li>
-            <h3> <a href="{{ path('exportCSV') }}">Exporter CSV</a> </h3>
+            <h3> <a class="btn btn-w-m btn-danger" href="{{ path('exportCSV') }}">Exporter CSV</a> </h3>
         </li>
     </ul>
     <br>
@@ -27,8 +40,8 @@
                 <th>Actions</th>
             </tr>
         </thead>
-        <tbody>
-        {% for evaluation in evaluations %}
+        <tbody id="myTable">
+        {% for evaluation in result %}
             <tr>
                 <td><a href="{{ path('eval_show', { 'id': evaluation.id }) }}">{{ evaluation.id }}</a></td>
                 <td>{{ evaluation.idEtd }}</td>
@@ -40,10 +53,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('eval_show', { 'id': evaluation.id }) }}">Voir</a>
+                            <a class="btn btn-w-m btn-info" href="{{ path('eval_show', { 'id': evaluation.id }) }}">Voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('eval_edit', { 'id': evaluation.id }) }}">Modifier</a>
+                            <a class="btn btn-w-m btn-default" href="{{ path('eval_edit', { 'id': evaluation.id }) }}">Modifier</a>
                         </li>
                     </ul>
                 </td>
@@ -51,6 +64,11 @@
         {% endfor %}
         </tbody>
     </table>
+    {# display navigation #}
+    <div class="navigation text-center">
+        <h3>  <b> Preview {{ knp_pagination_render(result) }}  Next</b> </h3>
+    </div>
+
 
 
 {% endblock %}

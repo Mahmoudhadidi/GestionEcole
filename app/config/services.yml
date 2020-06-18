@@ -1,9 +1,26 @@
 # Learn more about services, parameters and containers at
 # https://symfony.com/doc/current/service_container.html
 parameters:
-    #parameter_name: value
+#parameter_name: value
 
 services:
+    mukadi_chart_js.dql:
+        class: Mukadi\ChartJSBundle\Chart\Builder
+        public: true
+        arguments: ["@doctrine.orm.entity_manager"]
+        mukadi_chart_js.native:
+            class: Mukadi\ChartJSBundle\Chart\NativeBuilder
+            public: true
+            arguments: ["@doctrine.orm.entity_manager"]
+        mukadi_chart_Js.twig_extension:
+            class: Mukadi\ChartJSBundle\Twig\ChartJSExtension
+            public: true
+            tags:
+                - { name: twig.extension }
+        Mukadi\ChartJSBundle\Chart\Builder:
+            alias: mukadi_chart_js.dql
+        Mukadi\ChartJSBundle\Chart\NativeBuilder:
+            alias: mukadi_chart_js.native
     # default configuration for services in *this* file
     _defaults:
         # automatically injects dependencies in your services
@@ -33,8 +50,17 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
-    CalendarBundle\EventListener\FullCalendarListener:
+
+    mukadi_chart_js.native:
+        class: Mukadi\ChartJSBundle\Chart\NativeBuilder
+        public: true
+        arguments: ["@doctrine.orm.entity_manager"]
+    mukadi_chart_Js.twig_extension:
+        class: Mukadi\ChartJSBundle\Twig\ChartJSExtension
+        public: true
         tags:
-            - { name: 'kernel.event_listener', event: 'fullcalendar.set_data', method: loadEvents }
-        # arguments:
-        #     $entityManager: "@doctrine.orm.entity_manager"
+            - { name : twig.extension }
+    Mukadi\ChartJSBundle\Chart\Builder:
+        alias: mukadi_chart_js.dql
+    Mukadi\ChartJSBundle\Chart\NativeBuilder:
+        alias: mukadi_chart_js.native

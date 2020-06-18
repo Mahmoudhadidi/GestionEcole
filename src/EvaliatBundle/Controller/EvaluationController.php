@@ -16,14 +16,27 @@ class EvaluationController extends Controller
      * Lists all evaluation entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
         $evaluations = $em->getRepository('EvaliatBundle:Evaluation')->findAll();
 
+        #pagination
+        /**
+         * @var $paginator \Knp\Component\Pager\Paginator
+         */
+        $paginator = $this->get('knp_paginator');
+        $result = $paginator->paginate(
+            $evaluations,
+            $request->query->getInt('page',1),
+            $request->query->getInt('limit', 3)
+
+
+        );
+
         return $this->render('evaluation/index.html.twig', array(
-            'evaluations' => $evaluations,
+            'result' => $result,
         ));
     }
 

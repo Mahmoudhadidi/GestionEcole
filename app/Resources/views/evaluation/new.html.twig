@@ -5,12 +5,12 @@
 
     {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+        <input class="btn btn-w-m btn-primary" type="submit" value="Create" />
     {{ form_end(form) }}
-
+ <br>
     <ul>
         <li>
-            <a href="{{ path('eval_index') }}">Back to the list</a>
+            <a class="btn btn-w-m btn-danger" href="{{ path('eval_index') }}">Back to the list</a>
         </li>
     </ul>
 {% endblock %}

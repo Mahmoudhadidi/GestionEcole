@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new ClasseBundle\ClasseBundle(),
             new MatiereBundle\MatiereBundle(),
             new SalleBundle\SalleBundle(),
+            new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
 
 
 
@@ -49,6 +50,8 @@ class AppKernel extends Kernel
             new ForumBundle\ForumBundle(),
             new Toiba\FullCalendarBundle\FullCalendarBundle(),
             new CalendarBundle\CalendarBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+			new EspritApiBundle\EspritApiBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

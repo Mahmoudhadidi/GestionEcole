@@ -15,9 +15,9 @@ note_calcule:
     path:     /calcule
     defaults: { _controller: "NotesBundle:Note:calculeMoyenneMatiere" }
 
-Stat:
-    path:     /statistique
-    defaults: { _controller: "NotesBundle:Stat:Stat" }
+note_chart:
+    path:     /chart
+    defaults: { _controller: "NotesBundle:Note:chart" }
 
 majeur:
     path:     /maj
@@ -27,5 +27,19 @@ exportCSV:
     path:     /csv
     defaults: { _controller: "NotesBundle:Stat:export" }
 
+note_pdf:
+    path:     /pdf
+    defaults: { _controller: "NotesBundle:Stat:pdf" }
+    methods:  GET
 
+note_admin:
+    path:     /admin
+    defaults: { _controller: "NotesBundle:Note:admin" }
 
+note_initialise:
+    path:     /initialiser
+    defaults: { _controller: "NotesBundle:Note:initialiser" }
+
+note_search:
+    path:     /search
+    defaults: { _controller: "NotesBundle:Note:search" }
