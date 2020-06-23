@@ -56,6 +56,16 @@
 
                     </ul>
                 </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Gestion Club</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="{{ path('demande_club_AfficheDemandeClub') }}">List Demande Club</a></li>
+                        <li><a href="{{ path('fos_user_change_password') }}">List Club Active</a></li>
+
+                    </ul>
+                </li>
+
                 <li>
                     <a href="{{ path('classe_homepage') }}"><i class="fa fa-home"></i> <span class="nav-label">Gestion de classe</span></a>
                 </li>
@@ -151,34 +161,10 @@
 
 
 
-
+        {% block DemandeClubList %}{% endblock %}
+        {% block DemandeClubDetail %}{% endblock %}
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

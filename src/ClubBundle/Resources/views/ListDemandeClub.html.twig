@@ -1,0 +1,140 @@
+{% extends 'adminnote.html.twig' %}
+{% block DemandeClubList %}
+
+    <!--
+<center>
+    <h1>List Demande Club</h1>
+
+    <table border="5">
+
+        <tr>
+
+            <td>id etudiant</td>
+            <td>nom club</td>
+            <td>domaine</td>
+            <td>description</td>
+            <td>etat</td>
+            <td></td>
+            <td></td>
+            <td></td>
+
+
+        </tr>
+
+        {% for demande in demandes %}
+
+            <tr>
+
+                <td>{{ demande.idEtudiant }}</td>
+                <td>{{ demande.nomClub }}</td>
+                <td>{{ demande.domaine }}</td>
+                <td>{{ demande.description }}</td>
+                <td>{{ demande.etat }}</td>
+                <td><a href="{{ path("demande_club_DeleteDemandeClub",{'id':demande.id}) }}">supprimer</a></td>
+                <td><a href="{{ path("demande_club_afficher_details",{'id':demande.idEtudiant}) }}">detail</a></td>
+                <td>
+                <form method="get" action="{{ path('demande_club_valider', { 'id':demande.idEtudiant }) }}">
+                 <input type="hidden" name="nom" value="{{ demande.nomClub }}" >
+                    <input type="hidden" name="demande" value="{{ demande.id }}">
+                    <button type="submit" value="Valider"></button>
+                </form>
+
+                </td>
+
+            </tr>
+
+        {% endfor %}
+
+    </table>
+
+</center>
+
+    -->
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <style>
+            #customers {
+                font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+                font-size: large;
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            #customers td, #customers th {
+                border: 2px solid #ddd;
+                padding: 30px;
+            }
+
+            #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+            #customers tr:hover {background-color: #ddd;}
+
+            #customers th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #4CAF50;
+                color: white;
+            }
+        </style>
+    </head>
+
+    <body>
+    <center>
+
+    </center><br>
+
+        <h3> <a class="btn btn-w-m btn-danger" href="{{ path('exportexcel') }}">Telecharger les demandes club</a> </h3>
+
+    <br> <br>
+    <table id="customers">
+        <tr>
+            <th>Id_Etudiant</th>
+            <th>Nom_Club</th>
+            <th>Domaine</th>
+            <th>Description</th>
+            <th>Etat</th>
+            <th></th>
+            <th></th>
+            <th></th>
+
+
+        </tr>
+
+        {% for demande in demandes %}
+
+            <tr>
+
+                <td>{{ demande.idEtudiant }}</td>
+                <td>{{ demande.nomClub }}</td>
+                <td>{{ demande.domaine }}</td>
+                <td>{{ demande.description }}</td>
+                <td>{{ demande.etat }}</td>
+                <td><a href="{{ path("demande_club_DeleteDemandeClub",{'id':demande.id}) }}">supprimer</a></td>
+                <td><a href="{{ path("demande_club_afficher_details",{'id':demande.idEtudiant}) }}">detail</a></td>
+                <td>
+                    <form method="get" action="{{ path('demande_club_valider', { 'id':demande.idEtudiant }) }}">
+                        <input type="hidden" name="nom" value="{{ demande.nomClub }}" >
+                        <input type="hidden" name="demande" value="{{ demande.id }}">
+                        <button type="submit" value="Valider">Valider</button>
+                    </form>
+
+                </td>
+
+            </tr>
+
+        {% endfor %}
+    </table>
+    <br><br>
+
+
+
+
+
+    </body>
+
+    </html>
+
+{% endblock %}

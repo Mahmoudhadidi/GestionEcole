@@ -65,6 +65,15 @@
                 </li>
 
                 <li>
+                    <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Club</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="{{ path('club_EnvoyerDemandeClubForm') }}">Demande Club</a></li>
+                        <li><a href="{{ path("club_afficher_profil",{'id':6} ) }}">Club</a></li>
+
+                    </ul>
+                </li>
+
+                <li>
                     <a href="{{ path('relevee') }}"><i class="fa fa-home"></i> <span class="nav-label">Relevée Notes</span></a>
                 </li>
 
@@ -120,34 +129,10 @@
 
 
 
-
-
-
+        {% block DemandeClubContainer %}{% endblock %}
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        {% block ClubProfil %}{% endblock %}
 
 
 

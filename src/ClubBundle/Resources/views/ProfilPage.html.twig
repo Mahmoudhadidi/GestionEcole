@@ -1,0 +1,84 @@
+
+
+<html>
+<body style="background-color: lightgray">
+
+
+<div style="background-color: white; border: 0px solid black;margin:auto;width: 70% ;height: 90%; position: relative;">
+
+    <img style="width: 100%;height: 50%" src="{{ asset('images/') }}{{ club.photoCouverture }}">
+    <img onmouseover="bigImg()" onmouseout="normalImg()" style="border-radius: 50%;width: 200px;height: 200px;position: relative;bottom: 100px; border: 1.5px solid black;" src="{{ asset('images/') }}{{ club.logo }}">
+    <h4 style="position: relative;bottom: 200px;left: 220px;font-size: 180%;">{{ club.nom }}</h4>
+    <h5 style="position: relative;left: 220px;bottom: 235px">{{ club.slogan }}</h5>
+    <img style="position: relative;width: 20px;height: 20px;left: 220px;bottom: 250px" src="{{ asset('images/gmail_icon.png')}}">
+    <h6 style="position: relative;left: 250px;bottom: 290px">Club.Exemple@gmail.com</h6>
+
+    <div style="border: 0px solid black;width: 49% ;height: 25%; position: relative;left: 50%;bottom: 355px;">
+
+
+        <p>La chance existe en dehors de tout contrôle qu'une personne peut exercer sur un événement et sur son résultat. il faut néanmoins un individu pour la qualifier de chance et en faire une lecture positive, autrement cela n'est qu'un événement sans aucun sens, pour personne.
+            Si un individu se sent visé par l'événement, on peut alors considérer que la chance existe de façon magique. Certains croient qu'une personne a de la chance, la cultive ou la provoque. La chance peut donc être qualifiée de manière irrationnelle</p>
+
+    </div>
+
+    <h4 style="position: relative;left: 50%;bottom: 565px;">Description</h4>
+    <a style="position: relative;bottom: 350px" href="{{ path('event_AjouterEvenementPage') }}">Ajouter Evenement</a>
+    <a style="position: relative;bottom: 350px" href="{{ path("club_modifier_profil",{'id':club.id}) }}">Modifier Inos</a>
+
+
+
+</div>
+
+<br>
+{% for event in evenement %}
+
+<div style="background-color: white;margin:auto;width: 70% ;height: 80%; position: relative;">
+    <br>
+    <div style=" padding: 15px; position: relative;top: 0px; border: 1px solid black;border-radius: 5%;width: 600px;height: 90%; margin: auto;">
+        <img style="width: 40px;height: 40px;border-radius: 50%;" src="{{ asset('images/') }}{{ club.logo }}">
+        <h4 style="position: relative;left: 50px;bottom: 45px">{{ club.nom }}</h4>
+        <div style="position: relative;border: 0px solid black;bottom: 50px">
+
+                <video style="width: 100%;height: auto" controls>
+                    <source src="{{ asset('images/')}}{{ event.video }}" type="video/mp4">
+                </video>
+            <h2>{{ event.titre }}</h2>
+            <p>{{ event.description }}</p>
+        </div>
+
+    </div>
+</div>
+
+{% endfor %}
+
+
+
+
+<script>
+    function bigImg() {
+        document.getElementById("b").style.display = "block";
+
+    }
+
+    function normalImg(x) {
+        document.getElementById("b").style.display = "none";
+
+    }
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

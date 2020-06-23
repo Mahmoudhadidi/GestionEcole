@@ -77,3 +77,9 @@ seance:
 
 toiba_fullcalendar:
     resource: "@FullCalendarBundle/Resources/config/routing.yaml"
+
+
+club:
+        resource: "@ClubBundle/Resources/config/routing.yml"
+        prefix:   /
+

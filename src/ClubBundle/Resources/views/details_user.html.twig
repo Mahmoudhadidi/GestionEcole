@@ -1,0 +1,81 @@
+{% extends 'adminnote.html.twig' %}
+{% block DemandeClubDetail %}
+
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <style>
+            #customers {
+                font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+                font-size: large;
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            #customers td, #customers th {
+                border: 2px solid #ddd;
+                padding: 30px;
+            }
+
+            #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+            #customers tr:hover {background-color: #ddd;}
+
+            #customers th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #4CAF50;
+                color: white;
+            }
+        </style>
+    </head>
+
+    <body>
+    <center>
+        <img src="{{ asset('images/') }}{{ user.login }}" style="width: 250px;height: 250px;border: 4px solid seagreen;border-radius: 20px;">
+    </center><br>
+
+    <table id="customers">
+        <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Mail</th>
+            <th>Cin</th>
+            <th>Niveau</th>
+
+
+        </tr>
+
+        <tr>
+            <td>{{ user.nom }}</td>
+            <td>{{ user.prenom }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.cin }}</td>
+            <td>{{ user.niveau }}</td>
+        </tr>
+    </table>
+    <br><br>
+
+    <form method="get"  action="{{  path('demande_club_mail',{'mail':user.email,'nom':user.prenom} ) }}">
+
+        <label>fixer un rendez-vous ...</label><br>
+        <input style="border-radius: 5px;width: 150px;height: 30px"  type="date" name="daaa">
+        <button style="border-radius: 3px; background-color: forestgreen;color: aliceblue" type="submit">Envoyer</button>
+
+    </form>
+
+
+
+    </body>
+
+    </html>
+
+
+{% endblock %}
+
+
+
+    
+    

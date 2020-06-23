@@ -1,0 +1,60 @@
+club_api:
+    path:     /api
+    defaults: { _controller: "ClubBundle:ApiClub:api" }
+    methods:  [GET, POST]
+club_homepage:
+    path:     /
+    defaults: { _controller: ClubBundle:Default:index }
+
+club_EnvoyerDemandeClubForm:
+    path:     /ajoutform
+    defaults: { _controller: ClubBundle:DemandeClub:AjoutForm }
+
+club_EnvoyerDemandeClubPage:
+    path:     /ajout
+    defaults: { _controller: ClubBundle:DemandeClub:ajout }
+club_EnvoyerDemande:
+    path:     /test
+    defaults: { _controller: ClubBundle:DemandeClub:please }
+
+demande_club_AfficheDemandeClub:
+    path:     /list
+    defaults: { _controller: ClubBundle:DemandeClub:list }
+
+demande_club_DeleteDemandeClub:
+    path:     /supp/{id}
+    defaults: { _controller: ClubBundle:DemandeClub:delete }
+
+demande_club_afficher_details:
+    path:     /details/{id}
+    defaults: { _controller: ClubBundle:DemandeClub:details }
+
+demande_club_mail:
+    path:     /contact/{mail}/{nom}
+    defaults: { _controller: ClubBundle:DemandeClub:mailing }
+
+demande_club_valider:
+    path:     /valider/{id}
+    defaults: { _controller: ClubBundle:DemandeClub:valider }
+
+club_afficher_profil:
+    path:     /profil/{id}
+    defaults: { _controller: ClubBundle:DemandeClub:afficheProfil }
+
+club_modifier_profil:
+    path:     /modifier/{id}
+    defaults: { _controller: ClubBundle:DemandeClub:ModifierProfile }
+event_AjouterEvenementPage:
+    path:     /addEvent
+    defaults: { _controller: ClubBundle:DemandeClub:ajoutEvent }
+exportexcel:
+    path:     /excel
+    defaults: { _controller: ClubBundle:DemandeClub:export }
+
+demande_club_AfficheDemandeClubmobile:
+    path:     /listmobile
+    defaults: { _controller: ClubBundle:DemandeClub:affichemobile }
+
+demande_club_ajoutDemandeClubmobile:
+    path:     /ajoutmobile
+    defaults: { _controller: ClubBundle:DemandeClub:ajoutmobile }
